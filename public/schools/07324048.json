@@ -1,0 +1,22 @@
+{
+  "DATA_LEVEL": "School Level",
+  "PUBLIC_OR_INDEPENDENT": "Public School",
+  "DISTRICT_NUMBER": "073",
+  "DISTRICT_NAME": "Kamloops-Thompson",
+  "SCHOOL_NUMBER": "07324048",
+  "SCHOOL_NAME": "Barriere Secondary",
+  "SUB_POPULATION": "All Students",
+  "assessments": {
+    "Numeracy Assessment 10": {
+      "2017/2018": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "49",
+        "NUMBER_EMERGING": "18",
+        "NUMBER_DEVELOPING": "19",
+        "NUMBER_PROFICIENT": "Msk",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "845"
+      }
+    }
+  }
+}

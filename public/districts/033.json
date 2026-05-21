@@ -1,0 +1,179 @@
+{
+  "DATA_LEVEL": "District Level",
+  "PUBLIC_OR_INDEPENDENT": "Public School",
+  "DISTRICT_NUMBER": "033",
+  "DISTRICT_NAME": "Chilliwack",
+  "SCHOOL_NUMBER": "",
+  "SCHOOL_NAME": "",
+  "SUB_POPULATION": "All Students",
+  "assessments": {
+    "Numeracy Assessment 10": {
+      "2017/2018": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "688",
+        "NUMBER_EMERGING": "146",
+        "NUMBER_DEVELOPING": "335",
+        "NUMBER_PROFICIENT": "189",
+        "NUMBER_EXTENDING": "18",
+        "SCORE": "13348"
+      },
+      "2018/2019": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "1198",
+        "NUMBER_EMERGING": "399",
+        "NUMBER_DEVELOPING": "529",
+        "NUMBER_PROFICIENT": "250",
+        "NUMBER_EXTENDING": "20",
+        "SCORE": "17614"
+      },
+      "2019/2020": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "424",
+        "NUMBER_EMERGING": "110",
+        "NUMBER_DEVELOPING": "173",
+        "NUMBER_PROFICIENT": "118",
+        "NUMBER_EXTENDING": "23",
+        "SCORE": "5724"
+      },
+      "2020/2021": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "1210",
+        "NUMBER_EMERGING": "332",
+        "NUMBER_DEVELOPING": "503",
+        "NUMBER_PROFICIENT": "348",
+        "NUMBER_EXTENDING": "27",
+        "SCORE": "15003"
+      },
+      "2021/2022": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "896",
+        "NUMBER_EMERGING": "153",
+        "NUMBER_DEVELOPING": "391",
+        "NUMBER_PROFICIENT": "289",
+        "NUMBER_EXTENDING": "63",
+        "SCORE": "14143.5"
+      },
+      "2022/2023": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "1883",
+        "NUMBER_EMERGING": "312",
+        "NUMBER_DEVELOPING": "870",
+        "NUMBER_PROFICIENT": "587",
+        "NUMBER_EXTENDING": "114",
+        "SCORE": "26785.6"
+      },
+      "2023/2024": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "1169",
+        "NUMBER_EMERGING": "262",
+        "NUMBER_DEVELOPING": "542",
+        "NUMBER_PROFICIENT": "324",
+        "NUMBER_EXTENDING": "41",
+        "SCORE": "15787.8"
+      },
+      "2024/2025": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "1219",
+        "NUMBER_EMERGING": "187",
+        "NUMBER_DEVELOPING": "508",
+        "NUMBER_PROFICIENT": "445",
+        "NUMBER_EXTENDING": "79",
+        "SCORE": "18788.1"
+      }
+    },
+    "Literacy Assessment 10": {
+      "2019/2020": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "411",
+        "NUMBER_EMERGING": "28",
+        "NUMBER_DEVELOPING": "119",
+        "NUMBER_PROFICIENT": "242",
+        "NUMBER_EXTENDING": "22",
+        "SCORE": "13405"
+      },
+      "2020/2021": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "941",
+        "NUMBER_EMERGING": "75",
+        "NUMBER_DEVELOPING": "291",
+        "NUMBER_PROFICIENT": "524",
+        "NUMBER_EXTENDING": "51",
+        "SCORE": "30454"
+      },
+      "2021/2022": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "1208",
+        "NUMBER_EMERGING": "66",
+        "NUMBER_DEVELOPING": "311",
+        "NUMBER_PROFICIENT": "739",
+        "NUMBER_EXTENDING": "92",
+        "SCORE": "42031.7"
+      },
+      "2022/2023": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "1312",
+        "NUMBER_EMERGING": "72",
+        "NUMBER_DEVELOPING": "379",
+        "NUMBER_PROFICIENT": "753",
+        "NUMBER_EXTENDING": "108",
+        "SCORE": "44017.3"
+      },
+      "2023/2024": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "1108",
+        "NUMBER_EMERGING": "94",
+        "NUMBER_DEVELOPING": "292",
+        "NUMBER_PROFICIENT": "653",
+        "NUMBER_EXTENDING": "69",
+        "SCORE": "35789"
+      },
+      "2024/2025": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "1208",
+        "NUMBER_EMERGING": "65",
+        "NUMBER_DEVELOPING": "369",
+        "NUMBER_PROFICIENT": "701",
+        "NUMBER_EXTENDING": "73",
+        "SCORE": "38069"
+      }
+    },
+    "Literacy Assessment 12": {
+      "2021/2022": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "867",
+        "NUMBER_EMERGING": "17",
+        "NUMBER_DEVELOPING": "241",
+        "NUMBER_PROFICIENT": "533",
+        "NUMBER_EXTENDING": "76",
+        "SCORE": "27888.7"
+      },
+      "2022/2023": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "926",
+        "NUMBER_EMERGING": "21",
+        "NUMBER_DEVELOPING": "258",
+        "NUMBER_PROFICIENT": "537",
+        "NUMBER_EXTENDING": "110",
+        "SCORE": "29133.7"
+      },
+      "2023/2024": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "1028",
+        "NUMBER_EMERGING": "30",
+        "NUMBER_DEVELOPING": "301",
+        "NUMBER_PROFICIENT": "590",
+        "NUMBER_EXTENDING": "107",
+        "SCORE": "30324.9"
+      },
+      "2024/2025": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "1058",
+        "NUMBER_EMERGING": "27",
+        "NUMBER_DEVELOPING": "317",
+        "NUMBER_PROFICIENT": "608",
+        "NUMBER_EXTENDING": "106",
+        "SCORE": "30379.2"
+      }
+    }
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "DATA_LEVEL": "School Level",
+  "PUBLIC_OR_INDEPENDENT": "Public School",
+  "DISTRICT_NUMBER": "060",
+  "DISTRICT_NAME": "Peace River North",
+  "SCHOOL_NUMBER": "06060064",
+  "SCHOOL_NAME": "Energetic Learning Campus",
+  "SUB_POPULATION": "All Students",
+  "assessments": {
+    "Numeracy Assessment 10": {
+      "2017/2018": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "174",
+        "NUMBER_EMERGING": "49",
+        "NUMBER_DEVELOPING": "101",
+        "NUMBER_PROFICIENT": "Msk",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "2959"
+      },
+      "2018/2019": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "166",
+        "NUMBER_EMERGING": "45",
+        "NUMBER_DEVELOPING": "84",
+        "NUMBER_PROFICIENT": "Msk",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "2745"
+      },
+      "2019/2020": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "165",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "75",
+        "NUMBER_PROFICIENT": "55",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "2681"
+      },
+      "2020/2021": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "170",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "67",
+        "NUMBER_PROFICIENT": "69",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "2770"
+      },
+      "2021/2022": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "163",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "63",
+        "NUMBER_PROFICIENT": "63",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "2502.8"
+      },
+      "2022/2023": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "184",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "81",
+        "NUMBER_PROFICIENT": "74",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "2818.7"
+      },
+      "2023/2024": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "166",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "58",
+        "NUMBER_PROFICIENT": "85",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "2760"
+      },
+      "2024/2025": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "184",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "75",
+        "NUMBER_PROFICIENT": "85",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "3345.8"
+      }
+    },
+    "Literacy Assessment 10": {
+      "2020/2021": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "167",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "49",
+        "NUMBER_PROFICIENT": "102",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "5901"
+      },
+      "2021/2022": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "155",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "44",
+        "NUMBER_PROFICIENT": "100",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "5092.4"
+      },
+      "2022/2023": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "183",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "40",
+        "NUMBER_PROFICIENT": "122",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "6350.8"
+      },
+      "2023/2024": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "165",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "23",
+        "NUMBER_PROFICIENT": "116",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "5803.5"
+      },
+      "2024/2025": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "182",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "52",
+        "NUMBER_PROFICIENT": "116",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "5998"
+      }
+    }
+  }
+}

@@ -1,0 +1,242 @@
+[
+  {
+    "DISTRICT_NUMBER": "005",
+    "DISTRICT_NAME": "Southeast Kootenay"
+  },
+  {
+    "DISTRICT_NUMBER": "006",
+    "DISTRICT_NAME": "Rocky Mountain"
+  },
+  {
+    "DISTRICT_NUMBER": "008",
+    "DISTRICT_NAME": "Kootenay Lake"
+  },
+  {
+    "DISTRICT_NUMBER": "010",
+    "DISTRICT_NAME": "Arrow Lakes"
+  },
+  {
+    "DISTRICT_NUMBER": "019",
+    "DISTRICT_NAME": "Revelstoke"
+  },
+  {
+    "DISTRICT_NUMBER": "020",
+    "DISTRICT_NAME": "Kootenay-Columbia"
+  },
+  {
+    "DISTRICT_NUMBER": "022",
+    "DISTRICT_NAME": "Vernon"
+  },
+  {
+    "DISTRICT_NUMBER": "023",
+    "DISTRICT_NAME": "Central Okanagan"
+  },
+  {
+    "DISTRICT_NUMBER": "027",
+    "DISTRICT_NAME": "Cariboo-Chilcotin"
+  },
+  {
+    "DISTRICT_NUMBER": "028",
+    "DISTRICT_NAME": "Quesnel"
+  },
+  {
+    "DISTRICT_NUMBER": "033",
+    "DISTRICT_NAME": "Chilliwack"
+  },
+  {
+    "DISTRICT_NUMBER": "034",
+    "DISTRICT_NAME": "Abbotsford"
+  },
+  {
+    "DISTRICT_NUMBER": "035",
+    "DISTRICT_NAME": "Langley"
+  },
+  {
+    "DISTRICT_NUMBER": "036",
+    "DISTRICT_NAME": "Surrey"
+  },
+  {
+    "DISTRICT_NUMBER": "037",
+    "DISTRICT_NAME": "Delta"
+  },
+  {
+    "DISTRICT_NUMBER": "038",
+    "DISTRICT_NAME": "Richmond"
+  },
+  {
+    "DISTRICT_NUMBER": "039",
+    "DISTRICT_NAME": "Vancouver"
+  },
+  {
+    "DISTRICT_NUMBER": "040",
+    "DISTRICT_NAME": "New Westminster"
+  },
+  {
+    "DISTRICT_NUMBER": "041",
+    "DISTRICT_NAME": "Burnaby"
+  },
+  {
+    "DISTRICT_NUMBER": "042",
+    "DISTRICT_NAME": "Maple Ridge-Pitt Meadows"
+  },
+  {
+    "DISTRICT_NUMBER": "043",
+    "DISTRICT_NAME": "Coquitlam"
+  },
+  {
+    "DISTRICT_NUMBER": "044",
+    "DISTRICT_NAME": "North Vancouver"
+  },
+  {
+    "DISTRICT_NUMBER": "045",
+    "DISTRICT_NAME": "West Vancouver"
+  },
+  {
+    "DISTRICT_NUMBER": "046",
+    "DISTRICT_NAME": "Sunshine Coast"
+  },
+  {
+    "DISTRICT_NUMBER": "047",
+    "DISTRICT_NAME": "qathet"
+  },
+  {
+    "DISTRICT_NUMBER": "048",
+    "DISTRICT_NAME": "Sea to Sky"
+  },
+  {
+    "DISTRICT_NUMBER": "049",
+    "DISTRICT_NAME": "Central Coast"
+  },
+  {
+    "DISTRICT_NUMBER": "051",
+    "DISTRICT_NAME": "Boundary"
+  },
+  {
+    "DISTRICT_NUMBER": "052",
+    "DISTRICT_NAME": "Prince Rupert"
+  },
+  {
+    "DISTRICT_NUMBER": "053",
+    "DISTRICT_NAME": "Okanagan Similkameen"
+  },
+  {
+    "DISTRICT_NUMBER": "054",
+    "DISTRICT_NAME": "Bulkley Valley"
+  },
+  {
+    "DISTRICT_NUMBER": "057",
+    "DISTRICT_NAME": "Prince George"
+  },
+  {
+    "DISTRICT_NUMBER": "058",
+    "DISTRICT_NAME": "Nicola-Similkameen"
+  },
+  {
+    "DISTRICT_NUMBER": "059",
+    "DISTRICT_NAME": "Peace River South"
+  },
+  {
+    "DISTRICT_NUMBER": "060",
+    "DISTRICT_NAME": "Peace River North"
+  },
+  {
+    "DISTRICT_NUMBER": "061",
+    "DISTRICT_NAME": "Greater Victoria"
+  },
+  {
+    "DISTRICT_NUMBER": "062",
+    "DISTRICT_NAME": "Sooke"
+  },
+  {
+    "DISTRICT_NUMBER": "063",
+    "DISTRICT_NAME": "Saanich"
+  },
+  {
+    "DISTRICT_NUMBER": "064",
+    "DISTRICT_NAME": "Gulf Islands"
+  },
+  {
+    "DISTRICT_NUMBER": "067",
+    "DISTRICT_NAME": "Okanagan Skaha"
+  },
+  {
+    "DISTRICT_NUMBER": "068",
+    "DISTRICT_NAME": "Nanaimo-Ladysmith"
+  },
+  {
+    "DISTRICT_NUMBER": "069",
+    "DISTRICT_NAME": "Qualicum"
+  },
+  {
+    "DISTRICT_NUMBER": "070",
+    "DISTRICT_NAME": "Pacific Rim"
+  },
+  {
+    "DISTRICT_NUMBER": "071",
+    "DISTRICT_NAME": "Comox Valley"
+  },
+  {
+    "DISTRICT_NUMBER": "072",
+    "DISTRICT_NAME": "Campbell River"
+  },
+  {
+    "DISTRICT_NUMBER": "073",
+    "DISTRICT_NAME": "Kamloops-Thompson"
+  },
+  {
+    "DISTRICT_NUMBER": "074",
+    "DISTRICT_NAME": "Gold Trail"
+  },
+  {
+    "DISTRICT_NUMBER": "075",
+    "DISTRICT_NAME": "Mission"
+  },
+  {
+    "DISTRICT_NUMBER": "078",
+    "DISTRICT_NAME": "Fraser-Cascade"
+  },
+  {
+    "DISTRICT_NUMBER": "079",
+    "DISTRICT_NAME": "Cowichan Valley"
+  },
+  {
+    "DISTRICT_NUMBER": "081",
+    "DISTRICT_NAME": "Fort Nelson"
+  },
+  {
+    "DISTRICT_NUMBER": "082",
+    "DISTRICT_NAME": "Coast Mountains"
+  },
+  {
+    "DISTRICT_NUMBER": "083",
+    "DISTRICT_NAME": "K?wsaltktn�ws ne Secwepemc�l�ecw"
+  },
+  {
+    "DISTRICT_NUMBER": "085",
+    "DISTRICT_NAME": "Vancouver Island North"
+  },
+  {
+    "DISTRICT_NUMBER": "087",
+    "DISTRICT_NAME": "Stikine"
+  },
+  {
+    "DISTRICT_NUMBER": "091",
+    "DISTRICT_NAME": "Nechako Lakes"
+  },
+  {
+    "DISTRICT_NUMBER": "092",
+    "DISTRICT_NAME": "Nisga'a"
+  },
+  {
+    "DISTRICT_NUMBER": "093",
+    "DISTRICT_NAME": "Conseil scolaire francophone"
+  },
+  {
+    "DISTRICT_NUMBER": "050",
+    "DISTRICT_NAME": "Haida Gwaii"
+  },
+  {
+    "DISTRICT_NUMBER": "084",
+    "DISTRICT_NAME": "Vancouver Island West"
+  }
+]

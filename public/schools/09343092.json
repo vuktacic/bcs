@@ -1,0 +1,161 @@
+{
+  "DATA_LEVEL": "School Level",
+  "PUBLIC_OR_INDEPENDENT": "Public School",
+  "DISTRICT_NUMBER": "093",
+  "DISTRICT_NAME": "Conseil scolaire francophone",
+  "SCHOOL_NUMBER": "09343092",
+  "SCHOOL_NAME": "des Pionniers-de-Maillardville",
+  "SUB_POPULATION": "All Students",
+  "assessments": {
+    "Numeracy Assessment 10": {
+      "2017/2018": {
+        "ASSESSMENT_LANGUAGE": "French",
+        "NUMBER_WRITERS": "49",
+        "NUMBER_EMERGING": "12",
+        "NUMBER_DEVELOPING": "27",
+        "NUMBER_PROFICIENT": "Msk",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "878"
+      },
+      "2018/2019": {
+        "ASSESSMENT_LANGUAGE": "French",
+        "NUMBER_WRITERS": "41",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "17",
+        "NUMBER_PROFICIENT": "16",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "822"
+      },
+      "2020/2021": {
+        "ASSESSMENT_LANGUAGE": "French",
+        "NUMBER_WRITERS": "65",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "27",
+        "NUMBER_PROFICIENT": "31",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "1089"
+      },
+      "2021/2022": {
+        "ASSESSMENT_LANGUAGE": "French",
+        "NUMBER_WRITERS": "35",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "13",
+        "NUMBER_PROFICIENT": "12",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "610.5"
+      },
+      "2022/2023": {
+        "ASSESSMENT_LANGUAGE": "French",
+        "NUMBER_WRITERS": "47",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "Msk",
+        "NUMBER_PROFICIENT": "26",
+        "NUMBER_EXTENDING": "11",
+        "SCORE": "1095.8"
+      },
+      "2023/2024": {
+        "ASSESSMENT_LANGUAGE": "French",
+        "NUMBER_WRITERS": "42",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "15",
+        "NUMBER_PROFICIENT": "20",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "820.5"
+      },
+      "2024/2025": {
+        "ASSESSMENT_LANGUAGE": "French",
+        "NUMBER_WRITERS": "46",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "16",
+        "NUMBER_PROFICIENT": "24",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "763.7"
+      }
+    },
+    "Literacy Assessment 10": {
+      "2020/2021": {
+        "ASSESSMENT_LANGUAGE": "French",
+        "NUMBER_WRITERS": "61",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "12",
+        "NUMBER_PROFICIENT": "47",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "2848.5"
+      },
+      "2021/2022": {
+        "ASSESSMENT_LANGUAGE": "French",
+        "NUMBER_WRITERS": "35",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "11",
+        "NUMBER_PROFICIENT": "21",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "1769.6"
+      },
+      "2022/2023": {
+        "ASSESSMENT_LANGUAGE": "French",
+        "NUMBER_WRITERS": "47",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "11",
+        "NUMBER_PROFICIENT": "34",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "2412.2"
+      },
+      "2023/2024": {
+        "ASSESSMENT_LANGUAGE": "French",
+        "NUMBER_WRITERS": "44",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "10",
+        "NUMBER_PROFICIENT": "32",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "2261.8"
+      },
+      "2024/2025": {
+        "ASSESSMENT_LANGUAGE": "French",
+        "NUMBER_WRITERS": "47",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "Msk",
+        "NUMBER_PROFICIENT": "35",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "2386.5"
+      }
+    },
+    "Literacy Assessment 12": {
+      "2021/2022": {
+        "ASSESSMENT_LANGUAGE": "French",
+        "NUMBER_WRITERS": "29",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "Msk",
+        "NUMBER_PROFICIENT": "20",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "1543.8"
+      },
+      "2022/2023": {
+        "ASSESSMENT_LANGUAGE": "French",
+        "NUMBER_WRITERS": "31",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "Msk",
+        "NUMBER_PROFICIENT": "Msk",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "1600.2"
+      },
+      "2023/2024": {
+        "ASSESSMENT_LANGUAGE": "French",
+        "NUMBER_WRITERS": "29",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "Msk",
+        "NUMBER_PROFICIENT": "18",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "1636.1"
+      },
+      "2024/2025": {
+        "ASSESSMENT_LANGUAGE": "French",
+        "NUMBER_WRITERS": "43",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "Msk",
+        "NUMBER_PROFICIENT": "30",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "2331.6"
+      }
+    }
+  }
+}
