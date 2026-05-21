@@ -1,0 +1,44 @@
+{
+  "DATA_LEVEL": "School Level",
+  "PUBLIC_OR_INDEPENDENT": "Public School",
+  "DISTRICT_NUMBER": "050",
+  "DISTRICT_NAME": "Haida Gwaii",
+  "SCHOOL_NUMBER": "05050013",
+  "SCHOOL_NAME": "Daaxiigan Sk'ad�a N�e",
+  "SUB_POPULATION": "All Students",
+  "assessments": {
+    "Numeracy Assessment 10": {
+      "2024/2025": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "24",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "13",
+        "NUMBER_PROFICIENT": "Msk",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "283.4"
+      }
+    },
+    "Literacy Assessment 10": {
+      "2024/2025": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "19",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "Msk",
+        "NUMBER_PROFICIENT": "10",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "608"
+      }
+    },
+    "Literacy Assessment 12": {
+      "2024/2025": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "10",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "Msk",
+        "NUMBER_PROFICIENT": "Msk",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "220.2"
+      }
+    }
+  }
+}

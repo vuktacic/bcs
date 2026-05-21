@@ -1,0 +1,161 @@
+{
+  "DATA_LEVEL": "School Level",
+  "PUBLIC_OR_INDEPENDENT": "Public School",
+  "DISTRICT_NUMBER": "008",
+  "DISTRICT_NAME": "Kootenay Lake",
+  "SCHOOL_NUMBER": "00886016",
+  "SCHOOL_NAME": "Homelinks - Creston",
+  "SUB_POPULATION": "All Students",
+  "assessments": {
+    "Numeracy Assessment 10": {
+      "2018/2019": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "15",
+        "NUMBER_EMERGING": "",
+        "NUMBER_DEVELOPING": "Msk",
+        "NUMBER_PROFICIENT": "Msk",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "348"
+      },
+      "2019/2020": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "21",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "11",
+        "NUMBER_PROFICIENT": "Msk",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "380"
+      },
+      "2020/2021": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "18",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "Msk",
+        "NUMBER_PROFICIENT": "Msk",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "219"
+      },
+      "2021/2022": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "26",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "14",
+        "NUMBER_PROFICIENT": "Msk",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "430.8"
+      },
+      "2022/2023": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "18",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "Msk",
+        "NUMBER_PROFICIENT": "Msk",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "255.2"
+      },
+      "2023/2024": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "17",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "Msk",
+        "NUMBER_PROFICIENT": "Msk",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "297.8"
+      },
+      "2024/2025": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "12",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "Msk",
+        "NUMBER_PROFICIENT": "Msk",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "188.9"
+      }
+    },
+    "Literacy Assessment 10": {
+      "2020/2021": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "10",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "Msk",
+        "NUMBER_PROFICIENT": "Msk",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "275"
+      },
+      "2021/2022": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "30",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "Msk",
+        "NUMBER_PROFICIENT": "22",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "1064.3"
+      },
+      "2022/2023": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "19",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "Msk",
+        "NUMBER_PROFICIENT": "13",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "657.8"
+      },
+      "2023/2024": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "15",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "Msk",
+        "NUMBER_PROFICIENT": "Msk",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "540"
+      },
+      "2024/2025": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "12",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "Msk",
+        "NUMBER_PROFICIENT": "Msk",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "385.5"
+      }
+    },
+    "Literacy Assessment 12": {
+      "2021/2022": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "14",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "Msk",
+        "NUMBER_PROFICIENT": "10",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "440.4"
+      },
+      "2022/2023": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "Msk",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "Msk",
+        "NUMBER_PROFICIENT": "Msk",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "Msk"
+      },
+      "2023/2024": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "Msk",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "Msk",
+        "NUMBER_PROFICIENT": "Msk",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "Msk"
+      },
+      "2024/2025": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "Msk",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "Msk",
+        "NUMBER_PROFICIENT": "Msk",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "Msk"
+      }
+    }
+  }
+}

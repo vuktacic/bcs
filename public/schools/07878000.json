@@ -1,0 +1,33 @@
+{
+  "DATA_LEVEL": "School Level",
+  "PUBLIC_OR_INDEPENDENT": "Public School",
+  "DISTRICT_NUMBER": "078",
+  "DISTRICT_NAME": "Fraser-Cascade",
+  "SCHOOL_NUMBER": "07878000",
+  "SCHOOL_NAME": "Fraser Cascade Continuing Education",
+  "SUB_POPULATION": "All Students",
+  "assessments": {
+    "Literacy Assessment 10": {
+      "2024/2025": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "Msk",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "Msk",
+        "NUMBER_PROFICIENT": "Msk",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "Msk"
+      }
+    },
+    "Literacy Assessment 12": {
+      "2024/2025": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "Msk",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "Msk",
+        "NUMBER_PROFICIENT": "Msk",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "Msk"
+      }
+    }
+  }
+}

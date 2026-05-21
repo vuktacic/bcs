@@ -1,0 +1,51 @@
+{
+  "DATA_LEVEL": "School Level",
+  "PUBLIC_OR_INDEPENDENT": "Independent School",
+  "DISTRICT_NUMBER": "",
+  "DISTRICT_NAME": "VISST Society",
+  "SCHOOL_NUMBER": "03996980",
+  "SCHOOL_NAME": "VISST",
+  "SUB_POPULATION": "All Students",
+  "assessments": {
+    "Numeracy Assessment 10": {
+      "2023/2024": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "Msk",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "Msk",
+        "NUMBER_PROFICIENT": "Msk",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "Msk"
+      },
+      "2024/2025": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "18",
+        "NUMBER_EMERGING": "",
+        "NUMBER_DEVELOPING": "Msk",
+        "NUMBER_PROFICIENT": "Msk",
+        "NUMBER_EXTENDING": "11",
+        "SCORE": "462.9"
+      }
+    },
+    "Literacy Assessment 10": {
+      "2023/2024": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "Msk",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "Msk",
+        "NUMBER_PROFICIENT": "Msk",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "Msk"
+      },
+      "2024/2025": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "18",
+        "NUMBER_EMERGING": "",
+        "NUMBER_DEVELOPING": "Msk",
+        "NUMBER_PROFICIENT": "12",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "757.5"
+      }
+    }
+  }
+}

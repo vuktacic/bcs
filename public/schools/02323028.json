@@ -1,0 +1,125 @@
+{
+  "DATA_LEVEL": "School Level",
+  "PUBLIC_OR_INDEPENDENT": "Public School",
+  "DISTRICT_NUMBER": "023",
+  "DISTRICT_NAME": "Central Okanagan",
+  "SCHOOL_NUMBER": "02323028",
+  "SCHOOL_NAME": "George Elliot Secondary",
+  "SUB_POPULATION": "All Students",
+  "assessments": {
+    "Numeracy Assessment 10": {
+      "2021/2022": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "189",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "87",
+        "NUMBER_PROFICIENT": "56",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "2741.2"
+      },
+      "2022/2023": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "194",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "99",
+        "NUMBER_PROFICIENT": "58",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "2662.8"
+      },
+      "2023/2024": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "221",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "101",
+        "NUMBER_PROFICIENT": "81",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "3286.2"
+      },
+      "2024/2025": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "215",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "108",
+        "NUMBER_PROFICIENT": "51",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "2640.8"
+      }
+    },
+    "Literacy Assessment 10": {
+      "2021/2022": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "201",
+        "NUMBER_EMERGING": "10",
+        "NUMBER_DEVELOPING": "47",
+        "NUMBER_PROFICIENT": "120",
+        "NUMBER_EXTENDING": "24",
+        "SCORE": "6938.5"
+      },
+      "2022/2023": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "179",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "37",
+        "NUMBER_PROFICIENT": "119",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "6325"
+      },
+      "2023/2024": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "206",
+        "NUMBER_EMERGING": "10",
+        "NUMBER_DEVELOPING": "51",
+        "NUMBER_PROFICIENT": "131",
+        "NUMBER_EXTENDING": "14",
+        "SCORE": "6889"
+      },
+      "2024/2025": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "204",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "55",
+        "NUMBER_PROFICIENT": "127",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "6165"
+      }
+    },
+    "Literacy Assessment 12": {
+      "2021/2022": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "144",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "32",
+        "NUMBER_PROFICIENT": "85",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "4861.5"
+      },
+      "2022/2023": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "138",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "28",
+        "NUMBER_PROFICIENT": "84",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "4653.8"
+      },
+      "2023/2024": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "128",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "27",
+        "NUMBER_PROFICIENT": "85",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "3889.5"
+      },
+      "2024/2025": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "201",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "47",
+        "NUMBER_PROFICIENT": "119",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "6178.6"
+      }
+    }
+  }
+}

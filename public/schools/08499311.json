@@ -1,0 +1,22 @@
+{
+  "DATA_LEVEL": "School Level",
+  "PUBLIC_OR_INDEPENDENT": "Public School",
+  "DISTRICT_NUMBER": "084",
+  "DISTRICT_NAME": "Vancouver Island West",
+  "SCHOOL_NUMBER": "08499311",
+  "SCHOOL_NAME": "Tsawalk Learning Centre",
+  "SUB_POPULATION": "All Students",
+  "assessments": {
+    "Literacy Assessment 10": {
+      "2020/2021": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "Msk",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "Msk",
+        "NUMBER_PROFICIENT": "Msk",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "Msk"
+      }
+    }
+  }
+}

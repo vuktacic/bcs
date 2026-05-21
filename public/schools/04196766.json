@@ -1,0 +1,31 @@
+{
+  "DATA_LEVEL": "School Level",
+  "PUBLIC_OR_INDEPENDENT": "Independent School",
+  "DISTRICT_NUMBER": "",
+  "DISTRICT_NAME": "John Knox Christian School Association",
+  "SCHOOL_NUMBER": "04196766",
+  "SCHOOL_NAME": "Carver Christian High School",
+  "SUB_POPULATION": "All Students",
+  "assessments": {
+    "Numeracy Assessment 10": {
+      "2017/2018": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "90",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "30",
+        "NUMBER_PROFICIENT": "46",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "2396"
+      },
+      "2018/2019": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "49",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "19",
+        "NUMBER_PROFICIENT": "23",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "1015"
+      }
+    }
+  }
+}

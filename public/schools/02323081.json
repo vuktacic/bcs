@@ -1,0 +1,31 @@
+{
+  "DATA_LEVEL": "School Level",
+  "PUBLIC_OR_INDEPENDENT": "Public School",
+  "DISTRICT_NUMBER": "023",
+  "DISTRICT_NAME": "Central Okanagan",
+  "SCHOOL_NUMBER": "02323081",
+  "SCHOOL_NAME": "Okanagan Mission Secondary",
+  "SUB_POPULATION": "All Students",
+  "assessments": {
+    "Numeracy Assessment 10": {
+      "2017/2018": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "188",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "95",
+        "NUMBER_PROFICIENT": "47",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "3619"
+      },
+      "2018/2019": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "284",
+        "NUMBER_EMERGING": "52",
+        "NUMBER_DEVELOPING": "133",
+        "NUMBER_PROFICIENT": "86",
+        "NUMBER_EXTENDING": "13",
+        "SCORE": "5244"
+      }
+    }
+  }
+}
