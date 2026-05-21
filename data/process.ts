@@ -1,6 +1,5 @@
 import fs from "fs";
 import Papa from "papaparse";
-import z, { string } from "zod";
 
 type Row = {
   SCHOOL_YEAR: string;
@@ -21,8 +20,13 @@ type Row = {
   SCORE: string;
 };
 
-const csv = fs.readFileSync("raw-data.csv", "utf-8");
+type LocationRow = {
+  MINCODE: string;
+  LATITUDE: string;
+  LONGITUDE: string;
+};
 
+const csv = fs.readFileSync("raw-data.csv", "utf-8");
 const parsed = Papa.parse<Row>(csv, {
   header: true,
   skipEmptyLines: true,
@@ -31,6 +35,23 @@ const parsed = Papa.parse<Row>(csv, {
 const rows = parsed.data.filter(
   (row) => row["SUB_POPULATION"] === "All Students",
 );
+
+const locations_csv = fs.readFileSync("locations.csv", "utf-8");
+const parsed_locations = Papa.parse<LocationRow>(locations_csv, {
+  header: true,
+  skipEmptyLines: true,
+});
+
+const location_rows = parsed_locations.data;
+const school_locations = new Map();
+
+for (const row of location_rows) {
+  school_locations.set(row.MINCODE, {
+      lat: row.LATITUDE,
+      lng: row.LONGITUDE,
+    }
+  );
+}
 
 function getKey(row: Row) {
   const level = row.DATA_LEVEL;
@@ -70,14 +91,14 @@ for (const row of rows) {
   }
 
   if (!entity.assessments[assessment]) {
-    entity.assessments[assessment] = [];
+    entity.assessments[assessment] = {};
   }
 
   if (!entity.assessments[assessment][year]) {
-    entity.assessments[assessment][year] = [];
+    entity.assessments[assessment][year] = {};
   }
 
-  entity.assessments[assessment][year].push({
+  entity.assessments[assessment][year] = {
     ASSESSMENT_LANGUAGE: row.ASSESSMENT_LANGUAGE,
     NUMBER_WRITERS: row.NUMBER_WRITERS,
     NUMBER_EMERGING: row.NUMBER_EMERGING,
@@ -85,18 +106,70 @@ for (const row of rows) {
     NUMBER_PROFICIENT: row.NUMBER_PROFICIENT,
     NUMBER_EXTENDING: row.NUMBER_EXTENDING,
     SCORE: row.SCORE,
-  });
+  };
 }
 
-// for (const entity of entities.values()) {
-//   for (const key of Object.keys(entity.assessments)) {
-//     entity.assessments[key].sort((a: any, b: any) =>
-//         a.SCHOOL_YEAR.localeCompare(b.SCHOOL_YEAR)
-//     );
-//   }
-// }
+fs.mkdirSync("../generated/schools", { recursive: true });
+fs.mkdirSync("../generated/districts", { recursive: true });
+fs.mkdirSync("../generated/province", { recursive: true });
+fs.mkdirSync("../generated/indexes", { recursive: true });
+
+
+const schoolIndex = [];
+const districtIndex = [];
+
+for(const entity of entities.values()) {
+  const level = entity.DATA_LEVEL;
+  let path = "";
+
+  if(level === "Province Level") {
+    if(entity.PUBLIC_OR_INDEPENDENT === "Province-Total") {
+      path = "../generated/province/bc.json";
+    }
+    
+    if(entity.PUBLIC_OR_INDEPENDENT === "Public School") {
+      path = "../generated/province/public.json";
+    }
+    
+    if(entity.PUBLIC_OR_INDEPENDENT === "Independent School") {
+      path = "../generated/province/independent.json";
+    }
+  }
+
+  if(level === "District Level") {
+    path = `../generated/districts/${entity.DISTRICT_NUMBER}.json`;
+    districtIndex.push({
+      DISTRICT_NUMBER: entity.DISTRICT_NUMBER,
+      DISTRICT_NAME: entity.DISTRICT_NAME,
+    });
+  }
+
+  if(level === "School Level") {
+    path = `../generated/schools/${entity.SCHOOL_NUMBER}.json`;
+
+    schoolIndex.push({
+      SCHOOL_NUMBER: entity.SCHOOL_NUMBER,
+      SCHOOL_NAME: entity.SCHOOL_NAME,
+      DISTRICT_NUMBER: entity.DISTRICT_NUMBER,
+      DISTRICT_NAME: entity.DISTRICT_NAME,
+      LOCATION: school_locations.get(entity.SCHOOL_NUMBER) || null,
+    });
+  }
+
+  fs.writeFileSync(
+    path,
+    JSON.stringify(entity, null, 2),
+  );
+}
 
 fs.writeFileSync(
-  "../generated/entities.json",
-  JSON.stringify([...entities.values()], null, 2),
+  "../generated/indexes/schools.json",
+  JSON.stringify(schoolIndex, null, 2),
 );
+
+fs.writeFileSync(
+  "../generated/indexes/districts.json",
+  JSON.stringify(districtIndex, null, 2),
+);
+
+fs.copyFileSync("simplified.geojson", "../generated/districts.geojson");
