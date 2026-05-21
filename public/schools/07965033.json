@@ -1,0 +1,31 @@
+{
+  "DATA_LEVEL": "School Level",
+  "PUBLIC_OR_INDEPENDENT": "Public School",
+  "DISTRICT_NUMBER": "079",
+  "DISTRICT_NAME": "Cowichan Valley",
+  "SCHOOL_NUMBER": "07965033",
+  "SCHOOL_NAME": "Chemainus Secondary",
+  "SUB_POPULATION": "All Students",
+  "assessments": {
+    "Numeracy Assessment 10": {
+      "2017/2018": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "71",
+        "NUMBER_EMERGING": "21",
+        "NUMBER_DEVELOPING": "37",
+        "NUMBER_PROFICIENT": "Msk",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "1231"
+      },
+      "2018/2019": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "64",
+        "NUMBER_EMERGING": "25",
+        "NUMBER_DEVELOPING": "26",
+        "NUMBER_PROFICIENT": "Msk",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "916"
+      }
+    }
+  }
+}

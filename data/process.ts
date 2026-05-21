@@ -109,10 +109,10 @@ for (const row of rows) {
   };
 }
 
-fs.mkdirSync("../generated/schools", { recursive: true });
-fs.mkdirSync("../generated/districts", { recursive: true });
-fs.mkdirSync("../generated/province", { recursive: true });
-fs.mkdirSync("../generated/indexes", { recursive: true });
+fs.mkdirSync("../public/schools", { recursive: true });
+fs.mkdirSync("../public/districts", { recursive: true });
+fs.mkdirSync("../public/province", { recursive: true });
+fs.mkdirSync("../public/indexes", { recursive: true });
 
 
 const schoolIndex = [];
@@ -124,20 +124,20 @@ for(const entity of entities.values()) {
 
   if(level === "Province Level") {
     if(entity.PUBLIC_OR_INDEPENDENT === "Province-Total") {
-      path = "../generated/province/bc.json";
+      path = "../public/province/bc.json";
     }
     
     if(entity.PUBLIC_OR_INDEPENDENT === "Public School") {
-      path = "../generated/province/public.json";
+      path = "../public/province/public.json";
     }
     
     if(entity.PUBLIC_OR_INDEPENDENT === "Independent School") {
-      path = "../generated/province/independent.json";
+      path = "../public/province/independent.json";
     }
   }
 
   if(level === "District Level") {
-    path = `../generated/districts/${entity.DISTRICT_NUMBER}.json`;
+    path = `../public/districts/${entity.DISTRICT_NUMBER}.json`;
     districtIndex.push({
       DISTRICT_NUMBER: entity.DISTRICT_NUMBER,
       DISTRICT_NAME: entity.DISTRICT_NAME,
@@ -145,7 +145,7 @@ for(const entity of entities.values()) {
   }
 
   if(level === "School Level") {
-    path = `../generated/schools/${entity.SCHOOL_NUMBER}.json`;
+    path = `../public/schools/${entity.SCHOOL_NUMBER}.json`;
 
     schoolIndex.push({
       SCHOOL_NUMBER: entity.SCHOOL_NUMBER,
@@ -163,13 +163,13 @@ for(const entity of entities.values()) {
 }
 
 fs.writeFileSync(
-  "../generated/indexes/schools.json",
+  "../public/indexes/schools.json",
   JSON.stringify(schoolIndex, null, 2),
 );
 
 fs.writeFileSync(
-  "../generated/indexes/districts.json",
+  "../public/indexes/districts.json",
   JSON.stringify(districtIndex, null, 2),
 );
 
-fs.copyFileSync("simplified.geojson", "../generated/districts.geojson");
+fs.copyFileSync("simplified.geojson", "../public/districts.geojson");

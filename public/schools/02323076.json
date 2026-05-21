@@ -1,0 +1,179 @@
+{
+  "DATA_LEVEL": "School Level",
+  "PUBLIC_OR_INDEPENDENT": "Public School",
+  "DISTRICT_NUMBER": "023",
+  "DISTRICT_NAME": "Central Okanagan",
+  "SCHOOL_NUMBER": "02323076",
+  "SCHOOL_NAME": "Kelowna Secondary",
+  "SUB_POPULATION": "All Students",
+  "assessments": {
+    "Numeracy Assessment 10": {
+      "2017/2018": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "963",
+        "NUMBER_EMERGING": "224",
+        "NUMBER_DEVELOPING": "448",
+        "NUMBER_PROFICIENT": "260",
+        "NUMBER_EXTENDING": "31",
+        "SCORE": "18389"
+      },
+      "2018/2019": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "629",
+        "NUMBER_EMERGING": "219",
+        "NUMBER_DEVELOPING": "300",
+        "NUMBER_PROFICIENT": "Msk",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "8704"
+      },
+      "2019/2020": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "373",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "167",
+        "NUMBER_PROFICIENT": "110",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "4946"
+      },
+      "2020/2021": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "806",
+        "NUMBER_EMERGING": "153",
+        "NUMBER_DEVELOPING": "396",
+        "NUMBER_PROFICIENT": "241",
+        "NUMBER_EXTENDING": "16",
+        "SCORE": "10399"
+      },
+      "2021/2022": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "574",
+        "NUMBER_EMERGING": "86",
+        "NUMBER_DEVELOPING": "261",
+        "NUMBER_PROFICIENT": "198",
+        "NUMBER_EXTENDING": "29",
+        "SCORE": "8778"
+      },
+      "2022/2023": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "562",
+        "NUMBER_EMERGING": "114",
+        "NUMBER_DEVELOPING": "279",
+        "NUMBER_PROFICIENT": "149",
+        "NUMBER_EXTENDING": "20",
+        "SCORE": "7380.2"
+      },
+      "2023/2024": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "557",
+        "NUMBER_EMERGING": "120",
+        "NUMBER_DEVELOPING": "261",
+        "NUMBER_PROFICIENT": "157",
+        "NUMBER_EXTENDING": "19",
+        "SCORE": "7348.2"
+      },
+      "2024/2025": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "695",
+        "NUMBER_EMERGING": "126",
+        "NUMBER_DEVELOPING": "349",
+        "NUMBER_PROFICIENT": "193",
+        "NUMBER_EXTENDING": "27",
+        "SCORE": "9244"
+      }
+    },
+    "Literacy Assessment 10": {
+      "2019/2020": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "275",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "90",
+        "NUMBER_PROFICIENT": "160",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "9018"
+      },
+      "2020/2021": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "828",
+        "NUMBER_EMERGING": "28",
+        "NUMBER_DEVELOPING": "202",
+        "NUMBER_PROFICIENT": "529",
+        "NUMBER_EXTENDING": "69",
+        "SCORE": "29146"
+      },
+      "2021/2022": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "622",
+        "NUMBER_EMERGING": "25",
+        "NUMBER_DEVELOPING": "157",
+        "NUMBER_PROFICIENT": "399",
+        "NUMBER_EXTENDING": "41",
+        "SCORE": "22103.6"
+      },
+      "2022/2023": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "544",
+        "NUMBER_EMERGING": "20",
+        "NUMBER_DEVELOPING": "145",
+        "NUMBER_PROFICIENT": "352",
+        "NUMBER_EXTENDING": "27",
+        "SCORE": "18375.6"
+      },
+      "2023/2024": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "561",
+        "NUMBER_EMERGING": "36",
+        "NUMBER_DEVELOPING": "133",
+        "NUMBER_PROFICIENT": "336",
+        "NUMBER_EXTENDING": "56",
+        "SCORE": "19027"
+      },
+      "2024/2025": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "632",
+        "NUMBER_EMERGING": "25",
+        "NUMBER_DEVELOPING": "159",
+        "NUMBER_PROFICIENT": "406",
+        "NUMBER_EXTENDING": "42",
+        "SCORE": "20795.5"
+      }
+    },
+    "Literacy Assessment 12": {
+      "2021/2022": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "562",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "Msk",
+        "NUMBER_PROFICIENT": "381",
+        "NUMBER_EXTENDING": "93",
+        "SCORE": "20150.3"
+      },
+      "2022/2023": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "561",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "Msk",
+        "NUMBER_PROFICIENT": "372",
+        "NUMBER_EXTENDING": "102",
+        "SCORE": "19526.2"
+      },
+      "2023/2024": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "567",
+        "NUMBER_EMERGING": "Msk",
+        "NUMBER_DEVELOPING": "106",
+        "NUMBER_PROFICIENT": "365",
+        "NUMBER_EXTENDING": "Msk",
+        "SCORE": "18388.8"
+      },
+      "2024/2025": {
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "578",
+        "NUMBER_EMERGING": "11",
+        "NUMBER_DEVELOPING": "100",
+        "NUMBER_PROFICIENT": "399",
+        "NUMBER_EXTENDING": "68",
+        "SCORE": "17700.4"
+      }
+    }
+  }
+}
