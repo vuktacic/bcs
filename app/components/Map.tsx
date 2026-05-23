@@ -84,27 +84,103 @@ function buildCombinedScoreSeries(assessments: any, provinceData?: any) {
         Object.keys(provinceData?.assessments?.[key] || {}).forEach(year => allYears.add(year));
     });
     
-    return Array.from(allYears)
-        .sort()
-        .map(year => {
-            const obj: any = { year };
-            
-            [na10, la10, la12].forEach(key => {
-                const value = assessments?.[key]?.[year];
-                if (value) {
-                    const score = parseFloat(value.SCORE) / parseFloat(value.NUMBER_WRITERS) || 0;
-                    obj[key] = Math.round(score * 100) / 100;
-                }
-                
-                const provValue = provinceData?.assessments?.[key]?.[year];
-                if (provValue) {
-                    const score = parseFloat(provValue.SCORE) / parseFloat(provValue.NUMBER_WRITERS) || 0;
-                    obj[`${key}_prov`] = Math.round(score * 100) / 100;
-                }
-            });
-            
-            return obj;
+    const years = Array.from(allYears).sort();
+
+    const rows = years.map(year => {
+        const obj: any = { year };
+
+        [na10, la10, la12].forEach(key => {
+            const value = assessments?.[key]?.[year];
+            if (value) {
+                const score = parseFloat(value.SCORE) / parseFloat(value.NUMBER_WRITERS) || 0;
+                obj[key] = Math.round(score * 100) / 100;
+            }
+
+            const provValue = provinceData?.assessments?.[key]?.[year];
+            if (provValue) {
+                const score = parseFloat(provValue.SCORE) / parseFloat(provValue.NUMBER_WRITERS) || 0;
+                obj[`${key}_prov`] = Math.round(score * 100) / 100;
+            }
         });
+
+        return obj;
+    });
+
+    // Interpolate runs of zero/undefined values for each series using linear slope
+    const seriesKeys = new Set<string>();
+    rows.forEach(r => Object.keys(r).forEach(k => { if (k !== 'year') seriesKeys.add(k); }));
+
+    seriesKeys.forEach(key => {
+        // collect indices where the value is defined and non-zero
+        const defined: number[] = [];
+        for (let i = 0; i < rows.length; i++) {
+            const v = rows[i][key];
+            if (v !== undefined && v !== null && Number.isFinite(v) && v !== 0) defined.push(i);
+        }
+
+        if (defined.length < 2) return; // need two surrounding points to interpolate
+
+        for (let di = 0; di < defined.length - 1; di++) {
+            const startIdx = defined[di];
+            const endIdx = defined[di + 1];
+            const startVal = rows[startIdx][key];
+            const endVal = rows[endIdx][key];
+            const span = endIdx - startIdx;
+            if (span <= 1) continue;
+            const slope = (endVal - startVal) / span;
+
+            for (let j = startIdx + 1; j < endIdx; j++) {
+                const cur = rows[j][key];
+                if (cur === undefined || cur === 0) {
+                    const interp = startVal + slope * (j - startIdx);
+                    rows[j][key] = Math.round(interp * 100) / 100;
+                }
+            }
+        }
+    });
+
+    return rows;
+}
+
+function trimLeadingTrailingZeros(data: any[]) {
+    if (!data || data.length === 0) return data;
+
+    const primarySeries = [na10, la10, la12];
+    
+    // For each series, independently remove leading and trailing zeros
+    primarySeries.forEach(key => {
+        // Find first row where this series has non-zero/non-null value
+        let firstValidIdx = -1;
+        for (let i = 0; i < data.length; i++) {
+            const v = data[i][key];
+            if (v !== undefined && v !== null && v !== 0) {
+                firstValidIdx = i;
+                break;
+            }
+        }
+
+        // Find last row where this series has non-zero/non-null value
+        let lastValidIdx = -1;
+        for (let i = data.length - 1; i >= 0; i--) {
+            const v = data[i][key];
+            if (v !== undefined && v !== null && v !== 0) {
+                lastValidIdx = i;
+                break;
+            }
+        }
+
+        // Clear values outside the valid range for this series
+        if (firstValidIdx !== -1) {
+            for (let i = 0; i < firstValidIdx; i++) {
+                delete data[i][key];
+            }
+            for (let i = lastValidIdx + 1; i < data.length; i++) {
+                delete data[i][key];
+            }
+        }
+    });
+
+    return data;
 }
 
 function DistrictPopupContent({
@@ -129,7 +205,7 @@ function DistrictPopupContent({
             </div>
             <strong className="mt-2 block">Score Trends:</strong>
             <ResponsiveContainer width="100%" height={350}>
-                <LineChart data={buildCombinedScoreSeries(districtAssessments, provinceData)}>
+                <LineChart data={trimLeadingTrailingZeros(buildCombinedScoreSeries(districtAssessments, provinceData))}>
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="year" />
                     <YAxis />
@@ -279,7 +355,7 @@ export default function Map({query}: { query: string }) {
 
     return (
         <MapContainer
-            bounds={[[49, -130], [56, -120]]}
+            bounds={[[48.5, -124], [49.5, -122]]}
             zoomDelta={0.25}
             zoomSnap={0.25}
             className="h-full w-full"
@@ -352,7 +428,7 @@ export default function Map({query}: { query: string }) {
                                 <strong className="mt-2 block">Score Trends:</strong>
                                 {selectedSchool && selectedSchool.SCHOOL_NUMBER === school.SCHOOL_NUMBER ? (
                                     <ResponsiveContainer width="100%" height={350}>
-                                        <LineChart data={buildCombinedScoreSeries(selectedSchool.assessments || {}, provinceData)}>
+                                        <LineChart data={trimLeadingTrailingZeros(buildCombinedScoreSeries(selectedSchool.assessments || {}, provinceData))}>
                                             <CartesianGrid strokeDasharray="3 3" />
                                             <XAxis dataKey="year" />
                                             <YAxis />
