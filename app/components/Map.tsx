@@ -10,6 +10,8 @@ const na10 = "Numeracy Assessment 10";
 const la10 = "Literacy Assessment 10";
 const la12 = "Literacy Assessment 12";
 const currentYear = "2024/2025";
+const popupWidthPx = 325;
+const tooltipOffsetX = popupWidthPx + 25;
 
 delete (L.Icon.Default.prototype as any)._getIconUrl;
 
@@ -117,7 +119,7 @@ function DistrictPopupContent({
     provinceData?: any;
 }) {
     return (
-        <div>
+        <div style={{ width: `${popupWidthPx}px`, maxWidth: `${popupWidthPx}px` }}>
             <strong>{districtName} ({districtNumber})</strong><br />
             <div>
                 <div><strong>Assessment Mean Scores ({currentYear}):</strong></div>
@@ -131,14 +133,19 @@ function DistrictPopupContent({
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="year" />
                     <YAxis />
-                    <Tooltip position={{ x: 20, y: 0 }} contentStyle={{ backgroundColor: 'rgba(255, 255, 255, 0.95)', border: '1px solid #ccc', padding: '10px', borderRadius: '4px' }} wrapperStyle={{ outline: 'none' }} />
+                    <Tooltip
+                        position={{ x: tooltipOffsetX, y: 12 }}
+                        allowEscapeViewBox={{ x: true, y: true }}
+                        contentStyle={{ backgroundColor: 'rgba(255, 255, 255, 0.95)', border: '1px solid #ccc', padding: '10px', borderRadius: '4px' }}
+                        wrapperStyle={{ outline: 'none' }}
+                    />
                     <Legend />
                     <Line type="monotone" dataKey={na10} stroke="#8884d8" strokeWidth={2} />
                     <Line type="monotone" dataKey={la10} stroke="#82ca9d" strokeWidth={2} />
                     <Line type="monotone" dataKey={la12} stroke="#ffc658" strokeWidth={2} />
                     <Line type="monotone" dataKey={`${na10}_prov`} stroke="#ababc8" strokeWidth={1} />
                     <Line type="monotone" dataKey={`${la10}_prov`} stroke="#91b59e" strokeWidth={1} />
-                    <Line type="monotone" dataKey={`${la12}_prov`} stroke="#d9d9b3" strokeWidth={1} />
+                    <Line type="monotone" dataKey={`${la12}_prov`} stroke="#baba6e" strokeWidth={1} />
                 </LineChart>
             </ResponsiveContainer>
         </div>
@@ -248,8 +255,8 @@ export default function Map({query}: { query: string }) {
                 const data = await response.json();
 
                 const popupContainer = document.createElement("div");
-                popupContainer.style.width = "300px";
-                popupContainer.style.maxWidth = "300px";
+                popupContainer.style.width = `${popupWidthPx}px`;
+                popupContainer.style.maxWidth = `${popupWidthPx}px`;
                 districtPopupRootRef.current?.unmount();
                 districtPopupRootRef.current = createRoot(popupContainer);
                 districtPopupRootRef.current.render(
@@ -262,8 +269,8 @@ export default function Map({query}: { query: string }) {
                 );
 
                 layer.bindPopup(popupContainer, {
-                    maxWidth: 300,
-                    minWidth: 300,
+                    maxWidth: popupWidthPx,
+                    minWidth: popupWidthPx,
                 });
                 layer.openPopup();
             }
@@ -310,6 +317,8 @@ export default function Map({query}: { query: string }) {
                         }}
                     >
                         <Popup
+                            minWidth={popupWidthPx}
+                            maxWidth={popupWidthPx}
                             eventHandlers={{
                                 popupopen: () => {
                                     console.log("school popup open", school.SCHOOL_NUMBER);
@@ -325,7 +334,7 @@ export default function Map({query}: { query: string }) {
                                 },
                             }}
                         >
-                            <div>
+                            <div style={{ width: `${popupWidthPx}px`, maxWidth: `${popupWidthPx}px` }}>
                                 <strong>{school.SCHOOL_NAME} ({school.SCHOOL_NUMBER})</strong><br />
                                 District: {school.DISTRICT_NAME} ({school.DISTRICT_NUMBER})
                                 <div>
@@ -347,14 +356,19 @@ export default function Map({query}: { query: string }) {
                                             <CartesianGrid strokeDasharray="3 3" />
                                             <XAxis dataKey="year" />
                                             <YAxis />
-                                            <Tooltip position={{ x: 20, y: 0 }} contentStyle={{ backgroundColor: 'rgba(255, 255, 255, 0.95)', border: '1px solid #ccc', padding: '10px', borderRadius: '4px' }} wrapperStyle={{ outline: 'none' }} />
+                                            <Tooltip
+                                                position={{ x: tooltipOffsetX, y: 12 }}
+                                                allowEscapeViewBox={{ x: true, y: true }}
+                                                contentStyle={{ backgroundColor: 'rgba(255, 255, 255, 0.95)', border: '1px solid #ccc', padding: '10px', borderRadius: '4px' }}
+                                                wrapperStyle={{ outline: 'none' }}
+                                            />
                                             <Legend />
                                             <Line type="monotone" dataKey={na10} stroke="#8884d8" strokeWidth={2} />
                                             <Line type="monotone" dataKey={la10} stroke="#82ca9d" strokeWidth={2} />
                                             <Line type="monotone" dataKey={la12} stroke="#ffc658" strokeWidth={2} />
                                             <Line type="monotone" dataKey={`${na10}_prov`} stroke="#ababc8" strokeWidth={1} />
                                             <Line type="monotone" dataKey={`${la10}_prov`} stroke="#91b59e" strokeWidth={1} />
-                                            <Line type="monotone" dataKey={`${la12}_prov`} stroke="#d9d9b3" strokeWidth={1} />
+                                            <Line type="monotone" dataKey={`${la12}_prov`} stroke="#baba6e" strokeWidth={1} />
                                         </LineChart>
                                     </ResponsiveContainer>
                                 ) : (
