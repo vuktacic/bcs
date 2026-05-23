@@ -295,7 +295,7 @@ export default function Map({query}: { query: string }) {
             ))
                 .map((school) => (
                     <Marker
-                        opacity={query ? (matches.includes(school) ? 1 : 0.1) : 1}
+                        opacity={query ? (matches.includes(school) ? 1 : 0) : 1}
                         key={school.SCHOOL_NUMBER}
                         position={seedOffsets(
                             Number(school.LOCATION.lat),
