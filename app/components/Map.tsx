@@ -199,9 +199,9 @@ function DistrictPopupContent({
             <strong>{districtName} ({districtNumber})</strong><br />
             <div>
                 <div><strong>Assessment Mean Scores ({currentYear}):</strong></div>
-                <div>Numeracy 10: {formatMeanFromAssessments(districtAssessments, na10, currentYear)}</div>
-                <div>Literacy 10: {formatMeanFromAssessments(districtAssessments, la10, currentYear)}</div>
-                <div>Literacy 12: {formatMeanFromAssessments(districtAssessments, la12, currentYear)}</div>
+                <div>Numeracy 10: {formatMeanFromAssessments(districtAssessments, na10, currentYear)} - {districtAssessments?.[na10]?.[currentYear]?.NUMBER_WRITERS || "—"} Exams</div>
+                <div>Literacy 10: {formatMeanFromAssessments(districtAssessments, la10, currentYear)} - {districtAssessments?.[la10]?.[currentYear]?.NUMBER_WRITERS || "—"} Exams</div>
+                <div>Literacy 12: {formatMeanFromAssessments(districtAssessments, la12, currentYear)} - {districtAssessments?.[la12]?.[currentYear]?.NUMBER_WRITERS || "—"} Exams</div>
             </div>
             <strong className="mt-2 block">Score Trends:</strong>
             <ResponsiveContainer width="100%" height={350}>
@@ -380,6 +380,8 @@ export default function Map({query}: { query: string }) {
                         )}
                         eventHandlers={{
                             click: async () => {
+                                if (query && !matches.includes(school)) return;
+
                                 console.log("school marker clicked", {
                                     schoolNumber: school.SCHOOL_NUMBER,
                                     schoolName: school.SCHOOL_NAME,
@@ -412,14 +414,14 @@ export default function Map({query}: { query: string }) {
                         >
                             <div style={{ width: `${popupWidthPx}px`, maxWidth: `${popupWidthPx}px` }}>
                                 <strong>{school.SCHOOL_NAME} ({school.SCHOOL_NUMBER})</strong><br />
-                                District: {school.DISTRICT_NAME} ({school.DISTRICT_NUMBER})
+                                District: {school.DISTRICT_NAME} {(school.DISTRICT_NUMBER ? `(${school.DISTRICT_NUMBER})` : "")}
                                 <div>
                                     {selectedSchool && selectedSchool.SCHOOL_NUMBER === school.SCHOOL_NUMBER ? (
                                         <div>
                                             <div><strong>Assessment Mean Scores ({currentYear}):</strong></div>
-                                            <div>Numeracy 10: {formatMeanSchool(na10)}</div>
-                                            <div>Literacy 10: {formatMeanSchool(la10)}</div>
-                                            <div>Literacy 12: {formatMeanSchool(la12)}</div>
+                                            <div>Numeracy 10: {formatMeanSchool(na10)} - {selectedSchool?.assessments?.[na10]?.[currentYear]?.NUMBER_WRITERS || "—"} Exams</div>
+                                            <div>Literacy 10: {formatMeanSchool(la10)} - {selectedSchool?.assessments?.[la10]?.[currentYear]?.NUMBER_WRITERS || "—"} Exams</div>
+                                            <div>Literacy 12: {formatMeanSchool(la12)} - {selectedSchool?.assessments?.[la12]?.[currentYear]?.NUMBER_WRITERS || "—"} Exams</div>
                                         </div>
                                     ) : (
                                         <div><em>Click marker to load school data</em></div>
