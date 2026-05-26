@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import MVP from "./components/MVP";
 import dynamic from "next/dynamic";
 import { useState } from "react";
 import ProvincePopup from "./components/ProvincePopup";
@@ -19,6 +19,7 @@ export default function Home() {
       <ProvincePopup />
       <Map query={query} />
       <Search query={query} setQuery={setQuery} />
+      <MVP />
     </main>
   );
 }
