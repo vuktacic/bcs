@@ -46,7 +46,7 @@ const parsed = Papa.parse<Row>(csv, {
 });
 
 const rows = parsed.data.filter(
-  (row) => row["SUB_POPULATION"] === "All Students",
+  (row) => row["SUB_POPULATION"] === "All Students" && row["ASSESSMENT_LANGUAGE"] === "English",
 );
 
 const locations_csv = fs.readFileSync("locations.csv", "utf-8");
