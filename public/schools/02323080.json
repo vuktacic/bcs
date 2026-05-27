@@ -1,6 +1,7 @@
 {
   "DATA_LEVEL": "School Level",
   "PUBLIC_OR_INDEPENDENT": "Public School",
+  "PUBLIC": true,
   "DISTRICT_NUMBER": "023",
   "DISTRICT_NAME": "Central Okanagan",
   "SCHOOL_NUMBER": "02323080",
@@ -11,58 +12,40 @@
       "2017/2018": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "Msk",
-        "NUMBER_EMERGING": "Msk",
-        "NUMBER_DEVELOPING": "Msk",
-        "NUMBER_PROFICIENT": "Msk",
-        "NUMBER_EXTENDING": "Msk",
-        "SCORE": "Msk"
+        "SCORE": "Msk",
+        "AVERAGE": 0
       },
       "2018/2019": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "239",
-        "NUMBER_EMERGING": "99",
-        "NUMBER_DEVELOPING": "111",
-        "NUMBER_PROFICIENT": "Msk",
-        "NUMBER_EXTENDING": "Msk",
-        "SCORE": "2872"
+        "SCORE": "2872",
+        "AVERAGE": "12.02"
       },
       "2019/2020": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "88",
-        "NUMBER_EMERGING": "31",
-        "NUMBER_DEVELOPING": "42",
-        "NUMBER_PROFICIENT": "Msk",
-        "NUMBER_EXTENDING": "Msk",
-        "SCORE": "1025"
+        "SCORE": "1025",
+        "AVERAGE": "11.65"
       },
       "2020/2021": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "179",
-        "NUMBER_EMERGING": "60",
-        "NUMBER_DEVELOPING": "77",
-        "NUMBER_PROFICIENT": "Msk",
-        "NUMBER_EXTENDING": "Msk",
-        "SCORE": "1836"
+        "SCORE": "1836",
+        "AVERAGE": "10.26"
       }
     },
     "Literacy Assessment 10": {
       "2019/2020": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "61",
-        "NUMBER_EMERGING": "Msk",
-        "NUMBER_DEVELOPING": "13",
-        "NUMBER_PROFICIENT": "43",
-        "NUMBER_EXTENDING": "Msk",
-        "SCORE": "2182"
+        "SCORE": "2182",
+        "AVERAGE": "35.77"
       },
       "2020/2021": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "162",
-        "NUMBER_EMERGING": "Msk",
-        "NUMBER_DEVELOPING": "44",
-        "NUMBER_PROFICIENT": "94",
-        "NUMBER_EXTENDING": "Msk",
-        "SCORE": "5138"
+        "SCORE": "5138",
+        "AVERAGE": "31.72"
       }
     }
   }

@@ -1,242 +1,542 @@
 [
   {
-    "DISTRICT_NUMBER": "005",
-    "DISTRICT_NAME": "Southeast Kootenay"
-  },
-  {
-    "DISTRICT_NUMBER": "006",
-    "DISTRICT_NAME": "Rocky Mountain"
-  },
-  {
-    "DISTRICT_NUMBER": "008",
-    "DISTRICT_NAME": "Kootenay Lake"
-  },
-  {
-    "DISTRICT_NUMBER": "010",
-    "DISTRICT_NAME": "Arrow Lakes"
-  },
-  {
-    "DISTRICT_NUMBER": "019",
-    "DISTRICT_NAME": "Revelstoke"
-  },
-  {
-    "DISTRICT_NUMBER": "020",
-    "DISTRICT_NAME": "Kootenay-Columbia"
-  },
-  {
-    "DISTRICT_NUMBER": "022",
-    "DISTRICT_NAME": "Vernon"
-  },
-  {
-    "DISTRICT_NUMBER": "023",
-    "DISTRICT_NAME": "Central Okanagan"
-  },
-  {
-    "DISTRICT_NUMBER": "027",
-    "DISTRICT_NAME": "Cariboo-Chilcotin"
-  },
-  {
-    "DISTRICT_NUMBER": "028",
-    "DISTRICT_NAME": "Quesnel"
-  },
-  {
-    "DISTRICT_NUMBER": "033",
-    "DISTRICT_NAME": "Chilliwack"
-  },
-  {
-    "DISTRICT_NUMBER": "034",
-    "DISTRICT_NAME": "Abbotsford"
-  },
-  {
-    "DISTRICT_NUMBER": "035",
-    "DISTRICT_NAME": "Langley"
-  },
-  {
-    "DISTRICT_NUMBER": "036",
-    "DISTRICT_NAME": "Surrey"
-  },
-  {
-    "DISTRICT_NUMBER": "037",
-    "DISTRICT_NAME": "Delta"
-  },
-  {
-    "DISTRICT_NUMBER": "038",
-    "DISTRICT_NAME": "Richmond"
-  },
-  {
-    "DISTRICT_NUMBER": "039",
-    "DISTRICT_NAME": "Vancouver"
-  },
-  {
-    "DISTRICT_NUMBER": "040",
-    "DISTRICT_NAME": "New Westminster"
-  },
-  {
-    "DISTRICT_NUMBER": "041",
-    "DISTRICT_NAME": "Burnaby"
-  },
-  {
-    "DISTRICT_NUMBER": "042",
-    "DISTRICT_NAME": "Maple Ridge-Pitt Meadows"
-  },
-  {
-    "DISTRICT_NUMBER": "043",
-    "DISTRICT_NAME": "Coquitlam"
-  },
-  {
-    "DISTRICT_NUMBER": "044",
-    "DISTRICT_NAME": "North Vancouver"
+    "DISTRICT_NUMBER": "093",
+    "DISTRICT_NAME": "Conseil scolaire francophone",
+    "PUBLIC": true,
+    "WRITERS": 825,
+    "SCORE": 33630.9,
+    "AVERAGE": 40.76,
+    "RANK": 1
   },
   {
     "DISTRICT_NUMBER": "045",
-    "DISTRICT_NAME": "West Vancouver"
+    "DISTRICT_NAME": "West Vancouver",
+    "PUBLIC": true,
+    "WRITERS": 2007,
+    "SCORE": 64147,
+    "AVERAGE": 31.96,
+    "RANK": 2
   },
   {
-    "DISTRICT_NUMBER": "046",
-    "DISTRICT_NAME": "Sunshine Coast"
+    "DISTRICT_NUMBER": "038",
+    "DISTRICT_NAME": "Richmond",
+    "PUBLIC": true,
+    "WRITERS": 5459,
+    "SCORE": 168014.9,
+    "AVERAGE": 30.78,
+    "RANK": 3
   },
   {
-    "DISTRICT_NUMBER": "047",
-    "DISTRICT_NAME": "qathet"
+    "DISTRICT_NUMBER": "039",
+    "DISTRICT_NAME": "Vancouver",
+    "PUBLIC": true,
+    "WRITERS": 12598,
+    "SCORE": 371726.1,
+    "AVERAGE": 29.51,
+    "RANK": 4
   },
   {
-    "DISTRICT_NUMBER": "048",
-    "DISTRICT_NAME": "Sea to Sky"
+    "DISTRICT_NUMBER": "041",
+    "DISTRICT_NAME": "Burnaby",
+    "PUBLIC": true,
+    "WRITERS": 6577,
+    "SCORE": 191169.4,
+    "AVERAGE": 29.07,
+    "RANK": 5
   },
   {
-    "DISTRICT_NUMBER": "049",
-    "DISTRICT_NAME": "Central Coast"
+    "DISTRICT_NUMBER": "019",
+    "DISTRICT_NAME": "Revelstoke",
+    "PUBLIC": true,
+    "WRITERS": 222,
+    "SCORE": 6406,
+    "AVERAGE": 28.86,
+    "RANK": 6
   },
   {
-    "DISTRICT_NUMBER": "051",
-    "DISTRICT_NAME": "Boundary"
-  },
-  {
-    "DISTRICT_NUMBER": "052",
-    "DISTRICT_NAME": "Prince Rupert"
-  },
-  {
-    "DISTRICT_NUMBER": "053",
-    "DISTRICT_NAME": "Okanagan Similkameen"
-  },
-  {
-    "DISTRICT_NUMBER": "054",
-    "DISTRICT_NAME": "Bulkley Valley"
-  },
-  {
-    "DISTRICT_NUMBER": "057",
-    "DISTRICT_NAME": "Prince George"
-  },
-  {
-    "DISTRICT_NUMBER": "058",
-    "DISTRICT_NAME": "Nicola-Similkameen"
-  },
-  {
-    "DISTRICT_NUMBER": "059",
-    "DISTRICT_NAME": "Peace River South"
-  },
-  {
-    "DISTRICT_NUMBER": "060",
-    "DISTRICT_NAME": "Peace River North"
-  },
-  {
-    "DISTRICT_NUMBER": "061",
-    "DISTRICT_NAME": "Greater Victoria"
-  },
-  {
-    "DISTRICT_NUMBER": "062",
-    "DISTRICT_NAME": "Sooke"
+    "DISTRICT_NUMBER": "040",
+    "DISTRICT_NAME": "New Westminster",
+    "PUBLIC": true,
+    "WRITERS": 1760,
+    "SCORE": 50125.100000000006,
+    "AVERAGE": 28.48,
+    "RANK": 7
   },
   {
     "DISTRICT_NUMBER": "063",
-    "DISTRICT_NAME": "Saanich"
+    "DISTRICT_NAME": "Saanich",
+    "PUBLIC": true,
+    "WRITERS": 1808,
+    "SCORE": 51461.700000000004,
+    "AVERAGE": 28.46,
+    "RANK": 8
+  },
+  {
+    "DISTRICT_NUMBER": "044",
+    "DISTRICT_NAME": "North Vancouver",
+    "PUBLIC": true,
+    "WRITERS": 4166,
+    "SCORE": 118477.79999999999,
+    "AVERAGE": 28.44,
+    "RANK": 9
+  },
+  {
+    "DISTRICT_NUMBER": "043",
+    "DISTRICT_NAME": "Coquitlam",
+    "PUBLIC": true,
+    "WRITERS": 8544,
+    "SCORE": 238142.9,
+    "AVERAGE": 27.87,
+    "RANK": 10
+  },
+  {
+    "DISTRICT_NUMBER": "051",
+    "DISTRICT_NAME": "Boundary",
+    "PUBLIC": true,
+    "WRITERS": 317,
+    "SCORE": 8721.7,
+    "AVERAGE": 27.51,
+    "RANK": 11
+  },
+  {
+    "DISTRICT_NUMBER": "006",
+    "DISTRICT_NAME": "Rocky Mountain",
+    "PUBLIC": true,
+    "WRITERS": 852,
+    "SCORE": 23298.2,
+    "AVERAGE": 27.35,
+    "RANK": 12
+  },
+  {
+    "DISTRICT_NUMBER": "061",
+    "DISTRICT_NAME": "Greater Victoria",
+    "PUBLIC": true,
+    "WRITERS": 4422,
+    "SCORE": 119793.5,
+    "AVERAGE": 27.09,
+    "RANK": 13
+  },
+  {
+    "DISTRICT_NUMBER": "022",
+    "DISTRICT_NAME": "Vernon",
+    "PUBLIC": true,
+    "WRITERS": 2204,
+    "SCORE": 59663.600000000006,
+    "AVERAGE": 27.07,
+    "RANK": 14
   },
   {
     "DISTRICT_NUMBER": "064",
-    "DISTRICT_NAME": "Gulf Islands"
-  },
-  {
-    "DISTRICT_NUMBER": "067",
-    "DISTRICT_NAME": "Okanagan Skaha"
-  },
-  {
-    "DISTRICT_NUMBER": "068",
-    "DISTRICT_NAME": "Nanaimo-Ladysmith"
-  },
-  {
-    "DISTRICT_NUMBER": "069",
-    "DISTRICT_NAME": "Qualicum"
-  },
-  {
-    "DISTRICT_NUMBER": "070",
-    "DISTRICT_NAME": "Pacific Rim"
+    "DISTRICT_NAME": "Gulf Islands",
+    "PUBLIC": true,
+    "WRITERS": 398,
+    "SCORE": 10734,
+    "AVERAGE": 26.97,
+    "RANK": 15
   },
   {
     "DISTRICT_NUMBER": "071",
-    "DISTRICT_NAME": "Comox Valley"
+    "DISTRICT_NAME": "Comox Valley",
+    "PUBLIC": true,
+    "WRITERS": 2114,
+    "SCORE": 56969.9,
+    "AVERAGE": 26.95,
+    "RANK": 16
   },
   {
-    "DISTRICT_NUMBER": "072",
-    "DISTRICT_NAME": "Campbell River"
+    "DISTRICT_NUMBER": "020",
+    "DISTRICT_NAME": "Kootenay-Columbia",
+    "PUBLIC": true,
+    "WRITERS": 945,
+    "SCORE": 25396.9,
+    "AVERAGE": 26.88,
+    "RANK": 17
   },
   {
-    "DISTRICT_NUMBER": "073",
-    "DISTRICT_NAME": "Kamloops-Thompson"
+    "DISTRICT_NUMBER": "035",
+    "DISTRICT_NAME": "Langley",
+    "PUBLIC": true,
+    "WRITERS": 5714,
+    "SCORE": 150688.7,
+    "AVERAGE": 26.37,
+    "RANK": 18
   },
   {
-    "DISTRICT_NUMBER": "074",
-    "DISTRICT_NAME": "Gold Trail"
+    "DISTRICT_NUMBER": "036",
+    "DISTRICT_NAME": "Surrey",
+    "PUBLIC": true,
+    "WRITERS": 19173,
+    "SCORE": 505092.5,
+    "AVERAGE": 26.34,
+    "RANK": 19
   },
   {
-    "DISTRICT_NUMBER": "075",
-    "DISTRICT_NAME": "Mission"
+    "DISTRICT_NUMBER": "069",
+    "DISTRICT_NAME": "Qualicum",
+    "PUBLIC": true,
+    "WRITERS": 979,
+    "SCORE": 25677.4,
+    "AVERAGE": 26.23,
+    "RANK": 20
   },
   {
-    "DISTRICT_NUMBER": "078",
-    "DISTRICT_NAME": "Fraser-Cascade"
-  },
-  {
-    "DISTRICT_NUMBER": "079",
-    "DISTRICT_NAME": "Cowichan Valley"
-  },
-  {
-    "DISTRICT_NUMBER": "081",
-    "DISTRICT_NAME": "Fort Nelson"
-  },
-  {
-    "DISTRICT_NUMBER": "082",
-    "DISTRICT_NAME": "Coast Mountains"
+    "DISTRICT_NUMBER": "046",
+    "DISTRICT_NAME": "Sunshine Coast",
+    "PUBLIC": true,
+    "WRITERS": 790,
+    "SCORE": 20548.3,
+    "AVERAGE": 26.01,
+    "RANK": 21
   },
   {
     "DISTRICT_NUMBER": "083",
-    "DISTRICT_NAME": "K?wsaltktn�ws ne Secwepemc�l�ecw"
+    "DISTRICT_NAME": "K?wsaltktn�ws ne Secwepemc�l�ecw",
+    "PUBLIC": true,
+    "WRITERS": 1588,
+    "SCORE": 41050.9,
+    "AVERAGE": 25.85,
+    "RANK": 22
   },
   {
-    "DISTRICT_NUMBER": "085",
-    "DISTRICT_NAME": "Vancouver Island North"
+    "DISTRICT_NUMBER": "062",
+    "DISTRICT_NAME": "Sooke",
+    "PUBLIC": true,
+    "WRITERS": 2860,
+    "SCORE": 73778.8,
+    "AVERAGE": 25.8,
+    "RANK": 23
+  },
+  {
+    "DISTRICT_NUMBER": "037",
+    "DISTRICT_NAME": "Delta",
+    "PUBLIC": true,
+    "WRITERS": 4390,
+    "SCORE": 113147.29999999999,
+    "AVERAGE": 25.77,
+    "RANK": 24
+  },
+  {
+    "DISTRICT_NUMBER": "034",
+    "DISTRICT_NAME": "Abbotsford",
+    "PUBLIC": true,
+    "WRITERS": 4780,
+    "SCORE": 122597.1,
+    "AVERAGE": 25.65,
+    "RANK": 25
+  },
+  {
+    "DISTRICT_NUMBER": "067",
+    "DISTRICT_NAME": "Okanagan Skaha",
+    "PUBLIC": true,
+    "WRITERS": 1548,
+    "SCORE": 39527.6,
+    "AVERAGE": 25.53,
+    "RANK": 26
+  },
+  {
+    "DISTRICT_NUMBER": "073",
+    "DISTRICT_NAME": "Kamloops-Thompson",
+    "PUBLIC": true,
+    "WRITERS": 3609,
+    "SCORE": 92106.5,
+    "AVERAGE": 25.52,
+    "RANK": 27
+  },
+  {
+    "DISTRICT_NUMBER": "048",
+    "DISTRICT_NAME": "Sea to Sky",
+    "PUBLIC": true,
+    "WRITERS": 1280,
+    "SCORE": 32636.8,
+    "AVERAGE": 25.5,
+    "RANK": 28
+  },
+  {
+    "DISTRICT_NUMBER": "072",
+    "DISTRICT_NAME": "Campbell River",
+    "PUBLIC": true,
+    "WRITERS": 1179,
+    "SCORE": 30036.2,
+    "AVERAGE": 25.48,
+    "RANK": 29
+  },
+  {
+    "DISTRICT_NUMBER": "008",
+    "DISTRICT_NAME": "Kootenay Lake",
+    "PUBLIC": true,
+    "WRITERS": 1291,
+    "SCORE": 32800,
+    "AVERAGE": 25.41,
+    "RANK": 30
+  },
+  {
+    "DISTRICT_NUMBER": "042",
+    "DISTRICT_NAME": "Maple Ridge-Pitt Meadows",
+    "PUBLIC": true,
+    "WRITERS": 3538,
+    "SCORE": 89506.9,
+    "AVERAGE": 25.3,
+    "RANK": 31
+  },
+  {
+    "DISTRICT_NUMBER": "023",
+    "DISTRICT_NAME": "Central Okanagan",
+    "PUBLIC": true,
+    "WRITERS": 6127,
+    "SCORE": 153910.6,
+    "AVERAGE": 25.12,
+    "RANK": 32
+  },
+  {
+    "DISTRICT_NUMBER": "033",
+    "DISTRICT_NAME": "Chilliwack",
+    "PUBLIC": true,
+    "WRITERS": 3485,
+    "SCORE": 87236.3,
+    "AVERAGE": 25.03,
+    "RANK": 33
+  },
+  {
+    "DISTRICT_NUMBER": "047",
+    "DISTRICT_NAME": "qathet",
+    "PUBLIC": true,
+    "WRITERS": 556,
+    "SCORE": 13890.4,
+    "AVERAGE": 24.98,
+    "RANK": 34
+  },
+  {
+    "DISTRICT_NUMBER": "075",
+    "DISTRICT_NAME": "Mission",
+    "PUBLIC": true,
+    "WRITERS": 1290,
+    "SCORE": 32043.199999999997,
+    "AVERAGE": 24.84,
+    "RANK": 35
+  },
+  {
+    "DISTRICT_NUMBER": "053",
+    "DISTRICT_NAME": "Okanagan Similkameen",
+    "PUBLIC": true,
+    "WRITERS": 540,
+    "SCORE": 13371.2,
+    "AVERAGE": 24.76,
+    "RANK": 36
+  },
+  {
+    "DISTRICT_NUMBER": "010",
+    "DISTRICT_NAME": "Arrow Lakes",
+    "PUBLIC": true,
+    "WRITERS": 110,
+    "SCORE": 2720.8,
+    "AVERAGE": 24.73,
+    "RANK": 37
   },
   {
     "DISTRICT_NUMBER": "087",
-    "DISTRICT_NAME": "Stikine"
+    "DISTRICT_NAME": "Stikine",
+    "PUBLIC": true,
+    "WRITERS": 11,
+    "SCORE": 271.5,
+    "AVERAGE": 24.68,
+    "RANK": 38
+  },
+  {
+    "DISTRICT_NUMBER": "060",
+    "DISTRICT_NAME": "Peace River North",
+    "PUBLIC": true,
+    "WRITERS": 1315,
+    "SCORE": 32393.2,
+    "AVERAGE": 24.63,
+    "RANK": 39
+  },
+  {
+    "DISTRICT_NUMBER": "068",
+    "DISTRICT_NAME": "Nanaimo-Ladysmith",
+    "PUBLIC": true,
+    "WRITERS": 3457,
+    "SCORE": 84797.8,
+    "AVERAGE": 24.53,
+    "RANK": 40
   },
   {
     "DISTRICT_NUMBER": "091",
-    "DISTRICT_NAME": "Nechako Lakes"
+    "DISTRICT_NAME": "Nechako Lakes",
+    "PUBLIC": true,
+    "WRITERS": 838,
+    "SCORE": 19974.9,
+    "AVERAGE": 23.84,
+    "RANK": 41
   },
   {
-    "DISTRICT_NUMBER": "092",
-    "DISTRICT_NAME": "Nisga'a"
+    "DISTRICT_NUMBER": "005",
+    "DISTRICT_NAME": "Southeast Kootenay",
+    "PUBLIC": true,
+    "WRITERS": 1438,
+    "SCORE": 34080,
+    "AVERAGE": 23.7,
+    "RANK": 42
   },
   {
-    "DISTRICT_NUMBER": "093",
-    "DISTRICT_NAME": "Conseil scolaire francophone"
+    "DISTRICT_NUMBER": "052",
+    "DISTRICT_NAME": "Prince Rupert",
+    "PUBLIC": true,
+    "WRITERS": 401,
+    "SCORE": 9497.5,
+    "AVERAGE": 23.68,
+    "RANK": 43
+  },
+  {
+    "DISTRICT_NUMBER": "082",
+    "DISTRICT_NAME": "Coast Mountains",
+    "PUBLIC": true,
+    "WRITERS": 1112,
+    "SCORE": 26101.7,
+    "AVERAGE": 23.47,
+    "RANK": 44
+  },
+  {
+    "DISTRICT_NUMBER": "070",
+    "DISTRICT_NAME": "Pacific Rim",
+    "PUBLIC": true,
+    "WRITERS": 930,
+    "SCORE": 21503.9,
+    "AVERAGE": 23.12,
+    "RANK": 45
   },
   {
     "DISTRICT_NUMBER": "050",
-    "DISTRICT_NAME": "Haida Gwaii"
+    "DISTRICT_NAME": "Haida Gwaii",
+    "PUBLIC": true,
+    "WRITERS": 113,
+    "SCORE": 2605.6,
+    "AVERAGE": 23.06,
+    "RANK": 46
+  },
+  {
+    "DISTRICT_NUMBER": "057",
+    "DISTRICT_NAME": "Prince George",
+    "PUBLIC": true,
+    "WRITERS": 3142,
+    "SCORE": 72249.2,
+    "AVERAGE": 22.99,
+    "RANK": 47
   },
   {
     "DISTRICT_NUMBER": "084",
-    "DISTRICT_NAME": "Vancouver Island West"
+    "DISTRICT_NAME": "Vancouver Island West",
+    "PUBLIC": true,
+    "WRITERS": 36,
+    "SCORE": 805.8,
+    "AVERAGE": 22.38,
+    "RANK": 48
+  },
+  {
+    "DISTRICT_NUMBER": "028",
+    "DISTRICT_NAME": "Quesnel",
+    "PUBLIC": true,
+    "WRITERS": 724,
+    "SCORE": 16182.800000000001,
+    "AVERAGE": 22.35,
+    "RANK": 49
+  },
+  {
+    "DISTRICT_NUMBER": "054",
+    "DISTRICT_NAME": "Bulkley Valley",
+    "PUBLIC": true,
+    "WRITERS": 502,
+    "SCORE": 11207.2,
+    "AVERAGE": 22.33,
+    "RANK": 50
+  },
+  {
+    "DISTRICT_NUMBER": "081",
+    "DISTRICT_NAME": "Fort Nelson",
+    "PUBLIC": true,
+    "WRITERS": 187,
+    "SCORE": 4172.5,
+    "AVERAGE": 22.31,
+    "RANK": 51
+  },
+  {
+    "DISTRICT_NUMBER": "059",
+    "DISTRICT_NAME": "Peace River South",
+    "PUBLIC": true,
+    "WRITERS": 786,
+    "SCORE": 17455.8,
+    "AVERAGE": 22.21,
+    "RANK": 52
+  },
+  {
+    "DISTRICT_NUMBER": "027",
+    "DISTRICT_NAME": "Cariboo-Chilcotin",
+    "PUBLIC": true,
+    "WRITERS": 1164,
+    "SCORE": 25770.699999999997,
+    "AVERAGE": 22.14,
+    "RANK": 53
+  },
+  {
+    "DISTRICT_NUMBER": "079",
+    "DISTRICT_NAME": "Cowichan Valley",
+    "PUBLIC": true,
+    "WRITERS": 1742,
+    "SCORE": 38570,
+    "AVERAGE": 22.14,
+    "RANK": 54
+  },
+  {
+    "DISTRICT_NUMBER": "058",
+    "DISTRICT_NAME": "Nicola-Similkameen",
+    "PUBLIC": true,
+    "WRITERS": 556,
+    "SCORE": 12134.900000000001,
+    "AVERAGE": 21.83,
+    "RANK": 55
+  },
+  {
+    "DISTRICT_NUMBER": "049",
+    "DISTRICT_NAME": "Central Coast",
+    "PUBLIC": true,
+    "WRITERS": 10,
+    "SCORE": 216.6,
+    "AVERAGE": 21.66,
+    "RANK": 56
+  },
+  {
+    "DISTRICT_NUMBER": "085",
+    "DISTRICT_NAME": "Vancouver Island North",
+    "PUBLIC": true,
+    "WRITERS": 316,
+    "SCORE": 6828.200000000001,
+    "AVERAGE": 21.61,
+    "RANK": 57
+  },
+  {
+    "DISTRICT_NUMBER": "074",
+    "DISTRICT_NAME": "Gold Trail",
+    "PUBLIC": true,
+    "WRITERS": 230,
+    "SCORE": 4965.9,
+    "AVERAGE": 21.59,
+    "RANK": 58
+  },
+  {
+    "DISTRICT_NUMBER": "078",
+    "DISTRICT_NAME": "Fraser-Cascade",
+    "PUBLIC": true,
+    "WRITERS": 466,
+    "SCORE": 9496.2,
+    "AVERAGE": 20.38,
+    "RANK": 59
+  },
+  {
+    "DISTRICT_NUMBER": "092",
+    "DISTRICT_NAME": "Nisga'a",
+    "PUBLIC": true,
+    "WRITERS": 124,
+    "SCORE": 1857.8,
+    "AVERAGE": 14.98,
+    "RANK": 60
   }
 ]

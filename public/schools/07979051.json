@@ -1,6 +1,7 @@
 {
   "DATA_LEVEL": "School Level",
   "PUBLIC_OR_INDEPENDENT": "Public School",
+  "PUBLIC": true,
   "DISTRICT_NUMBER": "079",
   "DISTRICT_NAME": "Cowichan Valley",
   "SCHOOL_NUMBER": "07979051",
@@ -11,33 +12,24 @@
       "2024/2025": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "247",
-        "NUMBER_EMERGING": "Msk",
-        "NUMBER_DEVELOPING": "129",
-        "NUMBER_PROFICIENT": "57",
-        "NUMBER_EXTENDING": "Msk",
-        "SCORE": "2717.7"
+        "SCORE": "2717.7",
+        "AVERAGE": "11.00"
       }
     },
     "Literacy Assessment 10": {
       "2024/2025": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "239",
-        "NUMBER_EMERGING": "12",
-        "NUMBER_DEVELOPING": "86",
-        "NUMBER_PROFICIENT": "130",
-        "NUMBER_EXTENDING": "11",
-        "SCORE": "7312.5"
+        "SCORE": "7312.5",
+        "AVERAGE": "30.60"
       }
     },
     "Literacy Assessment 12": {
       "2024/2025": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "275",
-        "NUMBER_EMERGING": "13",
-        "NUMBER_DEVELOPING": "100",
-        "NUMBER_PROFICIENT": "142",
-        "NUMBER_EXTENDING": "20",
-        "SCORE": "7226.4"
+        "SCORE": "7226.4",
+        "AVERAGE": "26.28"
       }
     }
   }

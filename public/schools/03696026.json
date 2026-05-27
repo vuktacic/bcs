@@ -1,6 +1,7 @@
 {
   "DATA_LEVEL": "School Level",
   "PUBLIC_OR_INDEPENDENT": "Independent School",
+  "PUBLIC": false,
   "DISTRICT_NUMBER": "",
   "DISTRICT_NAME": "Fraser Valley Elementary School Society",
   "SCHOOL_NUMBER": "03696026",
@@ -11,33 +12,24 @@
       "2024/2025": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "30",
-        "NUMBER_EMERGING": "Msk",
-        "NUMBER_DEVELOPING": "Msk",
-        "NUMBER_PROFICIENT": "16",
-        "NUMBER_EXTENDING": "11",
-        "SCORE": "757.2"
+        "SCORE": "757.2",
+        "AVERAGE": "25.24"
       }
     },
     "Literacy Assessment 10": {
       "2024/2025": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "29",
-        "NUMBER_EMERGING": "Msk",
-        "NUMBER_DEVELOPING": "Msk",
-        "NUMBER_PROFICIENT": "20",
-        "NUMBER_EXTENDING": "Msk",
-        "SCORE": "1250.5"
+        "SCORE": "1250.5",
+        "AVERAGE": "43.12"
       }
     },
     "Literacy Assessment 12": {
       "2024/2025": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "17",
-        "NUMBER_EMERGING": "",
-        "NUMBER_DEVELOPING": "Msk",
-        "NUMBER_PROFICIENT": "Msk",
-        "NUMBER_EXTENDING": "10",
-        "SCORE": "669.8"
+        "SCORE": "669.8",
+        "AVERAGE": "39.40"
       }
     }
   }
