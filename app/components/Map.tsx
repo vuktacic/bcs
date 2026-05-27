@@ -24,20 +24,6 @@ L.Icon.Default.mergeOptions({
         "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
 });
 
-type GeoJsonData = unknown;
-
-type SchoolIndex = {
-    SCHOOL_NUMBER: string;
-    SCHOOL_NAME: string;
-    DISTRICT_NUMBER: string;
-    DISTRICT_NAME: string;
-
-    LOCATION: {
-        lat: string;
-        lng: string;
-    }
-}
-
 function seedOffsets(lat: number, lng: number, schoolNumber: string): [number, number] {
     const seed = parseInt(schoolNumber, 10) || 0;
     const offsetLat = (Math.sin(seed) * 0.0005) || 0;
@@ -67,37 +53,28 @@ function BaseMapLayer() {
     return null;
 }
 
-function buildScoreSeries(data: any) {
-    return Object.entries(data)
-        .sort(([a], [b]) => a.localeCompare(b))
-        .map(([year, value]: any) => ({
-            year,
-            score: parseFloat(value.SCORE) / parseFloat(value.NUMBER_WRITERS) || 0,
-        }));
-}
-
 function buildCombinedScoreSeries(assessments: any, provinceData?: any) {
     const allYears = new Set<string>();
-    
-    [na10, la10, la12].forEach(key => {
-        Object.keys(assessments?.[key] || {}).forEach(year => allYears.add(year));
-        Object.keys(provinceData?.assessments?.[key] || {}).forEach(year => allYears.add(year));
+
+    [na10, la10, la12].forEach((key) => {
+        Object.keys(assessments?.[key] || {}).forEach((year) => allYears.add(year));
+        Object.keys(provinceData?.assessments?.[key] || {}).forEach((year) => allYears.add(year));
     });
-    
+
     const years = Array.from(allYears).sort();
 
-    const rows = years.map(year => {
+    const rows = years.map((year) => {
         const obj: any = { year };
 
-        [na10, la10, la12].forEach(key => {
+        [na10, la10, la12].forEach((key) => {
             const value = assessments?.[key]?.[year];
-            if (value) {
+            if(value) {
                 const score = parseFloat(value.SCORE) / parseFloat(value.NUMBER_WRITERS) || 0;
                 obj[key] = Math.round(score * 100) / 100;
             }
 
             const provValue = provinceData?.assessments?.[key]?.[year];
-            if (provValue) {
+            if(provValue) {
                 const score = parseFloat(provValue.SCORE) / parseFloat(provValue.NUMBER_WRITERS) || 0;
                 obj[`${key}_prov`] = Math.round(score * 100) / 100;
             }
@@ -106,19 +83,17 @@ function buildCombinedScoreSeries(assessments: any, provinceData?: any) {
         return obj;
     });
 
-    // Interpolate runs of zero/undefined values for each series using linear slope
     const seriesKeys = new Set<string>();
-    rows.forEach(r => Object.keys(r).forEach(k => { if (k !== 'year') seriesKeys.add(k); }));
+    rows.forEach((r) => Object.keys(r).forEach((k) => { if(k !== "year") seriesKeys.add(k); }));
 
-    seriesKeys.forEach(key => {
-        // collect indices where the value is defined and non-zero
+    seriesKeys.forEach((key) => {
         const defined: number[] = [];
         for (let i = 0; i < rows.length; i++) {
             const v = rows[i][key];
-            if (v !== undefined && v !== null && Number.isFinite(v) && v !== 0) defined.push(i);
+            if(v !== undefined && v !== null && Number.isFinite(v) && v !== 0) defined.push(i);
         }
 
-        if (defined.length < 2) return; // need two surrounding points to interpolate
+        if(defined.length < 2) return;
 
         for (let di = 0; di < defined.length - 1; di++) {
             const startIdx = defined[di];
@@ -126,12 +101,12 @@ function buildCombinedScoreSeries(assessments: any, provinceData?: any) {
             const startVal = rows[startIdx][key];
             const endVal = rows[endIdx][key];
             const span = endIdx - startIdx;
-            if (span <= 1) continue;
+            if(span <= 1) continue;
             const slope = (endVal - startVal) / span;
 
             for (let j = startIdx + 1; j < endIdx; j++) {
                 const cur = rows[j][key];
-                if (cur === undefined || cur === 0) {
+                if(cur === undefined || cur === 0) {
                     const interp = startVal + slope * (j - startIdx);
                     rows[j][key] = Math.round(interp * 100) / 100;
                 }
@@ -197,106 +172,54 @@ function DistrictPopupContent({
     return (
         <div style={{ width: `${popupWidthPx}px`, maxWidth: `${popupWidthPx}px` }}>
             <strong>{districtName} ({districtNumber})</strong><br />
-            <div>
-                <div><strong>Assessment Mean Scores ({currentYear}):</strong></div>
-                <div>Numeracy 10: {formatMeanFromAssessments(districtAssessments, na10, currentYear)} - {districtAssessments?.[na10]?.[currentYear]?.NUMBER_WRITERS || "—"} Exams</div>
-                <div>Literacy 10: {formatMeanFromAssessments(districtAssessments, la10, currentYear)} - {districtAssessments?.[la10]?.[currentYear]?.NUMBER_WRITERS || "—"} Exams</div>
-                <div>Literacy 12: {formatMeanFromAssessments(districtAssessments, la12, currentYear)} - {districtAssessments?.[la12]?.[currentYear]?.NUMBER_WRITERS || "—"} Exams</div>
-            </div>
+            {districtAssessments ? (
+                <div>
+                    <div><strong>Assessment Mean Scores ({currentYear}):</strong></div>
+                    <div>Numeracy 10: {districtAssessments?.[na10]?.[currentYear]?.AVERAGE || "—"} - {districtAssessments?.[na10]?.[currentYear]?.NUMBER_WRITERS || "—"} Exams</div>
+                    <div>Literacy 10: {districtAssessments?.[la10]?.[currentYear]?.AVERAGE || "—"} - {districtAssessments?.[la10]?.[currentYear]?.NUMBER_WRITERS || "—"} Exams</div>
+                    <div>Literacy 12: {districtAssessments?.[la12]?.[currentYear]?.AVERAGE || "—"} - {districtAssessments?.[la12]?.[currentYear]?.NUMBER_WRITERS || "—"} Exams</div>
+                </div>
+            ) : (
+                <div><em>Loading district data...</em></div>
+            )}
             <strong className="mt-2 block">Score Trends:</strong>
-            <ResponsiveContainer width="100%" height={350}>
-                <LineChart data={trimLeadingTrailingZeros(buildCombinedScoreSeries(districtAssessments, provinceData))}>
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="year" />
-                    <YAxis />
-                    <Tooltip
-                        position={{ x: tooltipOffsetX, y: 12 }}
-                        allowEscapeViewBox={{ x: true, y: true }}
-                        contentStyle={{ backgroundColor: 'rgba(255, 255, 255, 0.95)', border: '1px solid #ccc', padding: '10px', borderRadius: '4px' }}
-                        wrapperStyle={{ outline: 'none' }}
-                    />
-                    <Legend />
-                    <Line type="monotone" dataKey={na10} stroke="#8884d8" strokeWidth={2} />
-                    <Line type="monotone" dataKey={la10} stroke="#82ca9d" strokeWidth={2} />
-                    <Line type="monotone" dataKey={la12} stroke="#ffc658" strokeWidth={2} />
-                    <Line type="monotone" dataKey={`${na10}_prov`} stroke="#ababc8" strokeWidth={1} />
-                    <Line type="monotone" dataKey={`${la10}_prov`} stroke="#91b59e" strokeWidth={1} />
-                    <Line type="monotone" dataKey={`${la12}_prov`} stroke="#baba6e" strokeWidth={1} />
-                </LineChart>
-            </ResponsiveContainer>
+            {districtAssessments ? (
+                <ResponsiveContainer width="100%" height={350}>
+                    <LineChart data={trimLeadingTrailingZeros(buildCombinedScoreSeries(districtAssessments || {}, provinceData))}>
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="year" />
+                        <YAxis />
+                        <Tooltip
+                            position={{ x: tooltipOffsetX, y: 12 }}
+                            allowEscapeViewBox={{ x: true, y: true }}
+                            contentStyle={{ backgroundColor: 'rgba(255, 255, 255, 0.95)', border: '1px solid #ccc', padding: '10px', borderRadius: '4px', zIndex: 9000 }}
+                            wrapperStyle={{ outline: 'none' }}
+                        />
+                        <Legend />
+                        <Line type="monotone" dataKey={na10} stroke="#8884d8" strokeWidth={2} />
+                        <Line type="monotone" dataKey={la10} stroke="#82ca9d" strokeWidth={2} />
+                        <Line type="monotone" dataKey={la12} stroke="#ffc658" strokeWidth={2} />
+                        <Line type="monotone" dataKey={`${na10}_prov`} stroke="#ababc8" strokeWidth={1} />
+                        <Line type="monotone" dataKey={`${la10}_prov`} stroke="#91b59e" strokeWidth={1} />
+                        <Line type="monotone" dataKey={`${la12}_prov`} stroke="#baba6e" strokeWidth={1} />
+                    </LineChart>
+                </ResponsiveContainer>
+            ) : (
+                <div><em>Loading district data...</em></div>
+            )}
         </div>
     );
 }
 
-function formatMeanFromAssessments(assessments: any, assessmentKey: string, year: string) {
-    const entry = assessments?.[assessmentKey]?.[year];
-    if (!entry) return "—";
-    const score = parseFloat(entry.SCORE);
-    const writers = parseFloat(entry.NUMBER_WRITERS);
-    if (!Number.isFinite(score) || !Number.isFinite(writers) || writers === 0) return "—";
-    return (score / writers).toFixed(2);
-}
-
-function onEachDistrict(feature: any, layer: L.Layer) {
-    // Placeholder - will be defined inside component
-}
-
-export default function Map({query}: { query: string }) {
-    const [geojsonData, setGeojsonData] = useState<GeoJsonData | null>(null);
-    const [schoolIndex, setSchoolIndex] = useState<SchoolIndex[] | null>(null);
+export default function Map({query, geojsonData, schoolIndex, districtIndex, provinceData, publicData, independentData}: { query: string; geojsonData: any | null; schoolIndex: any[] | null; districtIndex: any[] | null; provinceData: any | null; publicData: any | null; independentData: any | null }) {
     const [selectedSchool, setSelectedSchool] = useState<any | null>(null);
-    const [provinceData, setProvinceData] = useState<any | null>(null);
+    const [selectedDistrict, setSelectedDistrict] = useState<{ districtName: string; districtNumber: string; assessments: any | null } | null>(null);
     const schoolPopupOpenRef = useRef(false);
-    const skipDistrictPopupRef = useRef(false);
+    const districtPopupOpenRef = useRef(false);
     const districtPopupRootRef = useRef<Root | null>(null);
-
-    useEffect(() => {
-        let isMounted = true;
-
-        const loadGeojson = async () => {
-            const response = await fetch("/districts.geojson");
-            const data = await response.json();
-
-            if (isMounted) {
-                setGeojsonData(data);
-            }
-        };
-
-        const loadSchoolIndex = async () => {
-            const response = await fetch("/indexes/schools.json");
-            const data = await response.json();
-
-            if (isMounted) {
-                setSchoolIndex(data);
-            }
-        }
-
-        const loadProvinceData = async () => {
-            const response = await fetch("/province/bc.json");
-            const data = await response.json();
-
-            if (isMounted) {
-                setProvinceData(data);
-            }
-        };
-
-        loadGeojson().catch(console.error);
-        loadSchoolIndex().catch(console.error);
-        loadProvinceData().catch(console.error);
-
-        return () => {
-            isMounted = false;
-        };
-    }, []);
-
-    function formatMeanSchool(assessmentKey: string) {
-        const entry = selectedSchool?.assessments?.[assessmentKey]?.[currentYear];
-        if (!entry) return "—";
-        const score = parseFloat(entry.SCORE);
-        const writers = parseFloat(entry.NUMBER_WRITERS);
-        if (!Number.isFinite(score) || !Number.isFinite(writers) || writers === 0) return "—";
-        return (score / writers).toFixed(2);
-    }
+    const activeDistrictNumberRef = useRef<string | null>(null);
+    const mapRef = useRef<L.Map | null>(null);
+    const justClosedPopupRef = useRef(false);
 
     const matches = schoolIndex?.filter((school) =>
         school.SCHOOL_NAME.toLowerCase().includes(query.toLowerCase()) ||
@@ -305,53 +228,117 @@ export default function Map({query}: { query: string }) {
         school.DISTRICT_NUMBER.includes(query)
     ) || [];
 
+    const markJustClosed = useCallback(() => {
+        console.log("popup just closed");
+        justClosedPopupRef.current = true;
+        setTimeout(() => {
+            justClosedPopupRef.current = false;
+            console.log("popup close window cleared");
+        }, 0);
+    }, []);
+
     const handleEachDistrict = useCallback((feature: any, layer: L.Layer) => {
         layer.on({
+            popupclose: () => {
+                const district = feature.properties;
+                const districtNumber = formatDistrictNumber(district.SCHOOL_DISTRICT_NUMBER);
+                if(activeDistrictNumberRef.current !== districtNumber) {
+                    console.log("district popup close ignored (inactive)", { districtNumber, active: activeDistrictNumberRef.current });
+                    return;
+                }
+                console.log("district popup close", { districtNumber });
+                districtPopupOpenRef.current = false;
+                activeDistrictNumberRef.current = null;
+                markJustClosed();
+                layer.unbindPopup();
+            },
             click: async (e) => {
                 e.originalEvent?.preventDefault();
                 e.originalEvent?.stopPropagation();
                 const district = feature.properties;
                 const districtNumber = formatDistrictNumber(district.SCHOOL_DISTRICT_NUMBER);
-                
-                // If we just closed a school popup, skip this district popup
-                if (skipDistrictPopupRef.current) {
-                    skipDistrictPopupRef.current = false;
+                const districtName = district.SCHOOL_DISTRICT_NAME;
+
+                console.log("district click", { districtNumber, districtName });
+
+                if(justClosedPopupRef.current) {
+                    console.log("district click skipped (just closed)", { districtNumber });
+                    layer.unbindPopup();
+                    mapRef.current?.closePopup();
                     return;
                 }
 
-                // If a school popup is open, close it and mark to skip district popup on the next click
-                if (schoolPopupOpenRef.current) {
+                if(schoolPopupOpenRef.current) {
+                    console.log("district click closing school popup", { districtNumber });
                     setSelectedSchool(null);
                     schoolPopupOpenRef.current = false;
-                    skipDistrictPopupRef.current = true;
+                    mapRef.current?.closePopup();
                     return;
                 }
 
-                const response = await fetch(`/districts/${districtNumber}.json`);
-                const data = await response.json();
+                if(districtPopupOpenRef.current) {
+                    console.log("district click closing district popup", { districtNumber });
+                    mapRef.current?.closePopup();
+                    return;
+                }
 
                 const popupContainer = document.createElement("div");
                 popupContainer.style.width = `${popupWidthPx}px`;
                 popupContainer.style.maxWidth = `${popupWidthPx}px`;
                 districtPopupRootRef.current?.unmount();
                 districtPopupRootRef.current = createRoot(popupContainer);
-                districtPopupRootRef.current.render(
-                    <DistrictPopupContent
-                        districtName={district.SCHOOL_DISTRICT_NAME}
-                        districtNumber={districtNumber}
-                        districtAssessments={data?.assessments}
-                        provinceData={provinceData}
-                    />
-                );
+                activeDistrictNumberRef.current = districtNumber;
+
+                setSelectedDistrict({
+                    districtName,
+                    districtNumber,
+                    assessments: null,
+                });
 
                 layer.bindPopup(popupContainer, {
                     maxWidth: popupWidthPx,
                     minWidth: popupWidthPx,
                 });
                 layer.openPopup();
+                districtPopupOpenRef.current = true;
+
+                console.log("district popup opened", { districtNumber });
+
+                const response = await fetch(`/districts/${districtNumber}.json`);
+                const data = await response.json();
+
+                console.log("district data loaded", { districtNumber });
+
+                if(activeDistrictNumberRef.current !== districtNumber) {
+                    console.log("district data ignored (stale)", { districtNumber, active: activeDistrictNumberRef.current });
+                    return;
+                }
+
+                setSelectedDistrict({
+                    districtName,
+                    districtNumber,
+                    assessments: data?.assessments,
+                });
             }
         });
-    }, [provinceData]);
+    }, [markJustClosed]);
+
+    useEffect(() => {
+        if(!selectedDistrict || !districtPopupRootRef.current) {
+            return;
+        }
+
+        console.log("district popup render", { districtNumber: selectedDistrict.districtNumber });
+
+        districtPopupRootRef.current.render(
+            <DistrictPopupContent
+                districtName={selectedDistrict.districtName}
+                districtNumber={selectedDistrict.districtNumber}
+                districtAssessments={selectedDistrict.assessments}
+                provinceData={provinceData}
+            />
+        );
+    }, [selectedDistrict, provinceData]);
 
     return (
         <MapContainer
@@ -380,14 +367,16 @@ export default function Map({query}: { query: string }) {
                         )}
                         eventHandlers={{
                             click: async () => {
-                                if (query && !matches.includes(school)) return;
+                                if(query && !matches.includes(school)) {
+                                    return;
+                                }
 
                                 console.log("school marker clicked", {
                                     schoolNumber: school.SCHOOL_NUMBER,
                                     schoolName: school.SCHOOL_NAME,
                                 });
+
                                 schoolPopupOpenRef.current = true;
-                                skipDistrictPopupRef.current = false;
                                 const response = await fetch(`/schools/${school.SCHOOL_NUMBER}.json`);
                                 const data = await response.json();
                                 setSelectedSchool(data);
@@ -405,8 +394,8 @@ export default function Map({query}: { query: string }) {
                                 popupclose: () => {
                                     console.log("school popup close", school.SCHOOL_NUMBER);
                                     schoolPopupOpenRef.current = false;
-                                    skipDistrictPopupRef.current = false;
-                                    if (selectedSchool?.SCHOOL_NUMBER === school.SCHOOL_NUMBER) {
+                                    markJustClosed();
+                                    if(selectedSchool?.SCHOOL_NUMBER === school.SCHOOL_NUMBER) {
                                         setSelectedSchool(null);
                                     }
                                 },
@@ -419,9 +408,9 @@ export default function Map({query}: { query: string }) {
                                     {selectedSchool && selectedSchool.SCHOOL_NUMBER === school.SCHOOL_NUMBER ? (
                                         <div>
                                             <div><strong>Assessment Mean Scores ({currentYear}):</strong></div>
-                                            <div>Numeracy 10: {formatMeanSchool(na10)} - {selectedSchool?.assessments?.[na10]?.[currentYear]?.NUMBER_WRITERS || "—"} Exams</div>
-                                            <div>Literacy 10: {formatMeanSchool(la10)} - {selectedSchool?.assessments?.[la10]?.[currentYear]?.NUMBER_WRITERS || "—"} Exams</div>
-                                            <div>Literacy 12: {formatMeanSchool(la12)} - {selectedSchool?.assessments?.[la12]?.[currentYear]?.NUMBER_WRITERS || "—"} Exams</div>
+                                            <div>Numeracy 10: {selectedSchool?.assessments?.[na10]?.[currentYear]?.AVERAGE || "—"} - {selectedSchool?.assessments?.[na10]?.[currentYear]?.NUMBER_WRITERS || "—"} Exams</div>
+                                            <div>Literacy 10: {selectedSchool?.assessments?.[la10]?.[currentYear]?.AVERAGE || "—"} - {selectedSchool?.assessments?.[la10]?.[currentYear]?.NUMBER_WRITERS || "—"} Exams</div>
+                                            <div>Literacy 12: {selectedSchool?.assessments?.[la12]?.[currentYear]?.AVERAGE || "—"} - {selectedSchool?.assessments?.[la12]?.[currentYear]?.NUMBER_WRITERS || "—"} Exams</div>
                                         </div>
                                     ) : (
                                         <div><em>Click marker to load school data</em></div>

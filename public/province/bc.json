@@ -1,6 +1,7 @@
 {
   "DATA_LEVEL": "Province Level",
   "PUBLIC_OR_INDEPENDENT": "Province-Total",
+  "PUBLIC": false,
   "DISTRICT_NUMBER": "",
   "DISTRICT_NAME": "",
   "SCHOOL_NUMBER": "",
@@ -11,168 +12,114 @@
       "2017/2018": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "47985",
-        "NUMBER_EMERGING": "10007",
-        "NUMBER_DEVELOPING": "20581",
-        "NUMBER_PROFICIENT": "15288",
-        "NUMBER_EXTENDING": "2109",
-        "SCORE": "978418"
+        "SCORE": "978418",
+        "AVERAGE": "20.39"
       },
       "2018/2019": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "58464",
-        "NUMBER_EMERGING": "15362",
-        "NUMBER_DEVELOPING": "25080",
-        "NUMBER_PROFICIENT": "15788",
-        "NUMBER_EXTENDING": "2234",
-        "SCORE": "999889"
+        "SCORE": "999889",
+        "AVERAGE": "17.10"
       },
       "2019/2020": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "40738",
-        "NUMBER_EMERGING": "9394",
-        "NUMBER_DEVELOPING": "14786",
-        "NUMBER_PROFICIENT": "14103",
-        "NUMBER_EXTENDING": "2455",
-        "SCORE": "636771"
+        "SCORE": "636771",
+        "AVERAGE": "15.63"
       },
       "2020/2021": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "65829",
-        "NUMBER_EMERGING": "12999",
-        "NUMBER_DEVELOPING": "25807",
-        "NUMBER_PROFICIENT": "23715",
-        "NUMBER_EXTENDING": "3308",
-        "SCORE": "957863"
+        "SCORE": "957863",
+        "AVERAGE": "14.55"
       },
       "2021/2022": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "47015",
-        "NUMBER_EMERGING": "7501",
-        "NUMBER_DEVELOPING": "17456",
-        "NUMBER_PROFICIENT": "17181",
-        "NUMBER_EXTENDING": "4877",
-        "SCORE": "796302.2"
+        "SCORE": "796302.2",
+        "AVERAGE": "16.94"
       },
       "2022/2023": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "53931",
-        "NUMBER_EMERGING": "7680",
-        "NUMBER_DEVELOPING": "21189",
-        "NUMBER_PROFICIENT": "19093",
-        "NUMBER_EXTENDING": "5969",
-        "SCORE": "862651.6"
+        "SCORE": "862651.6",
+        "AVERAGE": "16.00"
       },
       "2023/2024": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "52387",
-        "NUMBER_EMERGING": "8350",
-        "NUMBER_DEVELOPING": "20486",
-        "NUMBER_PROFICIENT": "17996",
-        "NUMBER_EXTENDING": "5555",
-        "SCORE": "847455.7"
+        "SCORE": "847455.7",
+        "AVERAGE": "16.18"
       },
       "2024/2025": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "53468",
-        "NUMBER_EMERGING": "6586",
-        "NUMBER_DEVELOPING": "20156",
-        "NUMBER_PROFICIENT": "20273",
-        "NUMBER_EXTENDING": "6453",
-        "SCORE": "880079.3"
+        "SCORE": "880079.3",
+        "AVERAGE": "16.46"
       }
     },
     "Literacy Assessment 10": {
       "2019/2020": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "24739",
-        "NUMBER_EMERGING": "1134",
-        "NUMBER_DEVELOPING": "5178",
-        "NUMBER_PROFICIENT": "15699",
-        "NUMBER_EXTENDING": "2728",
-        "SCORE": "890415"
+        "SCORE": "890415",
+        "AVERAGE": "35.99"
       },
       "2020/2021": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "57346",
-        "NUMBER_EMERGING": "2600",
-        "NUMBER_DEVELOPING": "11590",
-        "NUMBER_PROFICIENT": "34825",
-        "NUMBER_EXTENDING": "8331",
-        "SCORE": "2111298"
+        "SCORE": "2111298",
+        "AVERAGE": "36.82"
       },
       "2021/2022": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "48978",
-        "NUMBER_EMERGING": "2271",
-        "NUMBER_DEVELOPING": "10161",
-        "NUMBER_PROFICIENT": "30398",
-        "NUMBER_EXTENDING": "6148",
-        "SCORE": "1790566.2"
+        "SCORE": "1790566.2",
+        "AVERAGE": "36.56"
       },
       "2022/2023": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "53173",
-        "NUMBER_EMERGING": "2578",
-        "NUMBER_DEVELOPING": "11503",
-        "NUMBER_PROFICIENT": "32543",
-        "NUMBER_EXTENDING": "6549",
-        "SCORE": "1891993.7"
+        "SCORE": "1891993.7",
+        "AVERAGE": "35.58"
       },
       "2023/2024": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "52047",
-        "NUMBER_EMERGING": "2740",
-        "NUMBER_DEVELOPING": "11354",
-        "NUMBER_PROFICIENT": "31834",
-        "NUMBER_EXTENDING": "6119",
-        "SCORE": "1813226"
+        "SCORE": "1813226",
+        "AVERAGE": "34.84"
       },
       "2024/2025": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "53290",
-        "NUMBER_EMERGING": "2781",
-        "NUMBER_DEVELOPING": "12163",
-        "NUMBER_PROFICIENT": "32626",
-        "NUMBER_EXTENDING": "5720",
-        "SCORE": "1805063.5"
+        "SCORE": "1805063.5",
+        "AVERAGE": "33.87"
       }
     },
     "Literacy Assessment 12": {
       "2021/2022": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "44341",
-        "NUMBER_EMERGING": "774",
-        "NUMBER_DEVELOPING": "8193",
-        "NUMBER_PROFICIENT": "26639",
-        "NUMBER_EXTENDING": "8735",
-        "SCORE": "1560079.3"
+        "SCORE": "1560079.3",
+        "AVERAGE": "35.18"
       },
       "2022/2023": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "44611",
-        "NUMBER_EMERGING": "842",
-        "NUMBER_DEVELOPING": "8765",
-        "NUMBER_PROFICIENT": "26519",
-        "NUMBER_EXTENDING": "8485",
-        "SCORE": "1510285.5"
+        "SCORE": "1510285.5",
+        "AVERAGE": "33.85"
       },
       "2023/2024": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "46598",
-        "NUMBER_EMERGING": "1019",
-        "NUMBER_DEVELOPING": "9044",
-        "NUMBER_PROFICIENT": "28226",
-        "NUMBER_EXTENDING": "8309",
-        "SCORE": "1516992.3"
+        "SCORE": "1516992.3",
+        "AVERAGE": "32.55"
       },
       "2024/2025": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "49520",
-        "NUMBER_EMERGING": "1164",
-        "NUMBER_DEVELOPING": "10068",
-        "NUMBER_PROFICIENT": "29810",
-        "NUMBER_EXTENDING": "8478",
-        "SCORE": "1550217"
+        "SCORE": "1550217",
+        "AVERAGE": "31.30"
       }
     }
   }

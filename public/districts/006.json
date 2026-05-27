@@ -1,6 +1,7 @@
 {
   "DATA_LEVEL": "District Level",
   "PUBLIC_OR_INDEPENDENT": "Public School",
+  "PUBLIC": true,
   "DISTRICT_NUMBER": "006",
   "DISTRICT_NAME": "Rocky Mountain",
   "SCHOOL_NUMBER": "",
@@ -11,168 +12,114 @@
       "2017/2018": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "276",
-        "NUMBER_EMERGING": "Msk",
-        "NUMBER_DEVELOPING": "144",
-        "NUMBER_PROFICIENT": "73",
-        "NUMBER_EXTENDING": "Msk",
-        "SCORE": "5223"
+        "SCORE": "5223",
+        "AVERAGE": "18.92"
       },
       "2018/2019": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "273",
-        "NUMBER_EMERGING": "83",
-        "NUMBER_DEVELOPING": "132",
-        "NUMBER_PROFICIENT": "Msk",
-        "NUMBER_EXTENDING": "Msk",
-        "SCORE": "4137"
+        "SCORE": "4137",
+        "AVERAGE": "15.15"
       },
       "2019/2020": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "247",
-        "NUMBER_EMERGING": "Msk",
-        "NUMBER_DEVELOPING": "115",
-        "NUMBER_PROFICIENT": "Msk",
-        "NUMBER_EXTENDING": "Msk",
-        "SCORE": "3415"
+        "SCORE": "3415",
+        "AVERAGE": "13.83"
       },
       "2020/2021": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "341",
-        "NUMBER_EMERGING": "Msk",
-        "NUMBER_DEVELOPING": "156",
-        "NUMBER_PROFICIENT": "106",
-        "NUMBER_EXTENDING": "Msk",
-        "SCORE": "4519"
+        "SCORE": "4519",
+        "AVERAGE": "13.25"
       },
       "2021/2022": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "247",
-        "NUMBER_EMERGING": "47",
-        "NUMBER_DEVELOPING": "106",
-        "NUMBER_PROFICIENT": "83",
-        "NUMBER_EXTENDING": "11",
-        "SCORE": "3738.5"
+        "SCORE": "3738.5",
+        "AVERAGE": "15.14"
       },
       "2022/2023": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "275",
-        "NUMBER_EMERGING": "24",
-        "NUMBER_DEVELOPING": "128",
-        "NUMBER_PROFICIENT": "103",
-        "NUMBER_EXTENDING": "20",
-        "SCORE": "4361.4"
+        "SCORE": "4361.4",
+        "AVERAGE": "15.86"
       },
       "2023/2024": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "266",
-        "NUMBER_EMERGING": "32",
-        "NUMBER_DEVELOPING": "90",
-        "NUMBER_PROFICIENT": "110",
-        "NUMBER_EXTENDING": "34",
-        "SCORE": "4720.7"
+        "SCORE": "4720.7",
+        "AVERAGE": "17.75"
       },
       "2024/2025": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "291",
-        "NUMBER_EMERGING": "26",
-        "NUMBER_DEVELOPING": "102",
-        "NUMBER_PROFICIENT": "128",
-        "NUMBER_EXTENDING": "35",
-        "SCORE": "5180.2"
+        "SCORE": "5180.2",
+        "AVERAGE": "17.80"
       }
     },
     "Literacy Assessment 10": {
       "2019/2020": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "112",
-        "NUMBER_EMERGING": "Msk",
-        "NUMBER_DEVELOPING": "21",
-        "NUMBER_PROFICIENT": "80",
-        "NUMBER_EXTENDING": "Msk",
-        "SCORE": "4146"
+        "SCORE": "4146",
+        "AVERAGE": "37.02"
       },
       "2020/2021": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "325",
-        "NUMBER_EMERGING": "Msk",
-        "NUMBER_DEVELOPING": "90",
-        "NUMBER_PROFICIENT": "199",
-        "NUMBER_EXTENDING": "Msk",
-        "SCORE": "11493"
+        "SCORE": "11493",
+        "AVERAGE": "35.36"
       },
       "2021/2022": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "269",
-        "NUMBER_EMERGING": "24",
-        "NUMBER_DEVELOPING": "69",
-        "NUMBER_PROFICIENT": "161",
-        "NUMBER_EXTENDING": "15",
-        "SCORE": "9108"
+        "SCORE": "9108",
+        "AVERAGE": "33.86"
       },
       "2022/2023": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "273",
-        "NUMBER_EMERGING": "Msk",
-        "NUMBER_DEVELOPING": "63",
-        "NUMBER_PROFICIENT": "182",
-        "NUMBER_EXTENDING": "Msk",
-        "SCORE": "9432.4"
+        "SCORE": "9432.4",
+        "AVERAGE": "34.55"
       },
       "2023/2024": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "287",
-        "NUMBER_EMERGING": "10",
-        "NUMBER_DEVELOPING": "82",
-        "NUMBER_PROFICIENT": "168",
-        "NUMBER_EXTENDING": "27",
-        "SCORE": "9929"
+        "SCORE": "9929",
+        "AVERAGE": "34.60"
       },
       "2024/2025": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "298",
-        "NUMBER_EMERGING": "12",
-        "NUMBER_DEVELOPING": "73",
-        "NUMBER_PROFICIENT": "186",
-        "NUMBER_EXTENDING": "27",
-        "SCORE": "10059.5"
+        "SCORE": "10059.5",
+        "AVERAGE": "33.76"
       }
     },
     "Literacy Assessment 12": {
       "2021/2022": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "238",
-        "NUMBER_EMERGING": "Msk",
-        "NUMBER_DEVELOPING": "52",
-        "NUMBER_PROFICIENT": "156",
-        "NUMBER_EXTENDING": "Msk",
-        "SCORE": "7815"
+        "SCORE": "7815",
+        "AVERAGE": "32.84"
       },
       "2022/2023": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "228",
-        "NUMBER_EMERGING": "Msk",
-        "NUMBER_DEVELOPING": "58",
-        "NUMBER_PROFICIENT": "142",
-        "NUMBER_EXTENDING": "Msk",
-        "SCORE": "7148.2"
+        "SCORE": "7148.2",
+        "AVERAGE": "31.35"
       },
       "2023/2024": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "236",
-        "NUMBER_EMERGING": "Msk",
-        "NUMBER_DEVELOPING": "59",
-        "NUMBER_PROFICIENT": "145",
-        "NUMBER_EXTENDING": "Msk",
-        "SCORE": "7328.7"
+        "SCORE": "7328.7",
+        "AVERAGE": "31.05"
       },
       "2024/2025": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "263",
-        "NUMBER_EMERGING": "Msk",
-        "NUMBER_DEVELOPING": "47",
-        "NUMBER_PROFICIENT": "185",
-        "NUMBER_EXTENDING": "Msk",
-        "SCORE": "8058.5"
+        "SCORE": "8058.5",
+        "AVERAGE": "30.64"
       }
     }
   }
