@@ -11,21 +11,21 @@
     "Numeracy Assessment 10": {
       "2017/2018": {
         "ASSESSMENT_LANGUAGE": "English",
-        "NUMBER_WRITERS": "Msk",
-        "SCORE": "Msk",
-        "AVERAGE": 0
+        "NUMBER_WRITERS": null,
+        "SCORE": null,
+        "AVERAGE": null
       },
       "2018/2019": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "28",
         "SCORE": "320",
-        "AVERAGE": "11.43"
+        "AVERAGE": 29.3
       },
       "2019/2020": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "69",
         "SCORE": "622",
-        "AVERAGE": "9.01"
+        "AVERAGE": 23.11
       }
     },
     "Literacy Assessment 10": {
@@ -33,7 +33,7 @@
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "16",
         "SCORE": "369",
-        "AVERAGE": "23.06"
+        "AVERAGE": 38.44
       }
     }
   }

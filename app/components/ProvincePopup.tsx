@@ -14,30 +14,30 @@ export default function ProvincePopup({ geojsonData, schoolIndex, districtIndex,
                 <div className="font-semibold">Provincial Average</div>
 
                 <div className="mt-2 space-y-1">
-                    <div>Numeracy 10: {provinceData?.assessments?.[na10]?.[currentYear]?.AVERAGE}</div>
-                    <div>Literacy 10: {provinceData?.assessments?.[la10]?.[currentYear]?.AVERAGE}</div>
-                    <div>Literacy 12: {provinceData?.assessments?.[la12]?.[currentYear]?.AVERAGE}</div>
+                    <div>Numeracy 10: {provinceData?.assessments?.[na10]?.[currentYear]?.AVERAGE}%</div>
+                    <div>Literacy 10: {provinceData?.assessments?.[la10]?.[currentYear]?.AVERAGE}%</div>
+                    <div>Literacy 12: {provinceData?.assessments?.[la12]?.[currentYear]?.AVERAGE}%</div>
                 </div>
 
                 <div className="font-semibold pt-3">Public School Average</div>
 
                 <div className="mt-2 space-y-1">
-                    <div>Numeracy 10: {publicData?.assessments?.[na10]?.[currentYear]?.AVERAGE}</div>
-                    <div>Literacy 10: {publicData?.assessments?.[la10]?.[currentYear]?.AVERAGE}</div>
-                    <div>Literacy 12: {publicData?.assessments?.[la12]?.[currentYear]?.AVERAGE}</div>
+                    <div>Numeracy 10: {publicData?.assessments?.[na10]?.[currentYear]?.AVERAGE}%</div>
+                    <div>Literacy 10: {publicData?.assessments?.[la10]?.[currentYear]?.AVERAGE}%</div>
+                    <div>Literacy 12: {publicData?.assessments?.[la12]?.[currentYear]?.AVERAGE}%</div>
                 </div>
 
                 <div className="font-semibold pt-3">Independent School Average</div>
 
                 <div className="mt-2 space-y-1">
-                    <div>Numeracy 10: {independentData?.assessments?.[na10]?.[currentYear]?.AVERAGE}</div>
-                    <div>Literacy 10: {independentData?.assessments?.[la10]?.[currentYear]?.AVERAGE}</div>
-                    <div>Literacy 12: {independentData?.assessments?.[la12]?.[currentYear]?.AVERAGE}</div>
+                    <div>Numeracy 10: {independentData?.assessments?.[na10]?.[currentYear]?.AVERAGE}%</div>
+                    <div>Literacy 10: {independentData?.assessments?.[la10]?.[currentYear]?.AVERAGE}%</div>
+                    <div>Literacy 12: {independentData?.assessments?.[la12]?.[currentYear]?.AVERAGE}%</div>
                 </div>
             </div>
 
             <div>
-                <div className="absolute top-4 right-4 z-1000 bg-white p-3 rounded shadow text-sm text-black">
+                <div className="absolute top-4 right-4 z-1000 bg-white p-3 rounded shadow text-sm text-black w-md">
                     <RankingList title="All Schools" data={schoolIndex?.filter((school) => school.AVERAGE !== 0).sort((a, b) => b.avg - a.avg).map((school) => {
                         return {
                             schoolname: school.SCHOOL_NAME,
@@ -78,7 +78,7 @@ export default function ProvincePopup({ geojsonData, schoolIndex, districtIndex,
             </div>
 
             <div>
-                <div className="absolute bottom-4 left-4 z-1000 bg-white p-3 rounded shadow text-sm text-black w-lg">
+                <div className="absolute bottom-4 left-4 z-1000 bg-white p-3 rounded shadow text-sm text-black w-sm">
                     <div className="font-semibold">Contains information licensed under the Open Government Licence – British Columbia.</div>
                 </div>
             </div>
