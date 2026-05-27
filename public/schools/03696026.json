@@ -13,7 +13,7 @@
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "30",
         "SCORE": "757.2",
-        "AVERAGE": "25.24"
+        "AVERAGE": 64.72
       }
     },
     "Literacy Assessment 10": {
@@ -21,7 +21,7 @@
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "29",
         "SCORE": "1250.5",
-        "AVERAGE": "43.12"
+        "AVERAGE": 71.87
       }
     },
     "Literacy Assessment 12": {
@@ -29,7 +29,7 @@
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "17",
         "SCORE": "669.8",
-        "AVERAGE": "39.40"
+        "AVERAGE": 71.64
       }
     }
   }

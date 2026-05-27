@@ -10,7 +10,7 @@ export default function RankingList({title, data = []}: {title: string, data: an
                 {
                     data?.map((school: { schoolname: string, schoolnumber: string, avg: number, writers: number }, index: number) => (
                         <div key={school.schoolnumber}>
-                            {index + 1}. {school.schoolname} ({school.schoolnumber}) - {school.avg.toFixed(2)} - {school.writers} Exams
+                            {index + 1}. {school.schoolname} - {school.avg}% - {school.writers} Exams
                         </div>
                     ))
                 }

@@ -38,8 +38,12 @@ export default function Home() {
         return;
       }
 
+      // filter out schools with null averages
+      const schoolIndexData = await schoolIndexRes.json();
+      const filtered = schoolIndexData.filter((school: any) => school.AVERAGE !== null);
+
       setGeojsonData(await geojsonRes.json());
-      setSchoolIndex(await schoolIndexRes.json());
+      setSchoolIndex(filtered);
       setDistrictIndex(await districtIndexRes.json());
       setProvinceData(await provinceRes.json());
       setPublicData(await publicRes.json());
