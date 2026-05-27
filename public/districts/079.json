@@ -13,49 +13,49 @@
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "646",
         "SCORE": "10394",
-        "AVERAGE": "16.09"
+        "AVERAGE": 41.26
       },
       "2018/2019": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "547",
         "SCORE": "7239",
-        "AVERAGE": "13.23"
+        "AVERAGE": 33.93
       },
       "2019/2020": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "539",
         "SCORE": "6889",
-        "AVERAGE": "12.78"
+        "AVERAGE": 32.77
       },
       "2020/2021": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "701",
         "SCORE": "7829",
-        "AVERAGE": "11.17"
+        "AVERAGE": 28.64
       },
       "2021/2022": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "364",
         "SCORE": "5062.3",
-        "AVERAGE": "13.91"
+        "AVERAGE": 35.66
       },
       "2022/2023": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "699",
         "SCORE": "8788.5",
-        "AVERAGE": "12.57"
+        "AVERAGE": 32.24
       },
       "2023/2024": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "566",
         "SCORE": "7127.1",
-        "AVERAGE": "12.59"
+        "AVERAGE": 32.29
       },
       "2024/2025": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "579",
         "SCORE": "6692.1",
-        "AVERAGE": "11.56"
+        "AVERAGE": 29.64
       }
     },
     "Literacy Assessment 10": {
@@ -63,37 +63,37 @@
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "242",
         "SCORE": "7720",
-        "AVERAGE": "31.90"
+        "AVERAGE": 53.17
       },
       "2020/2021": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "633",
         "SCORE": "20637",
-        "AVERAGE": "32.60"
+        "AVERAGE": 54.34
       },
       "2021/2022": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "534",
         "SCORE": "17006.9",
-        "AVERAGE": "31.85"
+        "AVERAGE": 53.08
       },
       "2022/2023": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "582",
         "SCORE": "17976.3",
-        "AVERAGE": "30.89"
+        "AVERAGE": 51.48
       },
       "2023/2024": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "560",
         "SCORE": "17008",
-        "AVERAGE": "30.37"
+        "AVERAGE": 50.62
       },
       "2024/2025": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "575",
         "SCORE": "16554",
-        "AVERAGE": "28.79"
+        "AVERAGE": 47.98
       }
     },
     "Literacy Assessment 12": {
@@ -101,25 +101,25 @@
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "528",
         "SCORE": "16458.8",
-        "AVERAGE": "31.17"
+        "AVERAGE": 56.68
       },
       "2022/2023": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "476",
         "SCORE": "13792.1",
-        "AVERAGE": "28.98"
+        "AVERAGE": 52.68
       },
       "2023/2024": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "477",
         "SCORE": "13050",
-        "AVERAGE": "27.36"
+        "AVERAGE": 49.74
       },
       "2024/2025": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "588",
         "SCORE": "15323.9",
-        "AVERAGE": "26.06"
+        "AVERAGE": 47.38
       }
     }
   }

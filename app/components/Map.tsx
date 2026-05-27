@@ -53,109 +53,31 @@ function BaseMapLayer() {
     return null;
 }
 
-function buildCombinedScoreSeries(assessments: any, provinceData?: any) {
-    const allYears = new Set<string>();
+function buildSeries(assessments: any, provinceData: any) {
+    const yearCollector = new Set<string>();
 
-    [na10, la10, la12].forEach((key) => {
-        Object.keys(assessments?.[key] || {}).forEach((year) => allYears.add(year));
-        Object.keys(provinceData?.assessments?.[key] || {}).forEach((year) => allYears.add(year));
+    // add year keys
+    [na10, la10, la12].forEach((assessment) => {
+        Object.keys(assessments?.[assessment] || {}).forEach((year) => yearCollector.add(year));
     });
 
-    const years = Array.from(allYears).sort();
+    const years = Array.from(yearCollector).sort();
 
-    const rows = years.map((year) => {
-        const obj: any = { year };
+    return years.map((year) => {
+        const row: any = { year: year };
 
-        [na10, la10, la12].forEach((key) => {
-            const value = assessments?.[key]?.[year];
-            if(value) {
-                const score = parseFloat(value.SCORE) / parseFloat(value.NUMBER_WRITERS) || 0;
-                obj[key] = Math.round(score * 100) / 100;
+        [na10, la10, la12].forEach((assessment) => {
+            if (assessments?.[assessment]?.[year]?.AVERAGE !== 0) {
+                row[assessment] = assessments?.[assessment]?.[year]?.AVERAGE ;
+            } else {
+                row[assessment] = null;
             }
 
-            const provValue = provinceData?.assessments?.[key]?.[year];
-            if(provValue) {
-                const score = parseFloat(provValue.SCORE) / parseFloat(provValue.NUMBER_WRITERS) || 0;
-                obj[`${key}_prov`] = Math.round(score * 100) / 100;
-            }
+            row[`${assessment}_prov`] = provinceData.assessments?.[assessment]?.[year]?.AVERAGE || null;
         });
 
-        return obj;
+        return row;
     });
-
-    const seriesKeys = new Set<string>();
-    rows.forEach((r) => Object.keys(r).forEach((k) => { if(k !== "year") seriesKeys.add(k); }));
-
-    seriesKeys.forEach((key) => {
-        const defined: number[] = [];
-        for (let i = 0; i < rows.length; i++) {
-            const v = rows[i][key];
-            if(v !== undefined && v !== null && Number.isFinite(v) && v !== 0) defined.push(i);
-        }
-
-        if(defined.length < 2) return;
-
-        for (let di = 0; di < defined.length - 1; di++) {
-            const startIdx = defined[di];
-            const endIdx = defined[di + 1];
-            const startVal = rows[startIdx][key];
-            const endVal = rows[endIdx][key];
-            const span = endIdx - startIdx;
-            if(span <= 1) continue;
-            const slope = (endVal - startVal) / span;
-
-            for (let j = startIdx + 1; j < endIdx; j++) {
-                const cur = rows[j][key];
-                if(cur === undefined || cur === 0) {
-                    const interp = startVal + slope * (j - startIdx);
-                    rows[j][key] = Math.round(interp * 100) / 100;
-                }
-            }
-        }
-    });
-
-    return rows;
-}
-
-function trimLeadingTrailingZeros(data: any[]) {
-    if (!data || data.length === 0) return data;
-
-    const primarySeries = [na10, la10, la12];
-    
-    // For each series, independently remove leading and trailing zeros
-    primarySeries.forEach(key => {
-        // Find first row where this series has non-zero/non-null value
-        let firstValidIdx = -1;
-        for (let i = 0; i < data.length; i++) {
-            const v = data[i][key];
-            if (v !== undefined && v !== null && v !== 0) {
-                firstValidIdx = i;
-                break;
-            }
-        }
-
-        // Find last row where this series has non-zero/non-null value
-        let lastValidIdx = -1;
-        for (let i = data.length - 1; i >= 0; i--) {
-            const v = data[i][key];
-            if (v !== undefined && v !== null && v !== 0) {
-                lastValidIdx = i;
-                break;
-            }
-        }
-
-        // Clear values outside the valid range for this series
-        if (firstValidIdx !== -1) {
-            for (let i = 0; i < firstValidIdx; i++) {
-                delete data[i][key];
-            }
-            for (let i = lastValidIdx + 1; i < data.length; i++) {
-                delete data[i][key];
-            }
-        }
-    });
-
-    return data;
 }
 
 function DistrictPopupContent({
@@ -175,9 +97,9 @@ function DistrictPopupContent({
             {districtAssessments ? (
                 <div>
                     <div><strong>Assessment Mean Scores ({currentYear}):</strong></div>
-                    <div>Numeracy 10: {districtAssessments?.[na10]?.[currentYear]?.AVERAGE || "—"} - {districtAssessments?.[na10]?.[currentYear]?.NUMBER_WRITERS || "—"} Exams</div>
-                    <div>Literacy 10: {districtAssessments?.[la10]?.[currentYear]?.AVERAGE || "—"} - {districtAssessments?.[la10]?.[currentYear]?.NUMBER_WRITERS || "—"} Exams</div>
-                    <div>Literacy 12: {districtAssessments?.[la12]?.[currentYear]?.AVERAGE || "—"} - {districtAssessments?.[la12]?.[currentYear]?.NUMBER_WRITERS || "—"} Exams</div>
+                    <div>Numeracy 10: {districtAssessments?.[na10]?.[currentYear]?.AVERAGE || "—"}% - {districtAssessments?.[na10]?.[currentYear]?.NUMBER_WRITERS || "—"} Exams</div>
+                    <div>Literacy 10: {districtAssessments?.[la10]?.[currentYear]?.AVERAGE || "—"}% - {districtAssessments?.[la10]?.[currentYear]?.NUMBER_WRITERS || "—"} Exams</div>
+                    <div>Literacy 12: {districtAssessments?.[la12]?.[currentYear]?.AVERAGE || "—"}% - {districtAssessments?.[la12]?.[currentYear]?.NUMBER_WRITERS || "—"} Exams</div>
                 </div>
             ) : (
                 <div><em>Loading district data...</em></div>
@@ -185,10 +107,10 @@ function DistrictPopupContent({
             <strong className="mt-2 block">Score Trends:</strong>
             {districtAssessments ? (
                 <ResponsiveContainer width="100%" height={350}>
-                    <LineChart data={trimLeadingTrailingZeros(buildCombinedScoreSeries(districtAssessments || {}, provinceData))}>
+                    <LineChart data={buildSeries(districtAssessments, provinceData)}>
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="year" />
-                        <YAxis />
+                        <YAxis domain={[0, 100]} />
                         <Tooltip
                             position={{ x: tooltipOffsetX, y: 12 }}
                             allowEscapeViewBox={{ x: true, y: true }}
@@ -196,12 +118,12 @@ function DistrictPopupContent({
                             wrapperStyle={{ outline: 'none' }}
                         />
                         <Legend />
-                        <Line type="monotone" dataKey={na10} stroke="#8884d8" strokeWidth={2} />
-                        <Line type="monotone" dataKey={la10} stroke="#82ca9d" strokeWidth={2} />
-                        <Line type="monotone" dataKey={la12} stroke="#ffc658" strokeWidth={2} />
-                        <Line type="monotone" dataKey={`${na10}_prov`} stroke="#ababc8" strokeWidth={1} />
-                        <Line type="monotone" dataKey={`${la10}_prov`} stroke="#91b59e" strokeWidth={1} />
-                        <Line type="monotone" dataKey={`${la12}_prov`} stroke="#baba6e" strokeWidth={1} />
+                        <Line connectNulls type="monotone" dataKey={na10} stroke="#8884d8" strokeWidth={2} />
+                        <Line connectNulls type="monotone" dataKey={la10} stroke="#82ca9d" strokeWidth={2} />
+                        <Line connectNulls type="monotone" dataKey={la12} stroke="#ffc658" strokeWidth={2} />
+                        <Line connectNulls type="monotone" dataKey={`${na10}_prov`} stroke="#ababc8" strokeWidth={1} />
+                        <Line connectNulls type="monotone" dataKey={`${la10}_prov`} stroke="#91b59e" strokeWidth={1} />
+                        <Line connectNulls type="monotone" dataKey={`${la12}_prov`} stroke="#baba6e" strokeWidth={1} />
                     </LineChart>
                 </ResponsiveContainer>
             ) : (
@@ -211,7 +133,7 @@ function DistrictPopupContent({
     );
 }
 
-export default function Map({query, geojsonData, schoolIndex, districtIndex, provinceData, publicData, independentData}: { query: string; geojsonData: any | null; schoolIndex: any[] | null; districtIndex: any[] | null; provinceData: any | null; publicData: any | null; independentData: any | null }) {
+export default function Map({ query, geojsonData, schoolIndex, districtIndex, provinceData, publicData, independentData }: { query: string; geojsonData: any | null; schoolIndex: any[] | null; districtIndex: any[] | null; provinceData: any | null; publicData: any | null; independentData: any | null }) {
     const [selectedSchool, setSelectedSchool] = useState<any | null>(null);
     const [selectedDistrict, setSelectedDistrict] = useState<{ districtName: string; districtNumber: string; assessments: any | null } | null>(null);
     const schoolPopupOpenRef = useRef(false);
@@ -242,7 +164,7 @@ export default function Map({query, geojsonData, schoolIndex, districtIndex, pro
             popupclose: () => {
                 const district = feature.properties;
                 const districtNumber = formatDistrictNumber(district.SCHOOL_DISTRICT_NUMBER);
-                if(activeDistrictNumberRef.current !== districtNumber) {
+                if (activeDistrictNumberRef.current !== districtNumber) {
                     console.log("district popup close ignored (inactive)", { districtNumber, active: activeDistrictNumberRef.current });
                     return;
                 }
@@ -261,14 +183,14 @@ export default function Map({query, geojsonData, schoolIndex, districtIndex, pro
 
                 console.log("district click", { districtNumber, districtName });
 
-                if(justClosedPopupRef.current) {
+                if (justClosedPopupRef.current) {
                     console.log("district click skipped (just closed)", { districtNumber });
                     layer.unbindPopup();
                     mapRef.current?.closePopup();
                     return;
                 }
 
-                if(schoolPopupOpenRef.current) {
+                if (schoolPopupOpenRef.current) {
                     console.log("district click closing school popup", { districtNumber });
                     setSelectedSchool(null);
                     schoolPopupOpenRef.current = false;
@@ -276,7 +198,7 @@ export default function Map({query, geojsonData, schoolIndex, districtIndex, pro
                     return;
                 }
 
-                if(districtPopupOpenRef.current) {
+                if (districtPopupOpenRef.current) {
                     console.log("district click closing district popup", { districtNumber });
                     mapRef.current?.closePopup();
                     return;
@@ -309,7 +231,7 @@ export default function Map({query, geojsonData, schoolIndex, districtIndex, pro
 
                 console.log("district data loaded", { districtNumber });
 
-                if(activeDistrictNumberRef.current !== districtNumber) {
+                if (activeDistrictNumberRef.current !== districtNumber) {
                     console.log("district data ignored (stale)", { districtNumber, active: activeDistrictNumberRef.current });
                     return;
                 }
@@ -324,7 +246,7 @@ export default function Map({query, geojsonData, schoolIndex, districtIndex, pro
     }, [markJustClosed]);
 
     useEffect(() => {
-        if(!selectedDistrict || !districtPopupRootRef.current) {
+        if (!selectedDistrict || !districtPopupRootRef.current) {
             return;
         }
 
@@ -367,7 +289,7 @@ export default function Map({query, geojsonData, schoolIndex, districtIndex, pro
                         )}
                         eventHandlers={{
                             click: async () => {
-                                if(query && !matches.includes(school)) {
+                                if (query && !matches.includes(school)) {
                                     return;
                                 }
 
@@ -395,7 +317,7 @@ export default function Map({query, geojsonData, schoolIndex, districtIndex, pro
                                     console.log("school popup close", school.SCHOOL_NUMBER);
                                     schoolPopupOpenRef.current = false;
                                     markJustClosed();
-                                    if(selectedSchool?.SCHOOL_NUMBER === school.SCHOOL_NUMBER) {
+                                    if (selectedSchool?.SCHOOL_NUMBER === school.SCHOOL_NUMBER) {
                                         setSelectedSchool(null);
                                     }
                                 },
@@ -408,9 +330,9 @@ export default function Map({query, geojsonData, schoolIndex, districtIndex, pro
                                     {selectedSchool && selectedSchool.SCHOOL_NUMBER === school.SCHOOL_NUMBER ? (
                                         <div>
                                             <div><strong>Assessment Mean Scores ({currentYear}):</strong></div>
-                                            <div>Numeracy 10: {selectedSchool?.assessments?.[na10]?.[currentYear]?.AVERAGE || "—"} - {selectedSchool?.assessments?.[na10]?.[currentYear]?.NUMBER_WRITERS || "—"} Exams</div>
-                                            <div>Literacy 10: {selectedSchool?.assessments?.[la10]?.[currentYear]?.AVERAGE || "—"} - {selectedSchool?.assessments?.[la10]?.[currentYear]?.NUMBER_WRITERS || "—"} Exams</div>
-                                            <div>Literacy 12: {selectedSchool?.assessments?.[la12]?.[currentYear]?.AVERAGE || "—"} - {selectedSchool?.assessments?.[la12]?.[currentYear]?.NUMBER_WRITERS || "—"} Exams</div>
+                                            <div>Numeracy 10: {selectedSchool?.assessments?.[na10]?.[currentYear]?.AVERAGE || "—"}% - {selectedSchool?.assessments?.[na10]?.[currentYear]?.NUMBER_WRITERS || "—"} Exams</div>
+                                            <div>Literacy 10: {selectedSchool?.assessments?.[la10]?.[currentYear]?.AVERAGE || "—"}% - {selectedSchool?.assessments?.[la10]?.[currentYear]?.NUMBER_WRITERS || "—"} Exams</div>
+                                            <div>Literacy 12: {selectedSchool?.assessments?.[la12]?.[currentYear]?.AVERAGE || "—"}% - {selectedSchool?.assessments?.[la12]?.[currentYear]?.NUMBER_WRITERS || "—"} Exams</div>
                                         </div>
                                     ) : (
                                         <div><em>Click marker to load school data</em></div>
@@ -419,10 +341,10 @@ export default function Map({query, geojsonData, schoolIndex, districtIndex, pro
                                 <strong className="mt-2 block">Score Trends:</strong>
                                 {selectedSchool && selectedSchool.SCHOOL_NUMBER === school.SCHOOL_NUMBER ? (
                                     <ResponsiveContainer width="100%" height={350}>
-                                        <LineChart data={trimLeadingTrailingZeros(buildCombinedScoreSeries(selectedSchool.assessments || {}, provinceData))}>
+                                        <LineChart data={buildSeries(selectedSchool.assessments, provinceData)}>
                                             <CartesianGrid strokeDasharray="3 3" />
                                             <XAxis dataKey="year" />
-                                            <YAxis />
+                                            <YAxis domain={[0, 100]} />
                                             <Tooltip
                                                 position={{ x: tooltipOffsetX, y: 12 }}
                                                 allowEscapeViewBox={{ x: true, y: true }}
@@ -430,12 +352,12 @@ export default function Map({query, geojsonData, schoolIndex, districtIndex, pro
                                                 wrapperStyle={{ outline: 'none' }}
                                             />
                                             <Legend />
-                                            <Line type="monotone" dataKey={na10} stroke="#8884d8" strokeWidth={2} />
-                                            <Line type="monotone" dataKey={la10} stroke="#82ca9d" strokeWidth={2} />
-                                            <Line type="monotone" dataKey={la12} stroke="#ffc658" strokeWidth={2} />
-                                            <Line type="monotone" dataKey={`${na10}_prov`} stroke="#ababc8" strokeWidth={1} />
-                                            <Line type="monotone" dataKey={`${la10}_prov`} stroke="#91b59e" strokeWidth={1} />
-                                            <Line type="monotone" dataKey={`${la12}_prov`} stroke="#baba6e" strokeWidth={1} />
+                                            <Line connectNulls type="monotone" dataKey={na10} stroke="#8884d8" strokeWidth={2} />
+                                            <Line connectNulls type="monotone" dataKey={la10} stroke="#82ca9d" strokeWidth={2} />
+                                            <Line connectNulls type="monotone" dataKey={la12} stroke="#ffc658" strokeWidth={2} />
+                                            <Line connectNulls type="monotone" dataKey={`${na10}_prov`} stroke="#ababc8" strokeWidth={1} />
+                                            <Line connectNulls type="monotone" dataKey={`${la10}_prov`} stroke="#91b59e" strokeWidth={1} />
+                                            <Line connectNulls type="monotone" dataKey={`${la12}_prov`} stroke="#baba6e" strokeWidth={1} />
                                         </LineChart>
                                     </ResponsiveContainer>
                                 ) : (

@@ -26,10 +26,18 @@ type LocationRow = {
   LONGITUDE: string;
 };
 
+// na10 scored out of 39, la10 out of 60, la12 out of 55
+
 const na10 = "Numeracy Assessment 10";
 const la10 = "Literacy Assessment 10";
 const la12 = "Literacy Assessment 12";
 const currentYear = "2024/2025";
+
+const assessmentTotals: Record<string, number> = {
+  [na10]: 39,
+  [la10]: 60,
+  [la12]: 55,
+};
 
 const csv = fs.readFileSync("raw-data.csv", "utf-8");
 const parsed = Papa.parse<Row>(csv, {
@@ -106,18 +114,29 @@ for (const row of rows) {
   entity.assessments[assessment][year] = {
     ASSESSMENT_LANGUAGE: row.ASSESSMENT_LANGUAGE,
     NUMBER_WRITERS: row.NUMBER_WRITERS,
-    // NUMBER_EMERGING: row.NUMBER_EMERGING,
-    // NUMBER_DEVELOPING: row.NUMBER_DEVELOPING,
-    // NUMBER_PROFICIENT: row.NUMBER_PROFICIENT,
-    // NUMBER_EXTENDING: row.NUMBER_EXTENDING,
     SCORE: row.SCORE,
-    // round to 2 decimals
-    // AVERAGE: parseFloat(row.SCORE) / parseInt(row.NUMBER_WRITERS),
     AVERAGE:
-      parseInt(row.NUMBER_WRITERS) > 0
-        ? (parseFloat(row.SCORE) / parseInt(row.NUMBER_WRITERS)).toFixed(2)
+      parseInt(row.NUMBER_WRITERS) > 0 && assessmentTotals[assessment]
+        ? parseFloat(
+            (
+              (parseFloat(row.SCORE) /
+                parseInt(row.NUMBER_WRITERS) /
+                assessmentTotals[assessment]) *
+              100
+            ).toFixed(2),
+          )
         : 0,
   };
+
+  Object.values(entity.assessments).forEach((assessment) => {
+    Object.values(assessment || {}).forEach((year) => {
+      Object.entries(year).forEach(([field, value]) => {
+        if (value === "Msk" || value === "0" || value === 0) {
+          year[field] = null;
+        }
+      });
+    });
+  });
 }
 
 fs.mkdirSync("../public/schools", { recursive: true });
@@ -131,36 +150,33 @@ const districtIndex = [];
 for (const entity of entities.values()) {
   const level = entity.DATA_LEVEL;
   let path = "";
-  let writers = 0;
-  let score = 0;
-  let avg = 0;
+  let avg: number | null = 0;
+  let writers: number | null = 0;
+
   const hasAllThree = [na10, la10, la12].every((assessment) => {
-    const entry = entity.assessments[assessment]?.[currentYear];
-    if(!entry) {
+    if (!entity.assessments[assessment]?.[currentYear]) {
       return false;
     }
-    return parseInt(entry.NUMBER_WRITERS) > 0;
+    return parseInt(entity.assessments[assessment]?.[currentYear]?.NUMBER_WRITERS) > 0;
   });
 
-  if (entity.assessments[na10]?.[currentYear]?.AVERAGE !== 0 || entity.assessments[la10]?.[currentYear]?.AVERAGE !== 0 || entity.assessments[la12]?.[currentYear]?.AVERAGE !== 0) {
+  if(hasAllThree) {
     for (const assessment of [na10, la10, la12]) {
-      if (entity.assessments[assessment]?.[currentYear]) {
-        writers +=
-          parseInt(
-            entity.assessments[assessment]?.[currentYear]?.NUMBER_WRITERS,
-          ) || 0;
-        score +=
-          parseFloat(entity.assessments[assessment]?.[currentYear]?.SCORE) || 0;
-      }
+      avg += entity.assessments[assessment][currentYear].AVERAGE;
+      writers += parseInt(entity.assessments[assessment][currentYear].NUMBER_WRITERS);
     }
-  } else {
-    writers = 0;
-    score = 0;
-    avg = 0;
   }
 
-  if (writers > 0) {
-    avg = parseFloat((score / writers).toFixed(2));
+  avg /= 3;
+
+  avg = hasAllThree ? parseFloat(avg.toFixed(2)) : 0;
+
+  if (writers === 0) {
+    writers = null;
+  }
+
+  if (avg == 0) {
+    avg = null;
   }
 
   if (level === "Province Level") {
@@ -179,21 +195,18 @@ for (const entity of entities.values()) {
 
   if (level === "District Level") {
     path = `../public/districts/${entity.DISTRICT_NUMBER}.json`;
-    const districtAverage = hasAllThree ? parseFloat(avg.toFixed(2)) : 0;
     districtIndex.push({
       DISTRICT_NUMBER: entity.DISTRICT_NUMBER,
       DISTRICT_NAME: entity.DISTRICT_NAME,
       PUBLIC: entity.PUBLIC,
       WRITERS: writers,
-      SCORE: score,
-      AVERAGE: districtAverage,
+      AVERAGE: avg,
       RANK: 0,
     });
   }
 
-  if(level === "School Level") {
+  if (level === "School Level") {
     path = `../public/schools/${entity.SCHOOL_NUMBER}.json`;
-    const schoolAverage = hasAllThree ? parseFloat(avg.toFixed(2)) : 0;
 
     schoolIndex.push({
       SCHOOL_NUMBER: entity.SCHOOL_NUMBER,
@@ -202,8 +215,7 @@ for (const entity of entities.values()) {
       DISTRICT_NAME: entity.DISTRICT_NAME,
       PUBLIC: entity.PUBLIC,
       WRITERS: writers,
-      SCORE: score,
-      AVERAGE: schoolAverage,
+      AVERAGE: avg,
       RANK: 0,
       LOCATION: school_locations.get(entity.SCHOOL_NUMBER) || null,
     });
@@ -213,7 +225,7 @@ for (const entity of entities.values()) {
 }
 
 // sort schools by score and then assign ranks
-schoolIndex.sort((a, b) => b.AVERAGE - a.AVERAGE);
+schoolIndex.sort((a, b) => (b.AVERAGE ?? -Infinity) - (a.AVERAGE ?? -Infinity));
 
 schoolIndex.forEach((school, index) => {
   school.RANK = index + 1;
@@ -224,7 +236,7 @@ fs.writeFileSync(
   JSON.stringify(schoolIndex, null, 2),
 );
 
-districtIndex.sort((a, b) => b.AVERAGE - a.AVERAGE);
+districtIndex.sort((a, b) => (b.AVERAGE ?? -Infinity) - (a.AVERAGE ?? -Infinity));
 districtIndex.forEach((district, index) => {
   district.RANK = index + 1;
 });
