@@ -10,8 +10,6 @@ const na10 = "Numeracy Assessment 10";
 const la10 = "Literacy Assessment 10";
 const la12 = "Literacy Assessment 12";
 const currentYear = "2024/2025";
-const popupWidthPx = 325;
-const tooltipOffsetX = popupWidthPx + 25;
 
 delete (L.Icon.Default.prototype as any)._getIconUrl;
 
@@ -66,6 +64,8 @@ export default function Map({ query, geojsonData, schoolIndex, districtIndex, pr
   const isDistrictPopupOpen = Boolean(selectedDistrict && districtPopupPosition);
   const isSchoolPopupOpenRef = useRef(isSchoolPopupOpen);
   const isDistrictPopupOpenRef = useRef(isDistrictPopupOpen);
+  const [popupWidth, setPopupWidth] = useState(325);
+  const tooltipOffsetX = popupWidth + 25;
 
   const matches = schoolIndex?.filter((school) =>
     school.SCHOOL_NAME.toLowerCase().includes(query.toLowerCase()) ||
@@ -88,6 +88,21 @@ export default function Map({ query, geojsonData, schoolIndex, districtIndex, pr
   useEffect(() => {
     isDistrictPopupOpenRef.current = isDistrictPopupOpen;
   }, [isDistrictPopupOpen]);
+
+  useEffect(() => {
+    const update = () => {
+      const next = Math.min(325, Math.floor(window.innerWidth * 0.9));
+      setPopupWidth(next);
+    };
+
+    update();
+
+    window.addEventListener("resize", update);
+
+    return () => {
+      window.removeEventListener("resize", update);
+    };
+  }, [popupWidth]);
 
   const handleEachDistrict = useCallback((feature: any, layer: L.Layer) => {
     layer.on({
@@ -162,8 +177,8 @@ export default function Map({ query, geojsonData, schoolIndex, districtIndex, pr
       {selectedDistrict && districtPopupPosition ? (
         <Popup
           position={districtPopupPosition}
-          minWidth={popupWidthPx}
-          maxWidth={popupWidthPx}
+          minWidth={popupWidth}
+          maxWidth={popupWidth}
           eventHandlers={{
             popupclose: () => {
               activeDistrictNumberRef.current = null;
@@ -207,8 +222,8 @@ export default function Map({ query, geojsonData, schoolIndex, districtIndex, pr
           }}
         >
           <Popup
-            minWidth={popupWidthPx}
-            maxWidth={popupWidthPx}
+            minWidth={popupWidth}
+            maxWidth={popupWidth}
             eventHandlers={{
               popupclose: () => {
                 setOpenSchoolNumber(null);
