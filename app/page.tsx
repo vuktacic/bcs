@@ -1,6 +1,6 @@
 "use client";
 
-import Demo from "./components/MVP";
+import Demo from "./components/Demo";
 import dynamic from "next/dynamic";
 import { useState, useEffect } from "react";
 import ProvinceDisplay from "./components/ProvinceDisplay";
@@ -58,9 +58,11 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="relative h-screen w-screen">
+    <main className="relative h-svh w-screen flex flex-col md:block md:h-screen md:w-screen">
+      <div className="h-[60svh] md:h-full">
+        <Map query={query} geojsonData={geojsonData} schoolIndex={schoolIndex} districtIndex={districtIndex} provinceData={provinceData} publicData={publicData} independentData={independentData} />
+      </div>
       <ProvinceDisplay geojsonData={geojsonData} schoolIndex={schoolIndex} districtIndex={districtIndex} provinceData={provinceData} publicData={publicData} independentData={independentData} />
-      <Map query={query} geojsonData={geojsonData} schoolIndex={schoolIndex} districtIndex={districtIndex} provinceData={provinceData} publicData={publicData} independentData={independentData} />
       <Search query={query} setQuery={setQuery} />
       <Demo />
     </main>
