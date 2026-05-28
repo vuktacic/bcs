@@ -16,7 +16,7 @@ type SchoolIndex = {
 
 export default function Search({ query, setQuery }: { query: string; setQuery: (query: string) => void }) {
   return (
-    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-[30vw] max-w-xl px-4 z-1000">
+    <div className="w-full px-4 mt-3 md:absolute md:bottom-4 md:left-1/2 md:-translate-x-1/2 md:w-[30vw] md:max-w-xl md:mt-0 z-1000">
       <input
         type="text"
         placeholder="Search for a school..."
