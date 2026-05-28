@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import RankingList from "./RankingList";
 
 const na10 = "Numeracy Assessment 10";
@@ -8,6 +9,35 @@ const la12 = "Literacy Assessment 12";
 const currentYear = "2024/2025";
 
 export default function ProvinceDisplay({ geojsonData, schoolIndex, districtIndex, provinceData, publicData, independentData }: { geojsonData: any | null; schoolIndex: any[] | null; districtIndex: any[] | null; provinceData: any | null; publicData: any | null; independentData: any | null }) {
+  const [list, setList] = useState<"all" | "public" | "independent" | "districts">("all");
+
+  const titleMap: { [key in typeof list]: string } = {
+    all: "All",
+    public: "Public",
+    independent: "Independent",
+    districts: "Districts"
+  };
+
+  function rank(index: any, isSchool: boolean) {
+    return index?.filter((object: any) => object.AVERAGE !== 0)
+      .sort((a: any, b: any) => b.avg - a.avg)
+      .map((object: any) => ({
+        // conditional based on whether its a school or not
+        schoolname: isSchool ? object.SCHOOL_NAME : object.DISTRICT_NAME,
+        schoolnumber: isSchool ? object.SCHOOL_NUMBER : object.DISTRICT_NUMBER,
+        avg: object.AVERAGE,
+        writers: object.WRITERS,
+        isPublic: isSchool ? object.PUBLIC : null
+      }))
+  };
+
+  const dataMap: { [key in typeof list]: any[] | null } = {
+    all: rank(schoolIndex, true),
+    public: rank(schoolIndex?.filter((school) => school.PUBLIC === true), true),
+    independent: rank(schoolIndex?.filter((school) => school.PUBLIC !== true), true),
+    districts: rank(districtIndex, false)
+  };
+
   return (
     <div>
       <div className="absolute top-4 left-4 z-1000 bg-white p-3 rounded shadow text-sm text-black">
@@ -36,44 +66,39 @@ export default function ProvinceDisplay({ geojsonData, schoolIndex, districtInde
         </div>
       </div>
 
-      <div>
-        <div className="absolute top-4 right-4 z-1000 bg-white p-3 rounded shadow text-sm text-black w-md">
-          <RankingList title="All Schools" data={schoolIndex?.filter((school) => school.AVERAGE !== 0).sort((a, b) => b.avg - a.avg).map((school) => {
-            return {
-              schoolname: school.SCHOOL_NAME,
-              schoolnumber: school.SCHOOL_NUMBER,
-              avg: school.AVERAGE,
-              writers: school.WRITERS
-            }
-          })} />
+      <div className="fixed right-4 top-4 bottom-4 h-[screen - 8] w-96 z-1000 bg-white rounded shadow flex flex-col">
 
-          <RankingList title="Public Schools" data={schoolIndex?.filter((school) => school.AVERAGE !== 0 && school.PUBLIC === true).sort((a, b) => b.avg - a.avg).map((school) => {
-            return {
-              schoolname: school.SCHOOL_NAME,
-              schoolnumber: school.SCHOOL_NUMBER,
-              avg: school.AVERAGE,
-              writers: school.WRITERS
-            }
-          })} />
+        <div className="p-3 flex-1 overflow-hidden">
+            <div className="flex h-full flex-col">
+              <div className="m-auto">
+                <button className={`px-3 py-1 text-sm ${list === "all" ? "bg-white text-black" : "bg-gray-200 text-black"}`}
+                  onClick={() => setList("all")}
+                >
+                  All Schools
+                </button>
 
-          <RankingList title="Independent Schools" data={schoolIndex?.filter((school) => school.AVERAGE !== 0 && school.PUBLIC !== true).sort((a, b) => b.avg - a.avg).map((school) => {
-            return {
-              schoolname: school.SCHOOL_NAME,
-              schoolnumber: school.SCHOOL_NUMBER,
-              avg: school.AVERAGE,
-              writers: school.WRITERS
-            }
-          })} />
+                <button className={`px-3 py-1 text-sm ${list === "public" ? "bg-white text-black" : "bg-gray-200 text-black"}`}
+                  onClick={() => setList("public")}
+                >
+                  Public
+                </button>
 
-          <RankingList title="Districts" data={districtIndex?.filter((district) => district.AVERAGE !== 0).sort((a, b) => b.avg - a.avg).map((district) => {
-            return {
-              schoolname: district.DISTRICT_NAME,
-              schoolnumber: district.DISTRICT_NUMBER,
-              avg: district.AVERAGE,
-              writers: district.WRITERS
-            }
-          })} />
+                <button className={`px-3 py-1 text-sm ${list === "independent" ? "bg-white text-black" : "bg-gray-200 text-black"}`}
+                  onClick={() => setList("independent")}
+                >
+                  Independent
+                </button>
 
+                <button className={`px-3 py-1 text-sm ${list === "districts" ? "bg-white text-black" : "bg-gray-200 text-black"}`}
+                  onClick={() => setList("districts")}
+                >
+                  Districts
+                </button>
+              </div>
+              <div className="mt-2 flex-1 overflow-y-auto">
+                <RankingList title={titleMap[list]} data={dataMap[list] || []} />
+              </div>
+            </div>
         </div>
       </div>
 
