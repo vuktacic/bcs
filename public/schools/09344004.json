@@ -8,59 +8,27 @@
   "SCHOOL_NAME": "Andre-Piolat",
   "SUB_POPULATION": "All Students",
   "assessments": {
-    "Numeracy Assessment 10": {
-      "2018/2019": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "14",
-        "SCORE": "246",
-        "AVERAGE": 45.05
-      },
-      "2021/2022": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "11",
-        "SCORE": "184.4",
-        "AVERAGE": 42.98
-      },
-      "2022/2023": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "14",
-        "SCORE": "300",
-        "AVERAGE": 54.95
-      },
-      "2023/2024": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": null,
-        "SCORE": null,
-        "AVERAGE": null
-      },
-      "2024/2025": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": null,
-        "SCORE": null,
-        "AVERAGE": null
-      }
-    },
     "Literacy Assessment 10": {
       "2021/2022": {
-        "ASSESSMENT_LANGUAGE": "French",
+        "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "11",
-        "SCORE": "638.4",
-        "AVERAGE": 96.73
+        "SCORE": "485",
+        "AVERAGE": 73.48
       },
       "2022/2023": {
-        "ASSESSMENT_LANGUAGE": "French",
+        "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "14",
-        "SCORE": "795.5",
-        "AVERAGE": 94.7
+        "SCORE": "555",
+        "AVERAGE": 66.07
       },
       "2023/2024": {
-        "ASSESSMENT_LANGUAGE": "French",
+        "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": null,
         "SCORE": null,
         "AVERAGE": null
       },
       "2024/2025": {
-        "ASSESSMENT_LANGUAGE": "French",
+        "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": null,
         "SCORE": null,
         "AVERAGE": null
@@ -68,13 +36,13 @@
     },
     "Literacy Assessment 12": {
       "2023/2024": {
-        "ASSESSMENT_LANGUAGE": "French",
+        "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "11",
-        "SCORE": "668.5",
-        "AVERAGE": 110.5
+        "SCORE": "434",
+        "AVERAGE": 71.74
       },
       "2024/2025": {
-        "ASSESSMENT_LANGUAGE": "French",
+        "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": null,
         "SCORE": null,
         "AVERAGE": null

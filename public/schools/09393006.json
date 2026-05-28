@@ -8,115 +8,59 @@
   "SCHOOL_NAME": "Au Coeur de L'ile",
   "SUB_POPULATION": "All Students",
   "assessments": {
-    "Numeracy Assessment 10": {
-      "2017/2018": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": null,
-        "SCORE": null,
-        "AVERAGE": null
-      },
-      "2018/2019": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "12",
-        "SCORE": "144",
-        "AVERAGE": 30.77
-      },
-      "2019/2020": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": null,
-        "SCORE": null,
-        "AVERAGE": null
-      },
-      "2020/2021": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "16",
-        "SCORE": "307",
-        "AVERAGE": 49.2
-      },
-      "2021/2022": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "17",
-        "SCORE": "370.5",
-        "AVERAGE": 55.88
-      },
-      "2022/2023": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": null,
-        "SCORE": null,
-        "AVERAGE": null
-      },
-      "2023/2024": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": null,
-        "SCORE": null,
-        "AVERAGE": null
-      },
-      "2024/2025": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "12",
-        "SCORE": "245.3",
-        "AVERAGE": 52.41
-      }
-    },
     "Literacy Assessment 10": {
-      "2019/2020": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": null,
-        "SCORE": null,
-        "AVERAGE": null
-      },
       "2020/2021": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "11",
-        "SCORE": "524.5",
-        "AVERAGE": 79.47
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "16",
+        "SCORE": "658",
+        "AVERAGE": 68.54
       },
       "2021/2022": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "17",
-        "SCORE": "878.9",
-        "AVERAGE": 86.17
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "16",
+        "SCORE": "715",
+        "AVERAGE": 74.48
       },
       "2022/2023": {
-        "ASSESSMENT_LANGUAGE": "French",
+        "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": null,
         "SCORE": null,
         "AVERAGE": null
       },
       "2023/2024": {
-        "ASSESSMENT_LANGUAGE": "French",
+        "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": null,
         "SCORE": null,
         "AVERAGE": null
       },
       "2024/2025": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "13",
-        "SCORE": "640.2",
-        "AVERAGE": 82.08
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "12",
+        "SCORE": "455",
+        "AVERAGE": 63.19
       }
     },
     "Literacy Assessment 12": {
       "2021/2022": {
-        "ASSESSMENT_LANGUAGE": "French",
+        "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": null,
         "SCORE": null,
         "AVERAGE": null
       },
       "2022/2023": {
-        "ASSESSMENT_LANGUAGE": "French",
+        "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": null,
         "SCORE": null,
         "AVERAGE": null
       },
       "2023/2024": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": null,
-        "SCORE": null,
-        "AVERAGE": null
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "10",
+        "SCORE": "412.5",
+        "AVERAGE": 75
       },
       "2024/2025": {
-        "ASSESSMENT_LANGUAGE": "French",
+        "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": null,
         "SCORE": null,
         "AVERAGE": null

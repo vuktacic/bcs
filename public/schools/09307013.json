@@ -66,31 +66,31 @@
         "AVERAGE": null
       },
       "2020/2021": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "12",
-        "SCORE": "528.5",
-        "AVERAGE": 73.4
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": null,
+        "SCORE": null,
+        "AVERAGE": null
       },
       "2021/2022": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "13",
-        "SCORE": "610.4",
-        "AVERAGE": 78.26
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "14",
+        "SCORE": "560.2",
+        "AVERAGE": 66.69
       },
       "2022/2023": {
-        "ASSESSMENT_LANGUAGE": "French",
+        "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": null,
         "SCORE": null,
         "AVERAGE": null
       },
       "2023/2024": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "17",
-        "SCORE": "868.9",
-        "AVERAGE": 85.19
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "15",
+        "SCORE": "597",
+        "AVERAGE": 66.33
       },
       "2024/2025": {
-        "ASSESSMENT_LANGUAGE": "French",
+        "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": null,
         "SCORE": null,
         "AVERAGE": null
@@ -98,25 +98,25 @@
     },
     "Literacy Assessment 12": {
       "2021/2022": {
-        "ASSESSMENT_LANGUAGE": "French",
+        "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": null,
         "SCORE": null,
         "AVERAGE": null
       },
       "2022/2023": {
-        "ASSESSMENT_LANGUAGE": "French",
+        "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": null,
         "SCORE": null,
         "AVERAGE": null
       },
       "2023/2024": {
-        "ASSESSMENT_LANGUAGE": "French",
+        "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "11",
-        "SCORE": "587",
-        "AVERAGE": 97.02
+        "SCORE": "377.3",
+        "AVERAGE": 62.36
       },
       "2024/2025": {
-        "ASSESSMENT_LANGUAGE": "French",
+        "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": null,
         "SCORE": null,
         "AVERAGE": null
