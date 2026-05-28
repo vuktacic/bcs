@@ -1,9 +1,9 @@
 "use client";
 
-import MVP from "./components/MVP";
+import Demo from "./components/MVP";
 import dynamic from "next/dynamic";
 import { useState, useEffect } from "react";
-import ProvincePopup from "./components/ProvincePopup";
+import ProvinceDisplay from "./components/ProvinceDisplay";
 import Search from "./components/Search";
 
 const Map = dynamic(
@@ -59,10 +59,10 @@ export default function Home() {
 
   return (
     <main className="relative h-screen w-screen">
-      <ProvincePopup geojsonData={geojsonData} schoolIndex={schoolIndex} districtIndex={districtIndex} provinceData={provinceData} publicData={publicData} independentData={independentData} />
+      <ProvinceDisplay geojsonData={geojsonData} schoolIndex={schoolIndex} districtIndex={districtIndex} provinceData={provinceData} publicData={publicData} independentData={independentData} />
       <Map query={query} geojsonData={geojsonData} schoolIndex={schoolIndex} districtIndex={districtIndex} provinceData={provinceData} publicData={publicData} independentData={independentData} />
       <Search query={query} setQuery={setQuery} />
-      <MVP />
+      <Demo />
     </main>
   );
 }

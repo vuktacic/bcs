@@ -9,14 +9,8 @@
   "SUB_POPULATION": "All Students",
   "assessments": {
     "Numeracy Assessment 10": {
-      "2023/2024": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": null,
-        "SCORE": null,
-        "AVERAGE": null
-      },
       "2024/2025": {
-        "ASSESSMENT_LANGUAGE": "French",
+        "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": null,
         "SCORE": null,
         "AVERAGE": null
@@ -30,13 +24,13 @@
         "AVERAGE": null
       },
       "2023/2024": {
-        "ASSESSMENT_LANGUAGE": "French",
+        "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": null,
         "SCORE": null,
         "AVERAGE": null
       },
       "2024/2025": {
-        "ASSESSMENT_LANGUAGE": "French",
+        "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": null,
         "SCORE": null,
         "AVERAGE": null
@@ -44,19 +38,19 @@
     },
     "Literacy Assessment 12": {
       "2022/2023": {
-        "ASSESSMENT_LANGUAGE": "French",
+        "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": null,
         "SCORE": null,
         "AVERAGE": null
       },
       "2023/2024": {
-        "ASSESSMENT_LANGUAGE": "French",
+        "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": null,
         "SCORE": null,
         "AVERAGE": null
       },
       "2024/2025": {
-        "ASSESSMENT_LANGUAGE": "French",
+        "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": null,
         "SCORE": null,
         "AVERAGE": null
