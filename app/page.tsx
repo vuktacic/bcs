@@ -1,9 +1,9 @@
 "use client";
 
-import MVP from "./components/MVP";
+import Demo from "./components/MVP";
 import dynamic from "next/dynamic";
 import { useState, useEffect } from "react";
-import ProvincePopup from "./components/ProvincePopup";
+import ProvinceDisplay from "./components/ProvinceDisplay";
 import Search from "./components/Search";
 
 const Map = dynamic(
@@ -38,8 +38,12 @@ export default function Home() {
         return;
       }
 
+      // filter out schools with null averages
+      const schoolIndexData = await schoolIndexRes.json();
+      const filtered = schoolIndexData.filter((school: any) => school.AVERAGE !== null);
+
       setGeojsonData(await geojsonRes.json());
-      setSchoolIndex(await schoolIndexRes.json());
+      setSchoolIndex(filtered);
       setDistrictIndex(await districtIndexRes.json());
       setProvinceData(await provinceRes.json());
       setPublicData(await publicRes.json());
@@ -55,10 +59,10 @@ export default function Home() {
 
   return (
     <main className="relative h-screen w-screen">
-      <ProvincePopup geojsonData={geojsonData} schoolIndex={schoolIndex} districtIndex={districtIndex} provinceData={provinceData} publicData={publicData} independentData={independentData} />
+      <ProvinceDisplay geojsonData={geojsonData} schoolIndex={schoolIndex} districtIndex={districtIndex} provinceData={provinceData} publicData={publicData} independentData={independentData} />
       <Map query={query} geojsonData={geojsonData} schoolIndex={schoolIndex} districtIndex={districtIndex} provinceData={provinceData} publicData={publicData} independentData={independentData} />
       <Search query={query} setQuery={setQuery} />
-      <MVP />
+      <Demo />
     </main>
   );
 }
