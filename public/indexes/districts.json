@@ -1,18 +1,18 @@
 [
   {
-    "DISTRICT_NUMBER": "093",
-    "DISTRICT_NAME": "Conseil scolaire francophone",
-    "PUBLIC": true,
-    "WRITERS": 825,
-    "AVERAGE": 75.68,
-    "RANK": 1
-  },
-  {
     "DISTRICT_NUMBER": "045",
     "DISTRICT_NAME": "West Vancouver",
     "PUBLIC": true,
     "WRITERS": 2007,
     "AVERAGE": 61.58,
+    "RANK": 1
+  },
+  {
+    "DISTRICT_NUMBER": "093",
+    "DISTRICT_NAME": "Conseil scolaire francophone",
+    "PUBLIC": true,
+    "WRITERS": 578,
+    "AVERAGE": 59.23,
     "RANK": 2
   },
   {
