@@ -11,115 +11,115 @@
     "Numeracy Assessment 10": {
       "2017/2018": {
         "ASSESSMENT_LANGUAGE": "English",
-        "NUMBER_WRITERS": "Msk",
-        "SCORE": "Msk",
-        "AVERAGE": 0
+        "NUMBER_WRITERS": null,
+        "SCORE": null,
+        "AVERAGE": null
       },
       "2018/2019": {
         "ASSESSMENT_LANGUAGE": "English",
-        "NUMBER_WRITERS": "Msk",
-        "SCORE": "Msk",
-        "AVERAGE": 0
+        "NUMBER_WRITERS": null,
+        "SCORE": null,
+        "AVERAGE": null
       },
       "2019/2020": {
         "ASSESSMENT_LANGUAGE": "English",
-        "NUMBER_WRITERS": "Msk",
-        "SCORE": "Msk",
-        "AVERAGE": 0
+        "NUMBER_WRITERS": null,
+        "SCORE": null,
+        "AVERAGE": null
       },
       "2020/2021": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "15",
         "SCORE": "262",
-        "AVERAGE": "17.47"
+        "AVERAGE": 44.79
       },
       "2021/2022": {
         "ASSESSMENT_LANGUAGE": "English",
-        "NUMBER_WRITERS": "Msk",
-        "SCORE": "Msk",
-        "AVERAGE": 0
+        "NUMBER_WRITERS": null,
+        "SCORE": null,
+        "AVERAGE": null
       },
       "2022/2023": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "10",
         "SCORE": "221.6",
-        "AVERAGE": "22.16"
+        "AVERAGE": 56.82
       },
       "2023/2024": {
         "ASSESSMENT_LANGUAGE": "English",
-        "NUMBER_WRITERS": "Msk",
-        "SCORE": "Msk",
-        "AVERAGE": 0
+        "NUMBER_WRITERS": null,
+        "SCORE": null,
+        "AVERAGE": null
       },
       "2024/2025": {
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "12",
         "SCORE": "271.7",
-        "AVERAGE": "22.64"
+        "AVERAGE": 58.06
       }
     },
     "Literacy Assessment 10": {
       "2019/2020": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "13",
-        "SCORE": "615",
-        "AVERAGE": "47.31"
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": null,
+        "SCORE": null,
+        "AVERAGE": null
       },
       "2020/2021": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "Msk",
-        "SCORE": "Msk",
-        "AVERAGE": 0
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "12",
+        "SCORE": "487",
+        "AVERAGE": 67.64
       },
       "2021/2022": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "16",
-        "SCORE": "792.2",
-        "AVERAGE": "49.51"
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "10",
+        "SCORE": "388.4",
+        "AVERAGE": 64.73
       },
       "2022/2023": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "Msk",
-        "SCORE": "Msk",
-        "AVERAGE": 0
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": null,
+        "SCORE": null,
+        "AVERAGE": null
       },
       "2023/2024": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "Msk",
-        "SCORE": "Msk",
-        "AVERAGE": 0
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": null,
+        "SCORE": null,
+        "AVERAGE": null
       },
       "2024/2025": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "11",
-        "SCORE": "565.7",
-        "AVERAGE": "51.43"
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "10",
+        "SCORE": "376",
+        "AVERAGE": 62.67
       }
     },
     "Literacy Assessment 12": {
       "2021/2022": {
-        "ASSESSMENT_LANGUAGE": "French",
+        "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "12",
-        "SCORE": "406.6",
-        "AVERAGE": "33.88"
+        "SCORE": "449",
+        "AVERAGE": 68.03
       },
       "2022/2023": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "Msk",
-        "SCORE": "Msk",
-        "AVERAGE": 0
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": null,
+        "SCORE": null,
+        "AVERAGE": null
       },
       "2023/2024": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "Msk",
-        "SCORE": "Msk",
-        "AVERAGE": 0
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": null,
+        "SCORE": null,
+        "AVERAGE": null
       },
       "2024/2025": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "Msk",
-        "SCORE": "Msk",
-        "AVERAGE": 0
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": null,
+        "SCORE": null,
+        "AVERAGE": null
       }
     }
   }

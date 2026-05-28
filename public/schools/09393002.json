@@ -8,112 +8,62 @@
   "SCHOOL_NAME": "Gabrielle-Roy",
   "SUB_POPULATION": "All Students",
   "assessments": {
-    "Numeracy Assessment 10": {
-      "2017/2018": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "76",
-        "SCORE": "1397",
-        "AVERAGE": "18.38"
-      },
-      "2018/2019": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "47",
-        "SCORE": "664",
-        "AVERAGE": "14.13"
-      },
-      "2019/2020": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "30",
-        "SCORE": "387",
-        "AVERAGE": "12.90"
-      },
-      "2020/2021": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "34",
-        "SCORE": "557",
-        "AVERAGE": "16.38"
-      },
-      "2021/2022": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "21",
-        "SCORE": "380.9",
-        "AVERAGE": "18.14"
-      },
-      "2022/2023": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "34",
-        "SCORE": "517.1",
-        "AVERAGE": "15.21"
-      },
-      "2023/2024": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "18",
-        "SCORE": "277.2",
-        "AVERAGE": "15.40"
-      },
-      "2024/2025": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "47",
-        "SCORE": "751.8",
-        "AVERAGE": "16.00"
-      }
-    },
     "Literacy Assessment 10": {
       "2020/2021": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "60",
-        "SCORE": "2414",
-        "AVERAGE": "40.23"
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "61",
+        "SCORE": "2354",
+        "AVERAGE": 64.32
       },
       "2021/2022": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "22",
-        "SCORE": "1126.1",
-        "AVERAGE": "51.19"
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "21",
+        "SCORE": "796.8",
+        "AVERAGE": 63.24
       },
       "2022/2023": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "33",
-        "SCORE": "1654.8",
-        "AVERAGE": "50.15"
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "34",
+        "SCORE": "1238",
+        "AVERAGE": 60.69
       },
       "2023/2024": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "18",
-        "SCORE": "898.5",
-        "AVERAGE": "49.92"
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "19",
+        "SCORE": "613.5",
+        "AVERAGE": 53.82
       },
       "2024/2025": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "48",
-        "SCORE": "2216.5",
-        "AVERAGE": "46.18"
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "44",
+        "SCORE": "1467.5",
+        "AVERAGE": 55.59
       }
     },
     "Literacy Assessment 12": {
       "2021/2022": {
-        "ASSESSMENT_LANGUAGE": "French",
+        "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "28",
-        "SCORE": "1228.6",
-        "AVERAGE": "43.88"
+        "SCORE": "1020.4",
+        "AVERAGE": 66.26
       },
       "2022/2023": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "26",
-        "SCORE": "1272.8",
-        "AVERAGE": "48.95"
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "27",
+        "SCORE": "1003.6",
+        "AVERAGE": 67.58
       },
       "2023/2024": {
-        "ASSESSMENT_LANGUAGE": "French",
+        "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "20",
-        "SCORE": "1040.3",
-        "AVERAGE": "52.02"
+        "SCORE": "662",
+        "AVERAGE": 60.18
       },
       "2024/2025": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "34",
-        "SCORE": "1747.9",
-        "AVERAGE": "51.41"
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "35",
+        "SCORE": "1074.8",
+        "AVERAGE": 55.83
       }
     }
   }

@@ -8,106 +8,62 @@
   "SCHOOL_NAME": "de l'Anse-au-sable",
   "SUB_POPULATION": "All Students",
   "assessments": {
-    "Numeracy Assessment 10": {
-      "2017/2018": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "14",
-        "SCORE": "307",
-        "AVERAGE": "21.93"
-      },
-      "2018/2019": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "15",
-        "SCORE": "323",
-        "AVERAGE": "21.53"
-      },
-      "2020/2021": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "18",
-        "SCORE": "312",
-        "AVERAGE": "17.33"
-      },
-      "2021/2022": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "10",
-        "SCORE": "232.9",
-        "AVERAGE": "23.29"
-      },
-      "2022/2023": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "Msk",
-        "SCORE": "Msk",
-        "AVERAGE": 0
-      },
-      "2023/2024": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "Msk",
-        "SCORE": "Msk",
-        "AVERAGE": 0
-      },
-      "2024/2025": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "Msk",
-        "SCORE": "Msk",
-        "AVERAGE": 0
-      }
-    },
     "Literacy Assessment 10": {
       "2020/2021": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "16",
-        "SCORE": "758",
-        "AVERAGE": "47.38"
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "17",
+        "SCORE": "699",
+        "AVERAGE": 68.53
       },
       "2021/2022": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "10",
-        "SCORE": "526.9",
-        "AVERAGE": "52.69"
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": "11",
+        "SCORE": "459",
+        "AVERAGE": 69.55
       },
       "2022/2023": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "Msk",
-        "SCORE": "Msk",
-        "AVERAGE": 0
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": null,
+        "SCORE": null,
+        "AVERAGE": null
       },
       "2023/2024": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "Msk",
-        "SCORE": "Msk",
-        "AVERAGE": 0
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": null,
+        "SCORE": null,
+        "AVERAGE": null
       },
       "2024/2025": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "Msk",
-        "SCORE": "Msk",
-        "AVERAGE": 0
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": null,
+        "SCORE": null,
+        "AVERAGE": null
       }
     },
     "Literacy Assessment 12": {
       "2021/2022": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "Msk",
-        "SCORE": "Msk",
-        "AVERAGE": 0
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": null,
+        "SCORE": null,
+        "AVERAGE": null
       },
       "2022/2023": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "Msk",
-        "SCORE": "Msk",
-        "AVERAGE": 0
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": null,
+        "SCORE": null,
+        "AVERAGE": null
       },
       "2023/2024": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "Msk",
-        "SCORE": "Msk",
-        "AVERAGE": 0
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": null,
+        "SCORE": null,
+        "AVERAGE": null
       },
       "2024/2025": {
-        "ASSESSMENT_LANGUAGE": "French",
-        "NUMBER_WRITERS": "Msk",
-        "SCORE": "Msk",
-        "AVERAGE": 0
+        "ASSESSMENT_LANGUAGE": "English",
+        "NUMBER_WRITERS": null,
+        "SCORE": null,
+        "AVERAGE": null
       }
     }
   }

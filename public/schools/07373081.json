@@ -13,7 +13,7 @@
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "168",
         "SCORE": "2382",
-        "AVERAGE": "14.18"
+        "AVERAGE": 36.36
       }
     },
     "Literacy Assessment 10": {
@@ -21,15 +21,15 @@
         "ASSESSMENT_LANGUAGE": "English",
         "NUMBER_WRITERS": "121",
         "SCORE": "3781.5",
-        "AVERAGE": "31.25"
+        "AVERAGE": 52.09
       }
     },
     "Literacy Assessment 12": {
       "2024/2025": {
         "ASSESSMENT_LANGUAGE": "English",
-        "NUMBER_WRITERS": "Msk",
-        "SCORE": "Msk",
-        "AVERAGE": 0
+        "NUMBER_WRITERS": null,
+        "SCORE": null,
+        "AVERAGE": null
       }
     }
   }
