@@ -33,9 +33,9 @@ function buildSeries(assessments: any, provinceData: any) {
   });
 }
 
-export default function DisplayPopup({ selected, object, isSchool, provinceData }: { selected: any, object: any, isSchool: boolean, provinceData: any }) {
+export default function DisplayPopup({ selected, object, isSchool, provinceData, popupWidth }: { selected: any, object: any, isSchool: boolean, provinceData: any, popupWidth: number }) {
   return (
-    <div style={{ width: `${popupWidthPx}px`, maxWidth: `${popupWidthPx}px` }}>
+    <div style={{ width: `${popupWidth}px`, maxWidth: `${popupWidth}px` }}>
       {isSchool ?
         <div>
           <strong>{object.SCHOOL_NAME} ({object.SCHOOL_NUMBER})</strong><br />
