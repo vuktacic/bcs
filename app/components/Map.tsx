@@ -91,7 +91,7 @@ export default function Map({ query, geojsonData, schoolIndex, districtIndex, pr
 
   useEffect(() => {
     const update = () => {
-      const next = Math.min(325, Math.floor(window.innerWidth * 0.9));
+      const next = Math.min(325, Math.floor(window.innerWidth * 0.6));
       setPopupWidth(next);
     };
 
@@ -191,7 +191,7 @@ export default function Map({ query, geojsonData, schoolIndex, districtIndex, pr
           <DisplayPopup selected={selectedDistrict} object={{
             DISTRICT_NAME: selectedDistrict.districtName,
             DISTRICT_NUMBER: selectedDistrict.districtNumber,
-          }} isSchool={false} provinceData={provinceData} />
+          }} isSchool={false} provinceData={provinceData} popupWidth={popupWidth} />
         </Popup>
       ) : null}
 
@@ -234,7 +234,7 @@ export default function Map({ query, geojsonData, schoolIndex, districtIndex, pr
               },
             }}
           >
-            <DisplayPopup selected={selectedSchool} object={school} isSchool={true} provinceData={provinceData} />
+            <DisplayPopup selected={selectedSchool} object={school} isSchool={true} provinceData={provinceData} popupWidth={popupWidth} />
           </Popup>
         </Marker>
       ))}

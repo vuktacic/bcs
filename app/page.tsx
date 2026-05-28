@@ -62,8 +62,7 @@ export default function Home() {
       <div className="h-[60svh] md:h-full">
         <Map query={query} geojsonData={geojsonData} schoolIndex={schoolIndex} districtIndex={districtIndex} provinceData={provinceData} publicData={publicData} independentData={independentData} />
       </div>
-      <ProvinceDisplay geojsonData={geojsonData} schoolIndex={schoolIndex} districtIndex={districtIndex} provinceData={provinceData} publicData={publicData} independentData={independentData} />
-      <Search query={query} setQuery={setQuery} />
+      <ProvinceDisplay geojsonData={geojsonData} schoolIndex={schoolIndex} districtIndex={districtIndex} provinceData={provinceData} publicData={publicData} independentData={independentData} query={query} setQuery={setQuery} />
       <Demo />
     </main>
   );
