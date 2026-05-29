@@ -53,13 +53,25 @@ export default function ProvinceDisplay({ geojsonData, schoolIndex, districtInde
               </div>
               <button
                 type="button"
-                onClick={() => setIsMobileDrawerOpen(false)}
+                onClick={() => {
+                  if (isMobileDrawerOpen) setIsMobileDrawerOpen(false);
+                  else setIsMobileDrawerOpen(true);
+                }}
                 className="shrink-0 px-3 py-3 text-gray-500 hover:text-gray-700 transition-colors"
                 aria-label="Close province drawer"
               >
-                <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
+                {isMobileDrawerOpen ? (
+                  <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    {/* caret pointing up */}
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                ) : (
+                  <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    {/* caret pointing down */}
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+                  </svg>
+                )
+                }
               </button>
             </div>
 
