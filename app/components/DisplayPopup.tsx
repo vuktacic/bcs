@@ -1,11 +1,9 @@
-import { CartesianGrid, Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
+import { CartesianGrid, Legend, Line, LineChart, ResponsiveContainer, Tooltip, TooltipContentProps, XAxis, YAxis } from "recharts";
 
 const na10 = "Numeracy Assessment 10";
 const la10 = "Literacy Assessment 10";
 const la12 = "Literacy Assessment 12";
 const currentYear = "2024/2025";
-const popupWidthPx = 325;
-const tooltipOffsetX = popupWidthPx + 25;
 
 function buildSeries(assessments: any, provinceData: any) {
   const yearCollector = new Set<string>();
@@ -32,6 +30,38 @@ function buildSeries(assessments: any, provinceData: any) {
     return row;
   });
 }
+
+const CustomTooltip = ({ active, payload, label }: TooltipContentProps) => {
+  const firstPayload = payload?.[0];
+  const isVisible = active && firstPayload != null;
+  return (
+    <div className="custom-tooltip" style={{ visibility: isVisible ? 'visible' : 'hidden' }}>
+      {isVisible && (
+        <div className="w-full flex justify-between items-start">
+          <div className="grid grid-cols-3 grid-rows-2 gap-x-2 mx-auto">
+            {[na10, la10, la12].map((assessment) => {
+              const entry = payload.find((p) => p.dataKey === assessment)!;
+              const prov = payload.find((p) => p.dataKey === `${assessment}_prov`)!;
+              if (entry) {
+                return (
+                  <div>
+                    <div key={entry.color} className="" style={{ color: entry.color }}>
+                      {entry.value}%
+                    </div>
+                    <div key={prov.color} className="text-xs" style={{ color: prov.color }}>
+                      {prov.value}%
+                    </div>
+                  </div>
+                );
+              }
+            })}
+          </div>
+        </div>
+      )}
+    </div>
+
+  );
+};
 
 export default function DisplayPopup({ selected, object, isSchool, provinceData, popupWidth }: { selected: any, object: any, isSchool: boolean, provinceData: any, popupWidth: number }) {
   return (
@@ -66,10 +96,8 @@ export default function DisplayPopup({ selected, object, isSchool, provinceData,
             <XAxis dataKey="year" />
             <YAxis domain={[0, 100]} />
             <Tooltip
-              position={{ x: tooltipOffsetX, y: 12 }}
-              allowEscapeViewBox={{ x: true, y: true }}
-              contentStyle={{ backgroundColor: 'rgba(255, 255, 255, 0.95)', border: '1px solid #ccc', padding: '10px', borderRadius: '4px' }}
-              wrapperStyle={{ outline: 'none' }}
+              content={CustomTooltip}
+              position={{ x: 70, y: 5 }}
             />
             <Legend />
             <Line connectNulls type="monotone" dataKey={na10} stroke="#8884d8" strokeWidth={2} />

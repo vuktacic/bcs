@@ -43,7 +43,7 @@ export default function ProvinceDisplay({ geojsonData, schoolIndex, districtInde
 
     <div className="fixed inset-x-0 bottom-0 z-1000 md:contents">
       <div>
-        <div className="bg-white rounded-t-2xl shadow-lg h-[50svh] overflow-hidden min-h-0 md:bg-transparent md:shadow-none md:max-h-none md:rounded-none text-black text-sm flex flex-col">
+        <div className="bg-white rounded-t-2xl shadow-lg h-[50svh] md:h-0 overflow-hidden min-h-0 md:bg-transparent md:shadow-none md:max-h-none md:rounded-none text-black text-sm flex flex-col">
           <div className="w-full md:absolute md:bottom-4 md:left-1/2 md:-translate-x-1/2 md:w-[22vw] md:max-w-xl md:mt-0 z-1000">
             <Search query={query} setQuery={setQuery} />
           </div>
@@ -81,7 +81,7 @@ export default function ProvinceDisplay({ geojsonData, schoolIndex, districtInde
             </div>
           </div>
 
-          <div className="p-0 md:fixed md:top-4 md:right-4 md:bottom-4 w-64 lg:w-96 md:shadow md:rounded md:bg-white z-1000 flex-1 overflow-hidden">
+          <div className="p-0 md:fixed md:top-4 md:right-4 md:bottom-4 w-full md:w-64 lg:w-96 md:shadow md:rounded md:bg-white z-1000 flex-1 overflow-hidden">
             <div className="p-0 h-full min-h-0">
               <div className="flex h-full flex-col min-h-0">
                 <div className="m-auto w-full flex justify-center">
@@ -109,14 +109,15 @@ export default function ProvinceDisplay({ geojsonData, schoolIndex, districtInde
                     Districts
                   </button>
                 </div>
-                <div className="mb-0 flex-1 overflow-y-auto min-h-0 overscroll-contain">
+                <div className="mb-0 flex-1 overflow-y-auto min-h-0 overflow-x-auto lg:overflow-x-hidden flex justify-center md:justify-start">
                   <RankingList title={titleMap[list]} data={dataMap[list] || []} />
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="md:p-0 md:absolute md:bottom-4 md:left-4 md:shadow md:rounded md:bg-white z-1000 w-3xs lg:w-xs">
+
+          <div className="md:p-0 md:absolute md:bottom-4 md:left-4 md:shadow md:rounded md:bg-white z-1000 w-full md:w-3xs lg:w-xs">
             <div className="bg-white md:p-3 md:rounded md:shadow text-center md:text-left text-3xs md:text-sm text-black">
               <div className="font-semibold">Contains information licensed under the Open Government Licence – British Columbia.</div>
             </div>
