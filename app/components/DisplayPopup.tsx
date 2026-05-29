@@ -44,11 +44,11 @@ const CustomTooltip = ({ active, payload, label }: TooltipContentProps) => {
               const prov = payload.find((p) => p.dataKey === `${assessment}_prov`)!;
               if (entry) {
                 return (
-                  <div>
-                    <div key={entry.color} className="" style={{ color: entry.color }}>
+                  <div key={entry.key}>
+                    <div className="" style={{ color: entry.color }}>
                       {entry.value}%
                     </div>
-                    <div key={prov.color} className="text-xs" style={{ color: prov.color }}>
+                    <div className="text-xs" style={{ color: prov.color }}>
                       {prov.value}%
                     </div>
                   </div>
