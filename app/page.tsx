@@ -19,8 +19,7 @@ export default function Home() {
   const [districtIndex, setDistrictIndex] = useState<any[] | null>(null);
   const [provinceData, setProvinceData] = useState<any | null>(null);
   const [publicData, setPublicData] = useState<any | null>(null);
-  const [independentData, setIndependentData] = useState<any | null>(null);
-
+  const [independentData, setIndependentData] = useState<any | null>(null);  const [isMobileDrawerOpen, setIsMobileDrawerOpen] = useState(true);
   useEffect(() => {
     let isMounted = true;
 
@@ -59,10 +58,10 @@ export default function Home() {
 
   return (
     <main className="relative h-svh w-screen flex flex-col md:block md:h-screen md:w-screen">
-      <div className="h-[60svh] md:h-full">
-        <Map query={query} geojsonData={geojsonData} schoolIndex={schoolIndex} districtIndex={districtIndex} provinceData={provinceData} publicData={publicData} independentData={independentData} />
+      <div className="h-full">
+        <Map query={query} geojsonData={geojsonData} schoolIndex={schoolIndex} districtIndex={districtIndex} provinceData={provinceData} publicData={publicData} independentData={independentData} onPopupOpen={() => setIsMobileDrawerOpen(false)} />
       </div>
-      <ProvinceDisplay geojsonData={geojsonData} schoolIndex={schoolIndex} districtIndex={districtIndex} provinceData={provinceData} publicData={publicData} independentData={independentData} query={query} setQuery={setQuery} />
+      <ProvinceDisplay geojsonData={geojsonData} schoolIndex={schoolIndex} districtIndex={districtIndex} provinceData={provinceData} publicData={publicData} independentData={independentData} query={query} setQuery={setQuery} isMobileDrawerOpen={isMobileDrawerOpen} setIsMobileDrawerOpen={setIsMobileDrawerOpen} />
       <Demo />
     </main>
   );

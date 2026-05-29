@@ -14,16 +14,15 @@ type SchoolIndex = {
   }
 }
 
-export default function Search({ query, setQuery }: { query: string; setQuery: (query: string) => void }) {
+export default function Search({ query, setQuery, onFocus }: { query: string; setQuery: (query: string) => void; onFocus?: () => void }) {
   return (
     <div>
       <input
         type="text"
         placeholder="Search for a school..."
-        className="z-1001 w-full rounded-t-2xl md:rounded-full px-4 py-3 md:shadow-lg md:border bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+        className="z-1001 w-full h-10 rounded-t-3xl md:rounded-full px-6 py-6 md:shadow-lg md:border bg-white focus:outline-none text-black"
         value={query}
-        onChange={(e) => setQuery(e.target.value)}
-      />
+        onChange={(e) => setQuery(e.target.value)}        onFocus={onFocus}      />
     </div>
   )
 }
