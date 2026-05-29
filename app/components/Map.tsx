@@ -51,7 +51,7 @@ function BaseMapLayer() {
   return null;
 }
 
-export default function Map({ query, geojsonData, schoolIndex, districtIndex, provinceData, publicData, independentData }: { query: string; geojsonData: any | null; schoolIndex: any[] | null; districtIndex: any[] | null; provinceData: any | null; publicData: any | null; independentData: any | null }) {
+export default function Map({ query, geojsonData, schoolIndex, districtIndex, provinceData, publicData, independentData, onPopupOpen }: { query: string; geojsonData: any | null; schoolIndex: any[] | null; districtIndex: any[] | null; provinceData: any | null; publicData: any | null; independentData: any | null; onPopupOpen?: () => void }) {
 
   const [selectedSchool, setSelectedSchool] = useState<any | null>(null);
   const [selectedDistrict, setSelectedDistrict] = useState<{ districtName: string; districtNumber: string; assessments: any | null } | null>(null);
@@ -137,6 +137,7 @@ export default function Map({ query, geojsonData, schoolIndex, districtIndex, pr
 
         activeDistrictNumberRef.current = districtNumber;
         setDistrictPopupPosition([e.latlng.lat, e.latlng.lng]);
+        onPopupOpen?.();
 
         setSelectedDistrict({
           districtName,
@@ -215,6 +216,7 @@ export default function Map({ query, geojsonData, schoolIndex, districtIndex, pr
               }
 
               setOpenSchoolNumber(school.SCHOOL_NUMBER);
+              onPopupOpen?.();
               const response = await fetch(`/schools/${school.SCHOOL_NUMBER}.json`);
               const data = await response.json();
               setSelectedSchool(data);
