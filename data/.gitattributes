@@ -1,1 +1,6 @@
+# geojson and rawdata and formatted data
+# TA_SCHOOL_DISTRICTS_SVW.geojson filter=lfs diff=lfs merge=lfs -text
 TA_SCHOOL_DISTRICTS_SVW.geojson filter=lfs diff=lfs merge=lfs -text
+simplified.geojson filter=lfs diff=lfs merge=lfs -text
+formatted-data.csv filter=lfs diff=lfs merge=lfs -text
+raw-data.csv filter=lfs diff=lfs merge=lfs -text

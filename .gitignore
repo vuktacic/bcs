@@ -55,3 +55,5 @@ generated/
 !.dev.vars.example
 
 !.env.example
+
+.serena
