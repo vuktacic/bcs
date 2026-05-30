@@ -37,8 +37,10 @@ function BaseMapLayer() {
   const map = useMap();
 
   useEffect(() => {
-    const tileLayer = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    const tileLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      subdomains: 'abcd',
+      maxZoom: 20
     });
 
     tileLayer.addTo(map);
@@ -167,13 +169,19 @@ export default function Map({ query, geojsonData, schoolIndex, districtIndex, pr
       zoomDelta={0.25}
       zoomSnap={0.25}
       className="h-full w-full"
-      style={{ height: "100%", width: "100%" }}
+      style={{ height: "100%", width: "100%", background: "var(--color-background)" }}
       zoomControl={false}
       ref={mapRef}
     >
       <BaseMapLayer />
 
-      {geojsonData ? <GeoJSON data={geojsonData as any} onEachFeature={handleEachDistrict} /> : null}
+      {geojsonData ?
+        <GeoJSON
+          data={geojsonData as any}
+          onEachFeature={handleEachDistrict}
+          pathOptions={{ color: "#bbb", weight: 1, fillColor: "#444", fillOpacity: 0.0 }}
+        />
+        : null}
 
       {selectedDistrict && districtPopupPosition ? (
         <Popup

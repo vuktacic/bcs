@@ -59,13 +59,12 @@ const CustomTooltip = ({ active, payload, label }: TooltipContentProps) => {
         </div>
       )}
     </div>
-
   );
 };
 
 export default function DisplayPopup({ selected, object, isSchool, provinceData, popupWidth }: { selected: any, object: any, isSchool: boolean, provinceData: any, popupWidth: number }) {
   return (
-    <div style={{ width: `${popupWidth}px`, maxWidth: `${popupWidth}px` }}>
+    <div style={{ width: `${popupWidth}px`, maxWidth: `${popupWidth}px` }} className="bg-background text-foreground">
       {isSchool ?
         <div>
           <strong>{object.SCHOOL_NAME} ({object.SCHOOL_NUMBER})</strong><br />
@@ -78,7 +77,7 @@ export default function DisplayPopup({ selected, object, isSchool, provinceData,
 
       <div>
         {selected ? (
-          <div>
+          <div className="mt-2">
             <div><strong>Assessment Mean Scores ({currentYear}):</strong></div>
             <div>Numeracy 10: {selected?.assessments?.[na10]?.[currentYear]?.AVERAGE || "—"}% - {selected?.assessments?.[na10]?.[currentYear]?.NUMBER_WRITERS || "—"} Exams</div>
             <div>Literacy 10: {selected?.assessments?.[la10]?.[currentYear]?.AVERAGE || "—"}% - {selected?.assessments?.[la10]?.[currentYear]?.NUMBER_WRITERS || "—"} Exams</div>
@@ -91,7 +90,7 @@ export default function DisplayPopup({ selected, object, isSchool, provinceData,
       <strong className="mt-2 block">Score Trends:</strong>
       {selected ? (
         <ResponsiveContainer width="100%" height={350}>
-          <LineChart data={buildSeries(selected.assessments, provinceData)}>
+          <LineChart data={buildSeries(selected.assessments, provinceData)} style={{  }}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="year" />
             <YAxis domain={[0, 100]} />
@@ -99,13 +98,13 @@ export default function DisplayPopup({ selected, object, isSchool, provinceData,
               content={CustomTooltip}
               position={{ x: 70, y: 5 }}
             />
-            <Legend />
-            <Line connectNulls type="monotone" dataKey={na10} stroke="#8884d8" strokeWidth={2} />
-            <Line connectNulls type="monotone" dataKey={la10} stroke="#82ca9d" strokeWidth={2} />
+            <Legend align="left" labelStyle={{ textAlign: "left" }} />
+            <Line connectNulls type="monotone" dataKey={na10} stroke="#a09cff" strokeWidth={2} />
+            <Line connectNulls type="monotone" dataKey={la10} stroke="#7ff0a9" strokeWidth={2} />
             <Line connectNulls type="monotone" dataKey={la12} stroke="#ffc658" strokeWidth={2} />
-            <Line connectNulls type="monotone" dataKey={`${na10}_prov`} stroke="#ababc8" strokeWidth={1} />
-            <Line connectNulls type="monotone" dataKey={`${la10}_prov`} stroke="#91b59e" strokeWidth={1} />
-            <Line connectNulls type="monotone" dataKey={`${la12}_prov`} stroke="#baba6e" strokeWidth={1} />
+            <Line connectNulls strokeDasharray="5 5" type="monotone" dataKey={`${na10}_prov`} stroke="#4e4b82" strokeWidth={2} />
+            <Line connectNulls strokeDasharray="5 5" type="monotone" dataKey={`${la10}_prov`} stroke="#4f7d5f" strokeWidth={2} />
+            <Line connectNulls strokeDasharray="5 5" type="monotone" dataKey={`${la12}_prov`} stroke="#baba6e" strokeWidth={2} />
           </LineChart>
         </ResponsiveContainer>
       ) : (
