@@ -67,8 +67,15 @@ export default function DisplayPopup({ selected, object, isSchool, provinceData,
     <div style={{ width: `${popupWidth}px`, maxWidth: `${popupWidth}px` }} className="bg-background text-foreground">
       {isSchool ?
         <div>
-          <strong>{object.SCHOOL_NAME} ({object.SCHOOL_NUMBER})</strong><br />
-          District: {object.DISTRICT_NAME} {(object.DISTRICT_NUMBER ? `(${object.DISTRICT_NUMBER})` : "")}
+          <strong style={{ color: object.PUBLIC ? "var(--color-public-light)" : "var(--color-independent-light)" }}>
+            {object.SCHOOL_NAME} ({object.SCHOOL_NUMBER})
+          </strong>
+          <br />
+
+
+          {object.PUBLIC ?
+            <div>District: {object.DISTRICT_NAME} {(object.DISTRICT_NUMBER ? `(${object.DISTRICT_NUMBER})` : "")}</div>
+            : null}
         </div>
         :
         <div>

@@ -1,16 +1,25 @@
 @import "tailwindcss";
 @import "leaflet/dist/leaflet.css";
 
-:root {
+@theme inline {
   --background: #1a1a1a;
   --background-light: #3c3c3c;
   --foreground: #ffffff;
-}
+  --public: #2563eb;
+  --independent: #ea860c;
+  --public-light: #8aacf4;
+  --independent-light: #f9c586;
 
-@theme inline {
+
   --color-background: var(--background);
   --color-background-light: var(--background-light);
   --color-foreground: var(--foreground);
+
+  --color-public: var(--public);
+  --color-independent: var(--independent);
+  --color-public-light: var(--public-light);
+  --color-independent-light: var(--independent-light);
+
   --font-sans: var(--font-roboto);
   --font-mono: var(--font-roboto-mono);
 
@@ -23,14 +32,18 @@ body {
   color: var(--foreground);
   font-family: var(--font-roboto), Arial, Helvetica, sans-serif, var(--font-roboto-mono);
 }
+
 .leaflet-control-attribution {
   background: var(--background) !important;
   color: var(--foreground) !important;
 }
+
 .leaflet-control-attribution a {
   color: #fff !important;
 }
-.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
   background: var(--background) !important;
   color: var(--foreground) !important;
 }

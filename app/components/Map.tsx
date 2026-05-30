@@ -211,12 +211,13 @@ export default function Map({ query, geojsonData, schoolIndex, districtIndex, pr
           school.LOCATION
           && !isNaN(Number(school.LOCATION.lat))
           && !isNaN(Number(school.LOCATION.lng))
+          && (!query || matches.includes(school))
         )).map((school) => (
 
           <CircleMarker
-            opacity={query ? (matches.includes(school) ? 1 : 0) : 1}
+            opacity={1}
             key={`school-${school.SCHOOL_NUMBER}-${popupWidth}`}
-            pathOptions={{ color: school.PUBLIC ? "#2563eb" : "#ea860c", fillColor: school.PUBLIC ? "#2563eb" : "#ea860c", fillOpacity: 0.25, weight: 1 }}
+            pathOptions={{ color: school.PUBLIC ? "var(--color-public)" : "var(--color-independent)", fillColor: school.PUBLIC ? "var(--color-public)" : "var(--color-independent)", fillOpacity: 0.25, weight: 1 }}
             radius={8}
             center={seedOffsets(
               Number(school.LOCATION.lat),

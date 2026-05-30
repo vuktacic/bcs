@@ -24,13 +24,13 @@ export default function Home() {
     let isMounted = true;
 
     const fetchData = async () => {
-      const [geojsonRes, schoolIndexRes, districtIndexRes, provinceRes, publicRes, independentRes] = await Promise.all([
-        fetch("/districts.geojson"),
-        fetch("/indexes/schools.json"),
-        fetch("/indexes/districts.json"),
+      const [provinceRes, publicRes, independentRes, schoolIndexRes, districtIndexRes, geojsonRes] = await Promise.all([
         fetch("/province/bc.json"),
         fetch("/province/public.json"),
-        fetch("/province/independent.json")
+        fetch("/province/independent.json"),
+        fetch("/indexes/schools.json"),
+        fetch("/indexes/districts.json"),
+        fetch("/districts.geojson")
       ]);
 
       if (!isMounted) {
@@ -62,7 +62,7 @@ export default function Home() {
         <Map query={query} geojsonData={geojsonData} schoolIndex={schoolIndex} districtIndex={districtIndex} provinceData={provinceData} publicData={publicData} independentData={independentData} onPopupOpen={() => setIsMobileDrawerOpen(false)} />
       </div>
       <ProvinceDisplay geojsonData={geojsonData} schoolIndex={schoolIndex} districtIndex={districtIndex} provinceData={provinceData} publicData={publicData} independentData={independentData} query={query} setQuery={setQuery} isMobileDrawerOpen={isMobileDrawerOpen} setIsMobileDrawerOpen={setIsMobileDrawerOpen} />
-      <Demo />
+      {/* <Demo /> */}
     </main>
   );
 }

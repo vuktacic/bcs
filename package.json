@@ -16,6 +16,7 @@
     "@opennextjs/cloudflare": "^1.19.11",
     "leaflet": "^1.9.4",
     "leaflet-smooth-zoom": "github:mutsuyuki/Leaflet.SmoothWheelZoom",
+    "motion": "^12.40.0",
     "next": "16.2.6",
     "papaparse": "^5.5.3",
     "react": "19.2.4",

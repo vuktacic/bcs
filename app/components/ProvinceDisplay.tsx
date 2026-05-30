@@ -3,14 +3,28 @@
 import { useState } from "react";
 import RankingList from "./RankingList";
 import Search from "./Search";
+import { motion, stagger, type Variants } from "motion/react";
 
 const na10 = "Numeracy Assessment 10";
 const la10 = "Literacy Assessment 10";
 const la12 = "Literacy Assessment 12";
 const currentYear = "2024/2025";
 
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 0 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.28,
+      ease: "easeOut",
+    },
+  },
+};
+
 export default function ProvinceDisplay({ geojsonData, schoolIndex, districtIndex, provinceData, publicData, independentData, query, setQuery, isMobileDrawerOpen, setIsMobileDrawerOpen }: { geojsonData: any | null; schoolIndex: any[] | null; districtIndex: any[] | null; provinceData: any | null; publicData: any | null; independentData: any | null; query: string; setQuery: (query: string) => void; isMobileDrawerOpen: boolean; setIsMobileDrawerOpen: (open: boolean) => void }) {
   const [list, setList] = useState<"all" | "public" | "independent" | "districts">("all");
+  const averagesReady = Boolean(provinceData && publicData && independentData);
 
   const titleMap: { [key in typeof list]: string } = {
     all: "All",
@@ -40,7 +54,8 @@ export default function ProvinceDisplay({ geojsonData, schoolIndex, districtInde
   };
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-1000 md:contents text-foreground">
+    <div
+      className="fixed inset-x-0 bottom-0 z-1000 md:contents text-foreground">
       <div className="md:hidden pointer-events-none">
         <div
           className="pointer-events-auto relative overflow-hidden border-0 rounded-t-3xl bg-background m-0 p-0 transition-[height] duration-200 outline-none border-t-2 border-background-light"
@@ -75,9 +90,14 @@ export default function ProvinceDisplay({ geojsonData, schoolIndex, districtInde
               </button>
             </div>
 
-            {isMobileDrawerOpen && (
+            {isMobileDrawerOpen && averagesReady && (
               <>
-                <div className="shrink-0 px-3 py-2 text-2xs flex justify-center text-center border-t-2 border-background-light">
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                  className="shrink-0 px-3 py-2 text-2xs flex justify-center text-center border-t-2 border-background-light"
+                >
                   <div className="flex-1 min-w-0">
                     <div className="font-semibold">Provincial Average</div>
 
@@ -108,7 +128,7 @@ export default function ProvinceDisplay({ geojsonData, schoolIndex, districtInde
                       <div>Literacy 12: {independentData?.assessments?.[la12]?.[currentYear]?.AVERAGE}%</div>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               </>
             )}
 
@@ -142,7 +162,7 @@ export default function ProvinceDisplay({ geojsonData, schoolIndex, districtInde
                   </div>
 
                   <div className="h-0 min-h-0 flex-1 overflow-y-auto overscroll-contain overflow-x-auto px-0 border-b-5 border-t-5 border-background">
-                    <RankingList title={titleMap[list]} data={dataMap[list] || []} />
+                    <RankingList title={titleMap[list]} data={dataMap[list] || []} query={query} />
                   </div>
                 </div>
 
@@ -157,46 +177,46 @@ export default function ProvinceDisplay({ geojsonData, schoolIndex, districtInde
         </div>
       </div>
 
-      <div className="hidden md:block">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className="hidden md:block">
         <div className="bg-background rounded-t-2xl shadow-lg h-[50svh] md:h-0 overflow-hidden min-h-0 md:bg-transparent md:shadow-none md:max-h-none md:rounded-none  text-sm flex flex-col">
           <div className="w-full md:absolute md:bottom-4 md:left-1/2 md:-translate-x-1/2 md:w-[22vw] md:max-w-xl md:mt-0 z-1000">
             <Search query={query} setQuery={setQuery} onFocus={() => setIsMobileDrawerOpen(true)} />
           </div>
 
-          <div className="px-3 py-2 md:absolute md:top-4 md:left-4 md:shadow md:rounded bg-background z-1000 text-2xs md:text-sm flex md:block justify-center text-center md:text-left border-background-light border-2 space-y-4">
-            <div className="flex-1 min-w-0">
-              <div className="font-semibold">Provincial Average</div>
+          {averagesReady ? (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="px-3 py-2 md:absolute md:top-4 md:left-4 md:shadow md:rounded bg-background z-1000 text-2xs md:text-sm flex md:block justify-center text-center md:text-left border-background-light border-2"
+            >
+              <motion.div className="font-semibold">Provincial Average</motion.div>
+              <motion.div className="">Numeracy 10: {provinceData?.assessments?.[na10]?.[currentYear]?.AVERAGE}%</motion.div>
+              <motion.div className="">Literacy 10: {provinceData?.assessments?.[la10]?.[currentYear]?.AVERAGE}%</motion.div>
+              <motion.div className="">Literacy 12: {provinceData?.assessments?.[la12]?.[currentYear]?.AVERAGE}%</motion.div>
 
-              <div className="mt-1 space-y-1">
-                <div>Numeracy 10: {provinceData?.assessments?.[na10]?.[currentYear]?.AVERAGE}%</div>
-                <div>Literacy 10: {provinceData?.assessments?.[la10]?.[currentYear]?.AVERAGE}%</div>
-                <div>Literacy 12: {provinceData?.assessments?.[la12]?.[currentYear]?.AVERAGE}%</div>
-              </div>
-            </div>
 
-            <div className="flex-1 min-w-0">
-              <div className="font-semibold md:pt-3">Public Average</div>
 
-              <div className="mt-1 space-y-1">
-                <div>Numeracy 10: {publicData?.assessments?.[na10]?.[currentYear]?.AVERAGE}%</div>
-                <div>Literacy 10: {publicData?.assessments?.[la10]?.[currentYear]?.AVERAGE}%</div>
-                <div>Literacy 12: {publicData?.assessments?.[la12]?.[currentYear]?.AVERAGE}%</div>
-              </div>
+              <motion.div className="font-semibold md:pt-7">Public Average</motion.div>
+              <motion.div className="">Numeracy 10: {publicData?.assessments?.[na10]?.[currentYear]?.AVERAGE}%</motion.div>
+              <motion.div className="">Literacy 10: {publicData?.assessments?.[la10]?.[currentYear]?.AVERAGE}%</motion.div>
+              <motion.div className="">Literacy 12: {publicData?.assessments?.[la12]?.[currentYear]?.AVERAGE}%</motion.div>
 
-            </div>
 
-            <div className="flex-1 min-w-0">
-              <div className="font-semibold md:pt-3">Independent Average</div>
 
-              <div className="mt-1 space-y-1">
-                <div>Numeracy 10: {independentData?.assessments?.[na10]?.[currentYear]?.AVERAGE}%</div>
-                <div>Literacy 10: {independentData?.assessments?.[la10]?.[currentYear]?.AVERAGE}%</div>
-                <div>Literacy 12: {independentData?.assessments?.[la12]?.[currentYear]?.AVERAGE}%</div>
-              </div>
-            </div>
-          </div>
+              <motion.div className="font-semibold md:pt-7">Independent Average</motion.div>
+              <motion.div className="">Numeracy 10: {independentData?.assessments?.[na10]?.[currentYear]?.AVERAGE}%</motion.div>
+              <motion.div className="">Literacy 10: {independentData?.assessments?.[la10]?.[currentYear]?.AVERAGE}%</motion.div>
+              <motion.div className="">Literacy 12: {independentData?.assessments?.[la12]?.[currentYear]?.AVERAGE}%</motion.div>
+            </motion.div>
+          ) : null}
 
-          <div className="p-0 md:fixed md:top-4 md:right-4 md:bottom-4 w-full md:w-64 lg:w-96 md:shadow md:rounded bg-background z-1000 flex-1 overflow-hidden border-background-light border-2">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="p-0 md:fixed md:top-4 md:right-4 md:bottom-4 w-full md:w-64 lg:w-96 md:shadow md:rounded bg-background z-1000 flex-1 overflow-hidden border-background-light border-2">
             <div className="p-0 h-full min-h-0">
               <div className="flex h-full flex-col min-h-0">
                 <div className="m-auto w-full flex justify-center border-b-2 border-background-light">
@@ -225,20 +245,23 @@ export default function ProvinceDisplay({ geojsonData, schoolIndex, districtInde
                   </button>
                 </div>
                 <div className="mb-0 flex-1 overflow-y-auto min-h-0 overflow-x-auto lg:overflow-x-hidden flex justify-center md:justify-start border-b-5 border-t-5 border-background">
-                  <RankingList title={titleMap[list]} data={dataMap[list] || []} />
+                  <RankingList title={titleMap[list]} data={dataMap[list] || []} query={query} />
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
 
-          <div className="md:p-0 md:absolute md:bottom-4 md:left-4 md:shadow md:rounded bg-background z-1000 w-full md:w-3xs lg:w-xs border-background-light border-2">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="md:p-0 md:absolute md:bottom-4 md:left-4 md:shadow md:rounded bg-background z-1000 w-full md:w-3xs lg:w-xs border-background-light border-2">
             <div className="bg-background md:p-3 md:rounded md:shadow text-center md:text-left text-3xs md:text-sm ">
               <div className="font">Contains information licensed under the Open Government Licence – British Columbia.</div>
             </div>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </div>
   )
 }
