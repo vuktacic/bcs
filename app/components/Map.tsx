@@ -1,10 +1,11 @@
 "use client";
 
 import { useEffect, useState, useCallback, useRef } from "react";
-import { MapContainer, useMap, GeoJSON, Marker, Popup } from "react-leaflet";
+import { MapContainer, useMap, GeoJSON, Marker, Popup, CircleMarker } from "react-leaflet";
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, Legend } from "recharts";
 import L from "leaflet";
 import DisplayPopup from "./DisplayPopup";
+import MarkerClusterGroup from "react-leaflet-cluster";
 
 const na10 = "Numeracy Assessment 10";
 const la10 = "Literacy Assessment 10";
@@ -24,8 +25,8 @@ L.Icon.Default.mergeOptions({
 
 function seedOffsets(lat: number, lng: number, schoolNumber: string): [number, number] {
   const seed = parseInt(schoolNumber, 10) || 0;
-  const offsetLat = (Math.sin(seed) * 0.0005) || 0;
-  const offsetLng = (Math.cos(seed) * 0.0005) || 0;
+  const offsetLat = (Math.sin(seed * 24) * 0.0005) || 0;
+  const offsetLng = (Math.cos(seed * 24) * 0.0005) || 0;
   return [lat + offsetLat, lng + offsetLng];
 }
 
@@ -166,12 +167,13 @@ export default function Map({ query, geojsonData, schoolIndex, districtIndex, pr
   return (
     <MapContainer
       bounds={[[48.5, -124], [49.5, -122]]}
-      zoomDelta={0.25}
-      zoomSnap={0.25}
       className="h-full w-full"
       style={{ height: "100%", width: "100%", background: "var(--color-background)" }}
       zoomControl={false}
       ref={mapRef}
+      scrollWheelZoom={true}
+      zoomSnap={0.25}
+      zoomDelta={0.25}
     >
       <BaseMapLayer />
 
@@ -204,50 +206,55 @@ export default function Map({ query, geojsonData, schoolIndex, districtIndex, pr
         </Popup>
       ) : null}
 
-      {schoolIndex?.filter((school) => (
-        school.LOCATION
-        && !isNaN(Number(school.LOCATION.lat))
-        && !isNaN(Number(school.LOCATION.lng))
-      )).map((school) => (
-        <Marker
-          opacity={query ? (matches.includes(school) ? 1 : 0) : 1}
-          key={`school-${school.SCHOOL_NUMBER}-${popupWidth}`}
-          position={seedOffsets(
-            Number(school.LOCATION.lat),
-            Number(school.LOCATION.lng),
-            school.SCHOOL_NUMBER
-          )}
-          eventHandlers={{
-            click: async () => {
-              if (query && !matches.includes(school)) {
-                return;
-              }
+      <MarkerClusterGroup chunkedLoading animate={true} animateAddingMarkers={false} disableClusteringAtZoom={11} zoomToBoundsOnClick={true} showCoverageOnHover={false} maxClusterRadius={80} spiderfyOnMaxZoom={false}>
+        {schoolIndex?.filter((school) => (
+          school.LOCATION
+          && !isNaN(Number(school.LOCATION.lat))
+          && !isNaN(Number(school.LOCATION.lng))
+        )).map((school) => (
 
-              setOpenSchoolNumber(school.SCHOOL_NUMBER);
-              onPopupOpen?.();
-              const response = await fetch(`/schools/${school.SCHOOL_NUMBER}.json`);
-              const data = await response.json();
-              setSelectedSchool(data);
-            }
-          }}
-        >
-          <Popup
-            minWidth={popupWidth}
-            maxWidth={popupWidth}
+          <CircleMarker
+            opacity={query ? (matches.includes(school) ? 1 : 0) : 1}
+            key={`school-${school.SCHOOL_NUMBER}-${popupWidth}`}
+            pathOptions={{ color: school.PUBLIC ? "#2563eb" : "#ea860c", fillColor: school.PUBLIC ? "#2563eb" : "#ea860c", fillOpacity: 0.25, weight: 1 }}
+            radius={8}
+            center={seedOffsets(
+              Number(school.LOCATION.lat),
+              Number(school.LOCATION.lng),
+              school.SCHOOL_NUMBER
+            )}
             eventHandlers={{
-              popupclose: () => {
-                setOpenSchoolNumber(null);
-                markJustClosed();
-                if (selectedSchool?.SCHOOL_NUMBER === school.SCHOOL_NUMBER) {
-                  setSelectedSchool(null);
+              click: async () => {
+                if (query && !matches.includes(school)) {
+                  return;
                 }
-              },
+
+                setOpenSchoolNumber(school.SCHOOL_NUMBER);
+                onPopupOpen?.();
+                const response = await fetch(`/schools/${school.SCHOOL_NUMBER}.json`);
+                const data = await response.json();
+                setSelectedSchool(data);
+              }
             }}
           >
-            <DisplayPopup selected={selectedSchool} object={school} isSchool={true} provinceData={provinceData} popupWidth={popupWidth} />
-          </Popup>
-        </Marker>
-      ))}
+            <Popup
+              minWidth={popupWidth}
+              maxWidth={popupWidth}
+              eventHandlers={{
+                popupclose: () => {
+                  setOpenSchoolNumber(null);
+                  markJustClosed();
+                  if (selectedSchool?.SCHOOL_NUMBER === school.SCHOOL_NUMBER) {
+                    setSelectedSchool(null);
+                  }
+                },
+              }}
+            >
+              <DisplayPopup selected={selectedSchool} object={school} isSchool={true} provinceData={provinceData} popupWidth={popupWidth} />
+            </Popup>
+          </CircleMarker>
+        ))}
+      </MarkerClusterGroup>
     </MapContainer>
   );
 }

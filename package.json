@@ -15,11 +15,13 @@
   "dependencies": {
     "@opennextjs/cloudflare": "^1.19.11",
     "leaflet": "^1.9.4",
+    "leaflet-smooth-zoom": "github:mutsuyuki/Leaflet.SmoothWheelZoom",
     "next": "16.2.6",
     "papaparse": "^5.5.3",
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "react-leaflet": "^5.0.0",
+    "react-leaflet-cluster": "^4.1.3",
     "recharts": "^3.8.1"
   },
   "devDependencies": {
