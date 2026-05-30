@@ -90,7 +90,7 @@ export default function DisplayPopup({ selected, object, isSchool, provinceData,
       <strong className="mt-2 block">Score Trends:</strong>
       {selected ? (
         <ResponsiveContainer width="100%" height={350}>
-          <LineChart data={buildSeries(selected.assessments, provinceData)} style={{  }}>
+          <LineChart data={buildSeries(selected.assessments, provinceData)} style={{}}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="year" />
             <YAxis domain={[0, 100]} />
@@ -98,13 +98,18 @@ export default function DisplayPopup({ selected, object, isSchool, provinceData,
               content={CustomTooltip}
               position={{ x: 70, y: 5 }}
             />
-            <Legend align="left" labelStyle={{ textAlign: "left" }} />
-            <Line connectNulls type="monotone" dataKey={na10} stroke="#a09cff" strokeWidth={2} />
-            <Line connectNulls type="monotone" dataKey={la10} stroke="#7ff0a9" strokeWidth={2} />
-            <Line connectNulls type="monotone" dataKey={la12} stroke="#ffc658" strokeWidth={2} />
-            <Line connectNulls strokeDasharray="5 5" type="monotone" dataKey={`${na10}_prov`} stroke="#4e4b82" strokeWidth={2} />
-            <Line connectNulls strokeDasharray="5 5" type="monotone" dataKey={`${la10}_prov`} stroke="#4f7d5f" strokeWidth={2} />
-            <Line connectNulls strokeDasharray="5 5" type="monotone" dataKey={`${la12}_prov`} stroke="#baba6e" strokeWidth={2} />
+            <Legend align="left" verticalAlign="bottom" layout="horizontal" labelStyle={{ textAlign: "left" }} wrapperStyle={{
+              paddingTop: "20px",
+              display: "flex",
+              flexDirection: "column",
+              gap: "4px"
+            }} />
+            <Line connectNulls type="monotone" name={`${na10.replace("Assessment ", "")}         `} dataKey={na10} stroke="#a09cff" strokeWidth={2} />
+            <Line connectNulls type="monotone" name={`${la10.replace("Assessment ", "")}         `} dataKey={la10} stroke="#7ff0a9" strokeWidth={2} />
+            <Line connectNulls type="monotone" name={`${la12.replace("Assessment ", "")}         `} dataKey={la12} stroke="#ffc658" strokeWidth={2} />
+            <Line connectNulls strokeDasharray="5 5" type="monotone" name={`${na10.replace("Assessment ", "")}_prov        `} dataKey={`${na10}_prov`} stroke="#4e4b82" strokeWidth={2} />
+            <Line connectNulls strokeDasharray="5 5" type="monotone" name={`${la10.replace("Assessment ", "")}_prov        `} dataKey={`${la10}_prov`} stroke="#4f7d5f" strokeWidth={2} />
+            <Line connectNulls strokeDasharray="5 5" type="monotone" name={`${la12.replace("Assessment ", "")}_prov        `} dataKey={`${la12}_prov`} stroke="#baba6e" strokeWidth={2} />
           </LineChart>
         </ResponsiveContainer>
       ) : (
