@@ -89,7 +89,7 @@ export default function ProvinceDisplay({ geojsonData, schoolIndex, districtInde
                   </div>
 
                   <div className="flex-1 min-w-0">
-                    <div className="font-semibold pt-3">Public Average</div>
+                    <div className="font-semibold">Public Average</div>
 
                     <div className="mt-2 space-y-1">
                       <div>Numeracy 10: {publicData?.assessments?.[na10]?.[currentYear]?.AVERAGE}%</div>
@@ -100,7 +100,7 @@ export default function ProvinceDisplay({ geojsonData, schoolIndex, districtInde
                   </div>
 
                   <div className="flex-1 min-w-0">
-                    <div className="font-semibold pt-3">Independent Average</div>
+                    <div className="font-semibold">Independent Average</div>
 
                     <div className="mt-2 space-y-1">
                       <div>Numeracy 10: {independentData?.assessments?.[na10]?.[currentYear]?.AVERAGE}%</div>
