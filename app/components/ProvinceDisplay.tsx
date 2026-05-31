@@ -186,32 +186,49 @@ export default function ProvinceDisplay({ geojsonData, schoolIndex, districtInde
             <Search query={query} setQuery={setQuery} onFocus={() => setIsMobileDrawerOpen(true)} />
           </div>
 
-          {averagesReady ? (
+          {averagesReady ? (<>
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="px-3 py-2 md:absolute md:top-4 md:left-4 md:shadow md:rounded bg-background z-1000 text-2xs md:text-sm flex md:block justify-center text-center md:text-left border-background-light border-2"
-            >
-              <motion.div className="font-semibold">Provincial Average</motion.div>
-              <motion.div className="">Numeracy 10: {provinceData?.assessments?.[na10]?.[currentYear]?.AVERAGE}%</motion.div>
-              <motion.div className="">Literacy 10: {provinceData?.assessments?.[la10]?.[currentYear]?.AVERAGE}%</motion.div>
-              <motion.div className="">Literacy 12: {provinceData?.assessments?.[la12]?.[currentYear]?.AVERAGE}%</motion.div>
+              className="z-1000 md:absolute md:top-4 md:left-4"
+            > <div className="px-3 py-2 md:shadow md:rounded bg-background text-2xs md:text-sm flex md:block justify-center text-center md:text-left border-background-light border-2 w-48">
+                <motion.div className="font-semibold">Provincial Average</motion.div>
+                <motion.div className="">Numeracy 10: {provinceData?.assessments?.[na10]?.[currentYear]?.AVERAGE}%</motion.div>
+                <motion.div className="">Literacy 10: {provinceData?.assessments?.[la10]?.[currentYear]?.AVERAGE}%</motion.div>
+                <motion.div className="">Literacy 12: {provinceData?.assessments?.[la12]?.[currentYear]?.AVERAGE}%</motion.div>
 
 
 
-              <motion.div className="font-semibold md:pt-7">Public Average</motion.div>
-              <motion.div className="">Numeracy 10: {publicData?.assessments?.[na10]?.[currentYear]?.AVERAGE}%</motion.div>
-              <motion.div className="">Literacy 10: {publicData?.assessments?.[la10]?.[currentYear]?.AVERAGE}%</motion.div>
-              <motion.div className="">Literacy 12: {publicData?.assessments?.[la12]?.[currentYear]?.AVERAGE}%</motion.div>
+                <motion.div className="font-semibold md:pt-7">Public Average</motion.div>
+                <motion.div className="">Numeracy 10: {publicData?.assessments?.[na10]?.[currentYear]?.AVERAGE}%</motion.div>
+                <motion.div className="">Literacy 10: {publicData?.assessments?.[la10]?.[currentYear]?.AVERAGE}%</motion.div>
+                <motion.div className="">Literacy 12: {publicData?.assessments?.[la12]?.[currentYear]?.AVERAGE}%</motion.div>
 
 
 
-              <motion.div className="font-semibold md:pt-7">Independent Average</motion.div>
-              <motion.div className="">Numeracy 10: {independentData?.assessments?.[na10]?.[currentYear]?.AVERAGE}%</motion.div>
-              <motion.div className="">Literacy 10: {independentData?.assessments?.[la10]?.[currentYear]?.AVERAGE}%</motion.div>
-              <motion.div className="">Literacy 12: {independentData?.assessments?.[la12]?.[currentYear]?.AVERAGE}%</motion.div>
+                <motion.div className="font-semibold md:pt-7">Independent Average</motion.div>
+                <motion.div className="">Numeracy 10: {independentData?.assessments?.[na10]?.[currentYear]?.AVERAGE}%</motion.div>
+                <motion.div className="">Literacy 10: {independentData?.assessments?.[la10]?.[currentYear]?.AVERAGE}%</motion.div>
+                <motion.div className="">Literacy 12: {independentData?.assessments?.[la12]?.[currentYear]?.AVERAGE}%</motion.div>
+
+                <div className="mt-3">
+                  <div className="flex flex-row items-center mt-2">
+                    <div className="w-6 h-6 border border-public bg-public rounded-full mr-auto"></div>
+                    <div className="shadow text-center">Public School</div>
+                  </div>
+                </div>
+                <div>
+                  <div className="flex flex-row items-center mt-2">
+                    <div className="w-6 h-6 border border-independent bg-independent rounded-full mr-auto"></div>
+                    <div className="shadow text-center">Independent School</div>
+                  </div>
+                </div>
+              </div>
+
+
             </motion.div>
-          ) : null}
+
+          </>) : null}
 
           <motion.div
             initial={{ opacity: 0 }}

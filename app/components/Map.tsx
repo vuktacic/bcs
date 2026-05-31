@@ -218,7 +218,7 @@ export default function Map({ query, geojsonData, schoolIndex, districtIndex, pr
             opacity={1}
             key={`school-${school.SCHOOL_NUMBER}-${popupWidth}`}
             pathOptions={{ color: school.PUBLIC ? "var(--color-public)" : "var(--color-independent)", fillColor: school.PUBLIC ? "var(--color-public)" : "var(--color-independent)", fillOpacity: 0.25, weight: 1 }}
-            radius={8}
+            radius={12}
             center={seedOffsets(
               Number(school.LOCATION.lat),
               Number(school.LOCATION.lng),
