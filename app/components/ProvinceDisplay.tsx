@@ -216,7 +216,7 @@ export default function ProvinceDisplay({ geojsonData, schoolIndex, districtInde
                     <div className="w-6 h-6 border border-public rounded-full mr-auto">
                       <div className="w-full h-full bg-public opacity-25" />
                     </div>
-                    <div className="shadow text-center">Public School</div>
+                    <div className="shadow text-center text-public-light">Public School</div>
                   </div>
                 </div>
                 <div>
@@ -224,7 +224,7 @@ export default function ProvinceDisplay({ geojsonData, schoolIndex, districtInde
                     <div className="w-6 h-6 border border-independent rounded-full mr-auto">
                       <div className="w-full h-full bg-independent opacity-25" />
                     </div>
-                    <div className="shadow text-center">Independent School</div>
+                    <div className="shadow text-center text-independent-light">Independent School</div>
                   </div>
                 </div>
               </div>
