@@ -56,7 +56,26 @@ export default function ProvinceDisplay({ geojsonData, schoolIndex, districtInde
   return (
     <div
       className="fixed inset-x-0 bottom-0 z-1000 md:contents text-foreground">
+
       <div className="md:hidden pointer-events-none">
+
+        <div className="fixed top-2 left-4 bg-background rounded px-3 py-2 border-background-light border-2">
+          <div className="flex flex-row items-center gap-2">
+            <div className="w-4 h-4 border border-public rounded-full">
+              <div className="w-full h-full bg-public opacity-25" />
+            </div>
+            <div className="shadow text-center text-public-light text-2xs">Public School</div>
+          </div>
+          <div className="flex flex-row items-center mt-2 gap-2">
+            <div className="w-4 h-4 border border-independent rounded-full">
+              <div className="w-full h-full bg-independent opacity-25" />
+            </div>
+            <div className="shadow text-center text-independent-light text-2xs">Independent School</div>
+          </div>
+          <div className="mt-2 text-3xs text-center text-gray-300">Click on a district to display info.</div>
+        </div>
+
+
         <div
           className="pointer-events-auto relative overflow-hidden border-0 rounded-t-3xl bg-background m-0 p-0 transition-[height] duration-200 outline-none border-t-2 border-background-light"
           style={{ height: isMobileDrawerOpen ? "56svh" : "3.25rem" }}
@@ -212,21 +231,22 @@ export default function ProvinceDisplay({ geojsonData, schoolIndex, districtInde
                 <motion.div className="">Literacy 12: {independentData?.assessments?.[la12]?.[currentYear]?.AVERAGE}%</motion.div>
 
                 <div className="mt-3">
-                  <div className="flex flex-row items-center mt-2">
-                    <div className="w-6 h-6 border border-public rounded-full mr-auto">
+                  <div className="flex flex-row items-center mt-2 gap-2">
+                    <div className="w-6 h-6 border border-public rounded-full">
                       <div className="w-full h-full bg-public opacity-25" />
                     </div>
-                    <div className="shadow text-center text-public-light">Public School</div>
+                    <div className="shadow text-left text-public-light">Public School</div>
                   </div>
                 </div>
                 <div>
-                  <div className="flex flex-row items-center mt-2">
-                    <div className="w-6 h-6 border border-independent rounded-full mr-auto">
+                  <div className="flex flex-row items-center mt-2 gap-2">
+                    <div className="w-6 h-6 border border-independent rounded-full">
                       <div className="w-full h-full bg-independent opacity-25" />
                     </div>
-                    <div className="shadow text-center text-independent-light">Independent School</div>
+                    <div className="shadow text-left text-independent-light">Independent School</div>
                   </div>
                 </div>
+                <div className="mt-2 text-2xs text-center text-gray-300">Click on a district to display info.</div>
               </div>
 
 
@@ -283,6 +303,6 @@ export default function ProvinceDisplay({ geojsonData, schoolIndex, districtInde
           </motion.div>
         </div>
       </motion.div>
-    </div>
+    </div >
   )
 }
