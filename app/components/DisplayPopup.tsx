@@ -64,7 +64,7 @@ const CustomTooltip = ({ active, payload, label }: TooltipContentProps) => {
   );
 };
 
-const CustomLegend = (props: LegendProps) => {
+const CustomLegend = (props: LegendProps & { payload?: any[] }) => {
   const { payload } = props;
   return (
     <div className="custom-legend grid grid-cols-2 grid-rows-3">
