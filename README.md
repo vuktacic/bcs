@@ -10,11 +10,10 @@ Interactive viewer for BC school assessment data:
  - Provincial Averages (all, public, independent)
  - District Rankings
  - Searchable schools
+ - Filters for school type
  - Mobile version (spent too long on this)
 
 Also contains a pipeline to process raw geojson, location, and assessment data from the BC Ministry of Education: [pipeline](./data/process.ts).
-
-This is a working, but not complete project. More changes will come in the form of ui styling and features.
 
 ---
 Built with next.js & map by leaflet. Data from BC Ministry of Education.
