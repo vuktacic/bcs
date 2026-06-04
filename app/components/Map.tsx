@@ -54,7 +54,7 @@ function BaseMapLayer() {
   return null;
 }
 
-export default function Map({ query, geojsonData, schoolIndex, districtIndex, provinceData, publicData, independentData, onPopupOpen }: { query: string; geojsonData: any | null; schoolIndex: any[] | null; districtIndex: any[] | null; provinceData: any | null; publicData: any | null; independentData: any | null; onPopupOpen?: () => void }) {
+export default function Map({ query, geojsonData, schoolIndex, districtIndex, provinceData, publicData, independentData, onPopupOpen, globalFilter }: { query: string; geojsonData: any | null; schoolIndex: any[] | null; districtIndex: any[] | null; provinceData: any | null; publicData: any | null; independentData: any | null; onPopupOpen?: () => void; globalFilter: any }) {
 
   const [selectedSchool, setSelectedSchool] = useState<any | null>(null);
   const [selectedDistrict, setSelectedDistrict] = useState<{ districtName: string; districtNumber: string; assessments: any | null } | null>(null);
@@ -177,7 +177,7 @@ export default function Map({ query, geojsonData, schoolIndex, districtIndex, pr
     >
       <BaseMapLayer />
 
-      {geojsonData ?
+      {geojsonData && globalFilter?.district ?
         <GeoJSON
           data={geojsonData as any}
           onEachFeature={handleEachDistrict}
@@ -212,6 +212,7 @@ export default function Map({ query, geojsonData, schoolIndex, districtIndex, pr
           && !isNaN(Number(school.LOCATION.lat))
           && !isNaN(Number(school.LOCATION.lng))
           && (!query || matches.includes(school))
+          && (globalFilter?.public && school.PUBLIC || globalFilter?.independent && !school.PUBLIC)
         )).map((school) => (
 
           <CircleMarker

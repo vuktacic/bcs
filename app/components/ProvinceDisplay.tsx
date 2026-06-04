@@ -22,9 +22,19 @@ const itemVariants: Variants = {
   },
 };
 
-export default function ProvinceDisplay({ geojsonData, schoolIndex, districtIndex, provinceData, publicData, independentData, query, setQuery, isMobileDrawerOpen, setIsMobileDrawerOpen }: { geojsonData: any | null; schoolIndex: any[] | null; districtIndex: any[] | null; provinceData: any | null; publicData: any | null; independentData: any | null; query: string; setQuery: (query: string) => void; isMobileDrawerOpen: boolean; setIsMobileDrawerOpen: (open: boolean) => void }) {
+export default function ProvinceDisplay({ geojsonData, schoolIndex, districtIndex, provinceData, publicData, independentData, query, setQuery, isMobileDrawerOpen, setIsMobileDrawerOpen, globalFilter, setGlobalFilter }: { geojsonData: any | null; schoolIndex: any[] | null; districtIndex: any[] | null; provinceData: any | null; publicData: any | null; independentData: any | null; query: string; setQuery: (query: string) => void; isMobileDrawerOpen: boolean; setIsMobileDrawerOpen: (open: boolean) => void; globalFilter: any; setGlobalFilter: (filter: any) => void }) {
   const [list, setList] = useState<"all" | "public" | "independent" | "districts">("all");
   const averagesReady = Boolean(provinceData && publicData && independentData);
+  const publicFilterOn = Boolean(globalFilter?.public);
+  const independentFilterOn = Boolean(globalFilter?.independent);
+  const districtFilterOn = Boolean(globalFilter?.district);
+
+  const handleFilterClick = ({ filter }: { filter: string }) => {
+    setGlobalFilter((previous: any) => ({
+      ...previous,
+      [filter]: !previous?.[filter]
+    }));
+  };
 
   const titleMap: { [key in typeof list]: string } = {
     all: "All",
@@ -59,20 +69,54 @@ export default function ProvinceDisplay({ geojsonData, schoolIndex, districtInde
 
       <div className="md:hidden pointer-events-none">
 
-        <div className="fixed top-2 left-4 bg-background rounded px-3 py-2 border-background-light border-2">
-          <div className="flex flex-row items-center gap-2">
-            <div className="w-4 h-4 border border-public rounded-full">
-              <div className="w-full h-full bg-public opacity-25" />
+        <div className="fixed top-2 left-4 bg-background rounded px-3 py-2 border-background-light border-2 pointer-events-auto">
+          <div className="flex flex-row items-center gap-2 group cursor-pointer"
+            onClick={() => handleFilterClick({ filter: "public" })}
+          >
+            <div className={`relative w-4 h-4 border rounded-full ${publicFilterOn ? "border-public" : "border-gray-500"} group-hover:border-gray-500 group-hover:transition-colors`}>
+              <div className={`absolute inset-0 rounded-full bg-public ${publicFilterOn ? "opacity-25" : "opacity-10"} group-hover:opacity-10 group-hover:transition-opacity`} />
+              <svg className="absolute inset-0 w-full h-full" fill="none" stroke="white" viewBox="0 0 24 24">
+                {publicFilterOn ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                )}
+              </svg>
             </div>
-            <div className="shadow text-center text-public-light text-2xs">Public School</div>
+            <div className={`shadow text-center text-2xs ${publicFilterOn ? "text-public-light" : "text-gray-500"} group-hover:text-gray-500`}>Public School</div>
           </div>
-          <div className="flex flex-row items-center mt-2 gap-2">
-            <div className="w-4 h-4 border border-independent rounded-full">
-              <div className="w-full h-full bg-independent opacity-25" />
+          <div className="flex flex-row items-center mt-2 gap-2 group cursor-pointer"
+            onClick={() => handleFilterClick({ filter: "independent" })}
+          >
+            <div className={`relative w-4 h-4 border rounded-full ${independentFilterOn ? "border-independent" : "border-gray-500"} group-hover:border-gray-500 group-hover:transition-colors`}>
+              <div className={`absolute inset-0 rounded-full bg-independent ${independentFilterOn ? "opacity-25" : "opacity-10"} group-hover:opacity-10 group-hover:transition-opacity`} />
+              <svg className="absolute inset-0 w-full h-full" fill="none" stroke="white" viewBox="0 0 24 24">
+                {independentFilterOn ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                )}
+              </svg>
             </div>
-            <div className="shadow text-center text-independent-light text-2xs">Independent School</div>
+            <div className={`shadow text-center text-2xs ${independentFilterOn ? "text-independent-light" : "text-gray-500"} group-hover:text-gray-500`}>Independent School</div>
           </div>
-          <div className="mt-2 text-3xs text-center text-gray-300">Click on a district to display info.</div>
+          <div className="flex flex-row items-center mt-2 gap-2 group cursor-pointer"
+            onClick={() => handleFilterClick({ filter: "district" })}
+          >
+            <div className={`relative w-4 h-4 border rounded-full ${districtFilterOn ? "border-gray-200" : "border-gray-500"} group-hover:border-gray-500 group-hover:transition-colors`}>
+              <div className={`absolute inset-0 rounded-full bg-gray-200 ${districtFilterOn ? "opacity-25" : "opacity-10"} group-hover:opacity-10 group-hover:transition-opacity`} />
+              <svg className="absolute inset-0 w-full h-full" fill="none" stroke="white" viewBox="0 0 24 24">
+                {districtFilterOn ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                )}
+              </svg>
+            </div>
+            <div className={`shadow text-center text-2xs ${districtFilterOn ? "text-gray-200" : "text-gray-500"} group-hover:text-gray-500`}>Districts</div>
+          </div>
+          <div className="mt-2 text-3xs text-left text-gray-300">Filter schools & districts.</div>
+          <div className="mt-0 text-3xs text-left text-gray-300">Click on a district to display info.</div>
         </div>
 
 
@@ -231,27 +275,60 @@ export default function ProvinceDisplay({ geojsonData, schoolIndex, districtInde
                 <motion.div className="">Literacy 12: {independentData?.assessments?.[la12]?.[currentYear]?.AVERAGE}%</motion.div>
 
                 <div className="mt-3">
-                  <div className="flex flex-row items-center mt-2 gap-2">
-                    <div className="w-6 h-6 border border-public rounded-full">
-                      <div className="w-full h-full bg-public opacity-25" />
+                  <div className="flex flex-row items-center mt-2 gap-2 group transition-colors"
+                    onClick={() => handleFilterClick({ filter: "public" })}
+                  >
+                    <div className={`relative w-6 h-6 border rounded-full ${publicFilterOn ? "border-public" : "border-gray-500"} group-hover:border-gray-500 group-hover:transition-colors`}>
+                      <div className={`absolute inset-0 rounded-full bg-public ${publicFilterOn ? "opacity-25" : "opacity-10"} group-hover:opacity-10 group-hover:transition-opacity`} />
+                      <svg className="absolute inset-0 w-full h-full" fill="none" stroke="white" viewBox="0 0 24 24">
+                        {publicFilterOn ? (
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        ) : (
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                        )}
+                      </svg>
                     </div>
-                    <div className="shadow text-left text-public-light">Public School</div>
+                    <div className={`shadow text-left group-hover:text-gray-500 group-hover:transition-colors ${publicFilterOn ? "text-public-light" : "text-gray-500"}`}>Public Schools</div>
                   </div>
                 </div>
                 <div>
-                  <div className="flex flex-row items-center mt-2 gap-2">
-                    <div className="w-6 h-6 border border-independent rounded-full">
-                      <div className="w-full h-full bg-independent opacity-25" />
+                  <div className="flex flex-row items-center mt-2 gap-2 group"
+                    onClick={() => handleFilterClick({ filter: "independent" })}
+                  >
+                    <div className={`relative w-6 h-6 border rounded-full ${independentFilterOn ? "border-independent" : "border-gray-500"} group-hover:border-gray-500 group-hover:transition-colors`}>
+                      <div className={`absolute inset-0 rounded-full bg-independent ${independentFilterOn ? "opacity-25" : "opacity-10"} group-hover:opacity-10 group-hover:transition-opacity`} />
+                      <svg className="absolute inset-0 w-full h-full" fill="none" stroke="white" viewBox="0 0 24 24">
+                        {independentFilterOn ? (
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        ) : (
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                        )}
+                      </svg>
                     </div>
-                    <div className="shadow text-left text-independent-light">Independent School</div>
+                    <div className={`shadow text-left group-hover:text-gray-500 group-hover:transition-colors ${independentFilterOn ? "text-independent-light" : "text-gray-500"}`}>Independent Schools</div>
                   </div>
                 </div>
-                <div className="mt-2 text-2xs text-center text-gray-300">Click on a district to display info.</div>
+                <div>
+                  <div className="flex flex-row items-center mt-2 gap-2 group"
+                    onClick={() => handleFilterClick({ filter: "district" })}
+                  >
+                    <div className={`relative w-6 h-6 border rounded-full ${districtFilterOn ? "border-gray-200" : "border-gray-500"} group-hover:border-gray-500 group-hover:transition-colors`}>
+                      <div className={`absolute inset-0 rounded-full bg-gray-200 ${districtFilterOn ? "opacity-25" : "opacity-10"} group-hover:opacity-10 group-hover:transition-opacity`} />
+                      <svg className="absolute inset-0 w-full h-full" fill="none" stroke="white" viewBox="0 0 24 24">
+                        {districtFilterOn ? (
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        ) : (
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                        )}
+                      </svg>
+                    </div>
+                    <div className={`shadow text-left group-hover:text-gray-500 group-hover:transition-colors ${districtFilterOn ? "text-gray-200" : "text-gray-500"}`}>Districts</div>
+                  </div>
+                </div>
+                <div className="mt-2 text-2xs text-center text-gray-300">Filter schools & districts.</div>
+                <div className="mt-0 text-2xs text-center text-gray-300">Click on a district to display info.</div>
               </div>
-
-
             </motion.div>
-
           </>) : null}
 
           <motion.div
