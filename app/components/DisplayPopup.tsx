@@ -1,13 +1,25 @@
 "use client";
 
-import { CartesianGrid, Legend, LegendProps, Line, LineChart, ResponsiveContainer, Tooltip, TooltipContentProps, XAxis, YAxis } from "recharts";
+import {
+  CartesianGrid,
+  Legend,
+  LegendProps,
+  Line,
+  LineChart,
+  ResponsiveContainer,
+  Tooltip,
+  TooltipContentProps,
+  XAxis,
+  YAxis
+} from "recharts";
+import type { DisplayPopupProps, ObjectData } from "../types";
 
 const na10 = "Numeracy Assessment 10";
 const la10 = "Literacy Assessment 10";
 const la12 = "Literacy Assessment 12";
 const currentYear = "2024/2025";
 
-function buildSeries(assessments: any, provinceData: any) {
+function buildSeries(assessments: any, provinceData: ObjectData) {
   const yearCollector = new Set<string>();
 
   [na10, la10, la12].forEach((assessment) => {
@@ -20,13 +32,13 @@ function buildSeries(assessments: any, provinceData: any) {
     const row: any = { year: year };
 
     [na10, la10, la12].forEach((assessment) => {
-      if (assessments?.[assessment]?.[year]?.AVERAGE !== 0) {
-        row[assessment] = assessments?.[assessment]?.[year]?.AVERAGE;
+      if (assessments?.[assessment]?.[year]?.average !== 0) {
+        row[assessment] = assessments?.[assessment]?.[year]?.average;
       } else {
         row[assessment] = null;
       }
 
-      row[`${assessment}_prov`] = provinceData.assessments?.[assessment]?.[year]?.AVERAGE || null;
+      row[`${assessment}_prov`] = provinceData.assessments?.[assessment]?.[year]?.average || null;
     });
 
     return row;
@@ -36,6 +48,7 @@ function buildSeries(assessments: any, provinceData: any) {
 const CustomTooltip = ({ active, payload, label }: TooltipContentProps) => {
   const firstPayload = payload?.[0];
   const isVisible = active && firstPayload != null;
+
   return (
     <div className="custom-tooltip" style={{ visibility: isVisible ? 'visible' : 'hidden' }}>
       {isVisible && (
@@ -71,9 +84,10 @@ const CustomLegend = (props: LegendProps & { payload?: readonly any[] }) => {
       {[na10, la10, la12].map((assessment) => {
         const entry = payload?.find((p: any) => p.dataKey === assessment);
         const prov = payload?.find((p: any) => p.dataKey === `${assessment}_prov`);
+
         return (
           <div key={assessment} className="col-span-2 row-span-1 flex flex-row gap-2 items-center">
-            <div className="text-xs text-right w-28" style={{ color: entry?.color ?? undefined }} title={String(entry?.value ?? assessment)}>
+            <div className="text-xs text-right w-28" style={{ color: entry?.color ?? undefined }} title={String(entry?.value ?? "")}>
               {String(entry?.value ?? assessment).replace("Assessment ", "")}
             </div>
             <div className="text-xs text-left w-32" style={{ color: prov?.color ?? undefined }} title={String(prov?.value ?? "")}>{String(prov?.value ?? "").replace("Assessment ", "")}</div>
@@ -84,39 +98,41 @@ const CustomLegend = (props: LegendProps & { payload?: readonly any[] }) => {
   );
 };
 
-export default function DisplayPopup({ selected, object, isSchool, provinceData, popupWidth }: { selected: any, object: any, isSchool: boolean, provinceData: any, popupWidth: number }) {
+export default function DisplayPopup(props: DisplayPopupProps) {
+  const { selected, object, isSchool, provinceData, popupWidth } = props;
+
   return (
     <div className="bg-background text-foreground w-full h-full">
       {isSchool ?
         <div>
-          <strong style={{ color: object.PUBLIC ? "var(--color-public-light)" : "var(--color-independent-light)" }}>
-            {object.SCHOOL_NAME} ({object.SCHOOL_NUMBER})
+          <strong style={{ color: object.public ? "var(--color-public-light)" : "var(--color-independent-light)" }}>
+            {object.schoolName} ({object.schoolNumber})
           </strong>
           <br />
 
-
-          {object.PUBLIC ?
-            <div>District: {object.DISTRICT_NAME} {(object.DISTRICT_NUMBER ? `(${object.DISTRICT_NUMBER})` : "")}</div>
+          {object.public ?
+            <div>District: {object.districtName} {(object.districtNumber ? `(${object.districtNumber})` : "")}</div>
             : null}
         </div>
         :
         <div>
-          <strong>{object.DISTRICT_NAME} ({object.DISTRICT_NUMBER})</strong>
+          <strong>{object.districtName} ({object.districtNumber})</strong>
         </div>}
 
       <div>
         {selected ? (
           <div className="mt-2">
             <div><strong>Assessment Mean Scores ({currentYear}):</strong></div>
-            <div>Numeracy 10: {selected?.assessments?.[na10]?.[currentYear]?.AVERAGE || "—"}% - {selected?.assessments?.[na10]?.[currentYear]?.NUMBER_WRITERS || "—"} Exams</div>
-            <div>Literacy 10: {selected?.assessments?.[la10]?.[currentYear]?.AVERAGE || "—"}% - {selected?.assessments?.[la10]?.[currentYear]?.NUMBER_WRITERS || "—"} Exams</div>
-            <div>Literacy 12: {selected?.assessments?.[la12]?.[currentYear]?.AVERAGE || "—"}% - {selected?.assessments?.[la12]?.[currentYear]?.NUMBER_WRITERS || "—"} Exams</div>
+            <div>Numeracy 10: {selected?.assessments?.[na10]?.[currentYear]?.average || "—"}% - {selected?.assessments?.[na10]?.[currentYear]?.numberWriters || "—"} Exams</div>
+            <div>Literacy 10: {selected?.assessments?.[la10]?.[currentYear]?.average || "—"}% - {selected?.assessments?.[la10]?.[currentYear]?.numberWriters || "—"} Exams</div>
+            <div>Literacy 12: {selected?.assessments?.[la12]?.[currentYear]?.average || "—"}% - {selected?.assessments?.[la12]?.[currentYear]?.numberWriters || "—"} Exams</div>
           </div>
         ) : (
           <div><em>Loading data...</em></div>
         )}
       </div>
       <strong className="mt-2 block">Score Trends:</strong>
+
       {selected ? (
         <ResponsiveContainer width="100%" height={350}>
           <LineChart data={buildSeries(selected.assessments, provinceData)} style={{}}>
