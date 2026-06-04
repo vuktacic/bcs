@@ -3,26 +3,17 @@
 import { useState } from "react";
 import RankingList from "./RankingList";
 import Search from "./Search";
-import { motion, stagger, type Variants } from "motion/react";
+import { motion, type Variants } from "motion/react";
+import type { DistrictIndex, ProvinceDisplayProps, RankingEntry, SchoolIndex } from "../types";
 
 const na10 = "Numeracy Assessment 10";
 const la10 = "Literacy Assessment 10";
 const la12 = "Literacy Assessment 12";
 const currentYear = "2024/2025";
 
-const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 0 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.28,
-      ease: "easeOut",
-    },
-  },
-};
+export default function ProvinceDisplay(props: ProvinceDisplayProps) {
+  const { geojsonData, schoolIndex, districtIndex, provinceData, publicData, independentData, query, globalFilter, setQuery, setGlobalFilter, isMobileDrawerOpen, setIsMobileDrawerOpen } = props;
 
-export default function ProvinceDisplay({ geojsonData, schoolIndex, districtIndex, provinceData, publicData, independentData, query, setQuery, isMobileDrawerOpen, setIsMobileDrawerOpen, globalFilter, setGlobalFilter }: { geojsonData: any | null; schoolIndex: any[] | null; districtIndex: any[] | null; provinceData: any | null; publicData: any | null; independentData: any | null; query: string; setQuery: (query: string) => void; isMobileDrawerOpen: boolean; setIsMobileDrawerOpen: (open: boolean) => void; globalFilter: any; setGlobalFilter: (filter: any) => void }) {
   const [list, setList] = useState<"all" | "public" | "independent" | "districts">("all");
   const averagesReady = Boolean(provinceData && publicData && independentData);
   const publicFilterOn = Boolean(globalFilter?.public);
@@ -43,24 +34,23 @@ export default function ProvinceDisplay({ geojsonData, schoolIndex, districtInde
     districts: "Districts"
   };
 
-  function rank(index: any, isSchool: boolean) {
+  function rank(index: SchoolIndex[] | DistrictIndex[], isSchool: boolean): RankingEntry[] {
     return index?.filter((object: any) => object.AVERAGE !== 0)
       .sort((a: any, b: any) => b.avg - a.avg)
       .map((object: any) => ({
-        // conditional based on whether its a school or not
-        schoolname: isSchool ? object.SCHOOL_NAME : object.DISTRICT_NAME,
-        schoolnumber: isSchool ? object.SCHOOL_NUMBER : object.DISTRICT_NUMBER,
-        avg: object.AVERAGE,
+        name: isSchool ? object.SCHOOL_NAME : object.DISTRICT_NAME,
+        number: isSchool ? object.SCHOOL_NUMBER : object.DISTRICT_NUMBER,
+        average: object.AVERAGE,
         writers: object.WRITERS,
         isPublic: isSchool ? object.PUBLIC : null
-      }))
+      }));
   };
 
-  const dataMap: { [key in typeof list]: any[] | null } = {
+  const dataMap: { [key in typeof list]: RankingEntry[] } = {
     all: rank(schoolIndex, true),
-    public: rank(schoolIndex?.filter((school) => school.PUBLIC === true), true),
-    independent: rank(schoolIndex?.filter((school) => school.PUBLIC !== true), true),
-    districts: rank(districtIndex, false)
+    public: rank(schoolIndex?.filter((school) => school.public === true), true),
+    independent: rank(schoolIndex?.filter((school) => school.public !== true), true),
+    districts: rank(districtIndex ?? [], false)
   };
 
   return (

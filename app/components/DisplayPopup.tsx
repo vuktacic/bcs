@@ -1,6 +1,18 @@
 "use client";
 
-import { CartesianGrid, Legend, LegendProps, Line, LineChart, ResponsiveContainer, Tooltip, TooltipContentProps, XAxis, YAxis } from "recharts";
+import {
+  CartesianGrid,
+  Legend,
+  LegendProps,
+  Line,
+  LineChart,
+  ResponsiveContainer,
+  Tooltip,
+  TooltipContentProps,
+  XAxis,
+  YAxis
+} from "recharts";
+import type { DisplayPopupProps } from "../types";
 
 const na10 = "Numeracy Assessment 10";
 const la10 = "Literacy Assessment 10";
@@ -36,6 +48,7 @@ function buildSeries(assessments: any, provinceData: any) {
 const CustomTooltip = ({ active, payload, label }: TooltipContentProps) => {
   const firstPayload = payload?.[0];
   const isVisible = active && firstPayload != null;
+
   return (
     <div className="custom-tooltip" style={{ visibility: isVisible ? 'visible' : 'hidden' }}>
       {isVisible && (
@@ -71,9 +84,10 @@ const CustomLegend = (props: LegendProps & { payload?: readonly any[] }) => {
       {[na10, la10, la12].map((assessment) => {
         const entry = payload?.find((p: any) => p.dataKey === assessment);
         const prov = payload?.find((p: any) => p.dataKey === `${assessment}_prov`);
+
         return (
           <div key={assessment} className="col-span-2 row-span-1 flex flex-row gap-2 items-center">
-            <div className="text-xs text-right w-28" style={{ color: entry?.color ?? undefined }} title={String(entry?.value ?? assessment)}>
+            <div className="text-xs text-right w-28" style={{ color: entry?.color ?? undefined }} title={String(entry?.value ?? "")}>
               {String(entry?.value ?? assessment).replace("Assessment ", "")}
             </div>
             <div className="text-xs text-left w-32" style={{ color: prov?.color ?? undefined }} title={String(prov?.value ?? "")}>{String(prov?.value ?? "").replace("Assessment ", "")}</div>
@@ -84,7 +98,9 @@ const CustomLegend = (props: LegendProps & { payload?: readonly any[] }) => {
   );
 };
 
-export default function DisplayPopup({ selected, object, isSchool, provinceData, popupWidth }: { selected: any, object: any, isSchool: boolean, provinceData: any, popupWidth: number }) {
+export default function DisplayPopup(props: DisplayPopupProps) {
+  const { selected, object, isSchool, provinceData, popupWidth } = props;
+
   return (
     <div className="bg-background text-foreground w-full h-full">
       {isSchool ?
@@ -93,7 +109,6 @@ export default function DisplayPopup({ selected, object, isSchool, provinceData,
             {object.SCHOOL_NAME} ({object.SCHOOL_NUMBER})
           </strong>
           <br />
-
 
           {object.PUBLIC ?
             <div>District: {object.DISTRICT_NAME} {(object.DISTRICT_NUMBER ? `(${object.DISTRICT_NUMBER})` : "")}</div>
@@ -117,6 +132,7 @@ export default function DisplayPopup({ selected, object, isSchool, provinceData,
         )}
       </div>
       <strong className="mt-2 block">Score Trends:</strong>
+
       {selected ? (
         <ResponsiveContainer width="100%" height={350}>
           <LineChart data={buildSeries(selected.assessments, provinceData)} style={{}}>
