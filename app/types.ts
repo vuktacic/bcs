@@ -7,9 +7,9 @@ export type BaseProps = {
     geojsonData: GeoJsonObject,
     schoolIndex: SchoolIndex[],
     districtIndex: DistrictIndex[],
-    provinceData: ProvincialData,
-    publicData: ProvincialData,
-    independentData: ProvincialData,
+    provinceData: ObjectData,
+    publicData: ObjectData,
+    independentData: ObjectData,
     query: string,
     globalFilter: any
 };
@@ -26,16 +26,16 @@ export type ProvinceDisplayProps = BaseProps & {
 };
 
 export type DisplayPopupProps = {
-    selected: any,
-    object: any,
+    selected: ObjectData | null,
+    object: ObjectData | SchoolIndex,
     isSchool: boolean,
-    provinceData: any,
+    provinceData: ObjectData,
     popupWidth: number
 };
 
 export type RankingListProps = {
     title: string,
-    data: any[] | undefined,
+    data: RankingEntry[] | undefined,
     query: string
 };
 
@@ -104,7 +104,7 @@ export type DistrictIndex = {
     rank: number
 };
 
-export type ProvincialDataRaw = {
+export type ObjectDataRaw = {
     DATA_LEVEL: string,
     PUBLIC_OR_INDEPENDENT: string,
     PUBLIC: boolean,
@@ -125,7 +125,7 @@ export type ProvincialDataRaw = {
      }
 };
 
-export type ProvincialData = {
+export type ObjectData = {
     dataLevel: string,
     publicOrIndependent: string,
     public: boolean,

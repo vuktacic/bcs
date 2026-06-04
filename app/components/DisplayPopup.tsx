@@ -12,14 +12,14 @@ import {
   XAxis,
   YAxis
 } from "recharts";
-import type { DisplayPopupProps } from "../types";
+import type { DisplayPopupProps, ObjectData } from "../types";
 
 const na10 = "Numeracy Assessment 10";
 const la10 = "Literacy Assessment 10";
 const la12 = "Literacy Assessment 12";
 const currentYear = "2024/2025";
 
-function buildSeries(assessments: any, provinceData: any) {
+function buildSeries(assessments: any, provinceData: ObjectData) {
   const yearCollector = new Set<string>();
 
   [na10, la10, la12].forEach((assessment) => {
@@ -32,13 +32,13 @@ function buildSeries(assessments: any, provinceData: any) {
     const row: any = { year: year };
 
     [na10, la10, la12].forEach((assessment) => {
-      if (assessments?.[assessment]?.[year]?.AVERAGE !== 0) {
-        row[assessment] = assessments?.[assessment]?.[year]?.AVERAGE;
+      if (assessments?.[assessment]?.[year]?.average !== 0) {
+        row[assessment] = assessments?.[assessment]?.[year]?.average;
       } else {
         row[assessment] = null;
       }
 
-      row[`${assessment}_prov`] = provinceData.assessments?.[assessment]?.[year]?.AVERAGE || null;
+      row[`${assessment}_prov`] = provinceData.assessments?.[assessment]?.[year]?.average || null;
     });
 
     return row;
@@ -105,27 +105,27 @@ export default function DisplayPopup(props: DisplayPopupProps) {
     <div className="bg-background text-foreground w-full h-full">
       {isSchool ?
         <div>
-          <strong style={{ color: object.PUBLIC ? "var(--color-public-light)" : "var(--color-independent-light)" }}>
-            {object.SCHOOL_NAME} ({object.SCHOOL_NUMBER})
+          <strong style={{ color: object.public ? "var(--color-public-light)" : "var(--color-independent-light)" }}>
+            {object.schoolName} ({object.schoolNumber})
           </strong>
           <br />
 
-          {object.PUBLIC ?
-            <div>District: {object.DISTRICT_NAME} {(object.DISTRICT_NUMBER ? `(${object.DISTRICT_NUMBER})` : "")}</div>
+          {object.public ?
+            <div>District: {object.districtName} {(object.districtNumber ? `(${object.districtNumber})` : "")}</div>
             : null}
         </div>
         :
         <div>
-          <strong>{object.DISTRICT_NAME} ({object.DISTRICT_NUMBER})</strong>
+          <strong>{object.districtName} ({object.districtNumber})</strong>
         </div>}
 
       <div>
         {selected ? (
           <div className="mt-2">
             <div><strong>Assessment Mean Scores ({currentYear}):</strong></div>
-            <div>Numeracy 10: {selected?.assessments?.[na10]?.[currentYear]?.AVERAGE || "—"}% - {selected?.assessments?.[na10]?.[currentYear]?.NUMBER_WRITERS || "—"} Exams</div>
-            <div>Literacy 10: {selected?.assessments?.[la10]?.[currentYear]?.AVERAGE || "—"}% - {selected?.assessments?.[la10]?.[currentYear]?.NUMBER_WRITERS || "—"} Exams</div>
-            <div>Literacy 12: {selected?.assessments?.[la12]?.[currentYear]?.AVERAGE || "—"}% - {selected?.assessments?.[la12]?.[currentYear]?.NUMBER_WRITERS || "—"} Exams</div>
+            <div>Numeracy 10: {selected?.assessments?.[na10]?.[currentYear]?.average || "—"}% - {selected?.assessments?.[na10]?.[currentYear]?.numberWriters || "—"} Exams</div>
+            <div>Literacy 10: {selected?.assessments?.[la10]?.[currentYear]?.average || "—"}% - {selected?.assessments?.[la10]?.[currentYear]?.numberWriters || "—"} Exams</div>
+            <div>Literacy 12: {selected?.assessments?.[la12]?.[currentYear]?.average || "—"}% - {selected?.assessments?.[la12]?.[currentYear]?.numberWriters || "—"} Exams</div>
           </div>
         ) : (
           <div><em>Loading data...</em></div>

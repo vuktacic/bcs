@@ -6,7 +6,7 @@ import L from "leaflet";
 import DisplayPopup from "./DisplayPopup";
 import MarkerClusterGroup from "react-leaflet-cluster";
 
-import type { MapProps } from "../types";
+import type { MapProps, ObjectData, ObjectDataRaw } from "../types";
 
 delete (L.Icon.Default.prototype as any)._getIconUrl;
 
@@ -54,8 +54,8 @@ export default function Map(props: MapProps) {
   const { geojsonData, schoolIndex, districtIndex, provinceData, publicData, independentData, query, globalFilter, onPopupOpen } = props;
 
 
-  const [selectedSchool, setSelectedSchool] = useState<any | null>(null);
-  const [selectedDistrict, setSelectedDistrict] = useState<{ districtName: string; districtNumber: string; assessments: any | null } | null>(null);
+  const [selectedSchool, setSelectedSchool] = useState<ObjectData | null>(null);
+  const [selectedDistrict, setSelectedDistrict] = useState<ObjectData | null>(null);
   const [openSchoolNumber, setOpenSchoolNumber] = useState<string | null>(null);
   const activeDistrictNumberRef = useRef<string | null>(null);
   const [districtPopupPosition, setDistrictPopupPosition] = useState<[number, number] | null>(null);
@@ -140,24 +140,39 @@ export default function Map(props: MapProps) {
         setDistrictPopupPosition([e.latlng.lat, e.latlng.lng]);
         onPopupOpen?.();
 
-        setSelectedDistrict({
-          districtName,
-          districtNumber,
-          assessments: null,
-        });
+        setSelectedDistrict(null);
 
         const response = await fetch(`/districts/${districtNumber}.json`);
-        const data = await response.json();
+        const data: ObjectDataRaw = await response.json();
+
+        const filteredData: ObjectData = {
+          dataLevel: data.DATA_LEVEL,
+          publicOrIndependent: data.PUBLIC_OR_INDEPENDENT,
+          public: data.PUBLIC,
+          districtNumber: data.DISTRICT_NUMBER,
+          districtName: data.DISTRICT_NAME,
+          schoolNumber: data.SCHOOL_NUMBER,
+          schoolName: data.SCHOOL_NAME,
+          subPopulation: data.SUB_POPULATION,
+          assessments: Object.fromEntries(Object.entries(data.assessments).map(([assessment, years]) => [
+            assessment,
+            Object.fromEntries(Object.entries(years).map(([year, values]) => [
+              year,
+              {
+                assessmentLanguage: values.ASSESSMENT_LANGUAGE,
+                numberWriters: values.NUMBER_WRITERS,
+                score: values.SCORE,
+                average: values.AVERAGE
+              }
+            ]))
+          ]))
+        };
 
         if (activeDistrictNumberRef.current !== districtNumber) {
           return;
         }
 
-        setSelectedDistrict({
-          districtName,
-          districtNumber,
-          assessments: data?.assessments,
-        });
+        setSelectedDistrict(filteredData);
       }
     });
   }, [markJustClosed]);
@@ -197,10 +212,7 @@ export default function Map(props: MapProps) {
             },
           }}
         >
-          <DisplayPopup selected={selectedDistrict} object={{
-            DISTRICT_NAME: selectedDistrict.districtName,
-            DISTRICT_NUMBER: selectedDistrict.districtNumber,
-          }} isSchool={false} provinceData={provinceData} popupWidth={popupWidth} />
+          <DisplayPopup selected={selectedDistrict} object={selectedDistrict} isSchool={false} provinceData={provinceData} popupWidth={popupWidth} />
         </Popup>
       ) : null}
 
@@ -232,8 +244,32 @@ export default function Map(props: MapProps) {
                 setOpenSchoolNumber(school.schoolNumber);
                 onPopupOpen?.();
                 const response = await fetch(`/schools/${school.schoolNumber}.json`);
-                const data = await response.json();
-                setSelectedSchool(data);
+                const data: ObjectDataRaw = await response.json();
+
+                const filteredData: ObjectData = {
+                  dataLevel: data.DATA_LEVEL,
+                  publicOrIndependent: data.PUBLIC_OR_INDEPENDENT,
+                  public: data.PUBLIC,
+                  districtNumber: data.DISTRICT_NUMBER,
+                  districtName: data.DISTRICT_NAME,
+                  schoolNumber: data.SCHOOL_NUMBER,
+                  schoolName: data.SCHOOL_NAME,
+                  subPopulation: data.SUB_POPULATION,
+                  assessments: Object.fromEntries(Object.entries(data.assessments).map(([assessment, years]) => [
+                    assessment,
+                    Object.fromEntries(Object.entries(years).map(([year, values]) => [
+                      year,
+                      {
+                        assessmentLanguage: values.ASSESSMENT_LANGUAGE,
+                        numberWriters: values.NUMBER_WRITERS,
+                        score: values.SCORE,
+                        average: values.AVERAGE
+                      }
+                    ]))
+                  ]))
+                };
+
+                setSelectedSchool(filteredData);
               }
             }}
           >
@@ -244,7 +280,7 @@ export default function Map(props: MapProps) {
                 popupclose: () => {
                   setOpenSchoolNumber(null);
                   markJustClosed();
-                  if (selectedSchool?.SCHOOL_NUMBER === school.schoolNumber) {
+                  if (selectedSchool?.schoolNumber === school.schoolNumber) {
                     setSelectedSchool(null);
                   }
                 },

@@ -4,7 +4,7 @@ import { useState } from "react";
 import RankingList from "./RankingList";
 import Search from "./Search";
 import { motion, type Variants } from "motion/react";
-import type { DistrictIndex, ProvinceDisplayProps, RankingEntry, SchoolIndex } from "../types";
+import type { DistrictIndex, ObjectData, ProvinceDisplayProps, RankingEntry, SchoolIndex } from "../types";
 
 const na10 = "Numeracy Assessment 10";
 const la10 = "Literacy Assessment 10";
@@ -35,14 +35,14 @@ export default function ProvinceDisplay(props: ProvinceDisplayProps) {
   };
 
   function rank(index: SchoolIndex[] | DistrictIndex[], isSchool: boolean): RankingEntry[] {
-    return index?.filter((object: any) => object.AVERAGE !== 0)
-      .sort((a: any, b: any) => b.avg - a.avg)
+    return index?.filter((object: SchoolIndex | DistrictIndex) => object.average !== 0)
+      .sort((a: any, b: any) => b.average - a.average)
       .map((object: any) => ({
-        name: isSchool ? object.SCHOOL_NAME : object.DISTRICT_NAME,
-        number: isSchool ? object.SCHOOL_NUMBER : object.DISTRICT_NUMBER,
-        average: object.AVERAGE,
-        writers: object.WRITERS,
-        isPublic: isSchool ? object.PUBLIC : null
+        name: isSchool ? object.schoolName : object.districtName,
+        number: isSchool ? object.schoolNumber : object.districtNumber,
+        average: object.average,
+        writers: object.writers,
+        isPublic: isSchool ? object.public : null
       }));
   };
 
@@ -155,9 +155,9 @@ export default function ProvinceDisplay(props: ProvinceDisplayProps) {
                     <div className="font-semibold">Provincial Average</div>
 
                     <div className="mt-2 space-y-1">
-                      <div>Numeracy 10: {provinceData?.assessments?.[na10]?.[currentYear]?.AVERAGE}%</div>
-                      <div>Literacy 10: {provinceData?.assessments?.[la10]?.[currentYear]?.AVERAGE}%</div>
-                      <div>Literacy 12: {provinceData?.assessments?.[la12]?.[currentYear]?.AVERAGE}%</div>
+                      <div>Numeracy 10: {provinceData?.assessments?.[na10]?.[currentYear]?.average}%</div>
+                      <div>Literacy 10: {provinceData?.assessments?.[la10]?.[currentYear]?.average}%</div>
+                      <div>Literacy 12: {provinceData?.assessments?.[la12]?.[currentYear]?.average}%</div>
                     </div>
                   </div>
 
@@ -165,9 +165,9 @@ export default function ProvinceDisplay(props: ProvinceDisplayProps) {
                     <div className="font-semibold">Public Average</div>
 
                     <div className="mt-2 space-y-1">
-                      <div>Numeracy 10: {publicData?.assessments?.[na10]?.[currentYear]?.AVERAGE}%</div>
-                      <div>Literacy 10: {publicData?.assessments?.[la10]?.[currentYear]?.AVERAGE}%</div>
-                      <div>Literacy 12: {publicData?.assessments?.[la12]?.[currentYear]?.AVERAGE}%</div>
+                      <div>Numeracy 10: {publicData?.assessments?.[na10]?.[currentYear]?.average}%</div>
+                      <div>Literacy 10: {publicData?.assessments?.[la10]?.[currentYear]?.average}%</div>
+                      <div>Literacy 12: {publicData?.assessments?.[la12]?.[currentYear]?.average}%</div>
                     </div>
 
                   </div>
@@ -176,9 +176,9 @@ export default function ProvinceDisplay(props: ProvinceDisplayProps) {
                     <div className="font-semibold">Independent Average</div>
 
                     <div className="mt-2 space-y-1">
-                      <div>Numeracy 10: {independentData?.assessments?.[na10]?.[currentYear]?.AVERAGE}%</div>
-                      <div>Literacy 10: {independentData?.assessments?.[la10]?.[currentYear]?.AVERAGE}%</div>
-                      <div>Literacy 12: {independentData?.assessments?.[la12]?.[currentYear]?.AVERAGE}%</div>
+                      <div>Numeracy 10: {independentData?.assessments?.[na10]?.[currentYear]?.average}%</div>
+                      <div>Literacy 10: {independentData?.assessments?.[la10]?.[currentYear]?.average}%</div>
+                      <div>Literacy 12: {independentData?.assessments?.[la12]?.[currentYear]?.average}%</div>
                     </div>
                   </div>
                 </motion.div>
@@ -246,23 +246,23 @@ export default function ProvinceDisplay(props: ProvinceDisplayProps) {
               className="z-1000 md:absolute md:top-4 md:left-4"
             > <div className="px-3 py-2 md:shadow md:rounded bg-background text-2xs md:text-sm flex md:block justify-center text-center md:text-left border-background-light border-2 w-48">
                 <motion.div className="font-semibold">Provincial Average</motion.div>
-                <motion.div className="">Numeracy 10: {provinceData?.assessments?.[na10]?.[currentYear]?.AVERAGE}%</motion.div>
-                <motion.div className="">Literacy 10: {provinceData?.assessments?.[la10]?.[currentYear]?.AVERAGE}%</motion.div>
-                <motion.div className="">Literacy 12: {provinceData?.assessments?.[la12]?.[currentYear]?.AVERAGE}%</motion.div>
+                <motion.div className="">Numeracy 10: {provinceData?.assessments?.[na10]?.[currentYear]?.average}%</motion.div>
+                <motion.div className="">Literacy 10: {provinceData?.assessments?.[la10]?.[currentYear]?.average}%</motion.div>
+                <motion.div className="">Literacy 12: {provinceData?.assessments?.[la12]?.[currentYear]?.average}%</motion.div>
 
 
 
                 <motion.div className="font-semibold md:pt-7">Public Average</motion.div>
-                <motion.div className="">Numeracy 10: {publicData?.assessments?.[na10]?.[currentYear]?.AVERAGE}%</motion.div>
-                <motion.div className="">Literacy 10: {publicData?.assessments?.[la10]?.[currentYear]?.AVERAGE}%</motion.div>
-                <motion.div className="">Literacy 12: {publicData?.assessments?.[la12]?.[currentYear]?.AVERAGE}%</motion.div>
+                <motion.div className="">Numeracy 10: {publicData?.assessments?.[na10]?.[currentYear]?.average}%</motion.div>
+                <motion.div className="">Literacy 10: {publicData?.assessments?.[la10]?.[currentYear]?.average}%</motion.div>
+                <motion.div className="">Literacy 12: {publicData?.assessments?.[la12]?.[currentYear]?.average}%</motion.div>
 
 
 
                 <motion.div className="font-semibold md:pt-7">Independent Average</motion.div>
-                <motion.div className="">Numeracy 10: {independentData?.assessments?.[na10]?.[currentYear]?.AVERAGE}%</motion.div>
-                <motion.div className="">Literacy 10: {independentData?.assessments?.[la10]?.[currentYear]?.AVERAGE}%</motion.div>
-                <motion.div className="">Literacy 12: {independentData?.assessments?.[la12]?.[currentYear]?.AVERAGE}%</motion.div>
+                <motion.div className="">Numeracy 10: {independentData?.assessments?.[na10]?.[currentYear]?.average}%</motion.div>
+                <motion.div className="">Literacy 10: {independentData?.assessments?.[la10]?.[currentYear]?.average}%</motion.div>
+                <motion.div className="">Literacy 12: {independentData?.assessments?.[la12]?.[currentYear]?.average}%</motion.div>
 
                 <div className="mt-3">
                   <div className="flex flex-row items-center mt-2 gap-2 group transition-colors"
